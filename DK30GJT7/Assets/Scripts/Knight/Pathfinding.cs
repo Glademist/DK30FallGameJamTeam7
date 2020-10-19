@@ -42,9 +42,17 @@ public class Pathfinding : MonoBehaviour
             LoadAStarChunk(Origin, Target, Origin);
             NextInstance = OpenXYList[GetLowestDist()];
         }
+        Debug.Log(GetLowestDist()+ "lowest distance");
         while (!(XYContains(Target.x, Target.y, ClosedXYList)))
         {
-            NextInstance = OpenXYList[GetLowestDist()];
+            try
+            {
+                NextInstance = OpenXYList[GetLowestDist()];
+            }
+            catch (System.IndexOutOfRangeException e)
+            {
+                Debug.Log(GetLowestDist() + ", " + e);
+            }
             ClosedXYList.Add(OpenXYList[GetLowestDist()]);
             ClearOpenLists(GetLowestDist());
             LoadAStarChunk(Origin, Target, NextInstance);
