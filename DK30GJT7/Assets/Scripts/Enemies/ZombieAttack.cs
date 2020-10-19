@@ -28,7 +28,7 @@ public class ZombieAttack : MonoBehaviour
     {
         ContactFilter2D Filter = new ContactFilter2D();
         Filter = Filter.NoFilter();
-        this.GetComponent<CircleCollider2D>().OverlapCollider(Filter,Collisions);
+        this.GetComponent<CircleCollider2D>().OverlapCollider(Filter, Collisions);
         if (Collisions.Count > 1)
         {
             if (!Attacking)
@@ -69,7 +69,7 @@ public class ZombieAttack : MonoBehaviour
         {
             foreach (Collider2D Collider in Collisions)
             {
-                if(Vector2.Distance(this.transform.position, Collider.gameObject.transform.position) < Distance && Collider.gameObject != this.gameObject && Collider.gameObject != Walls.gameObject)
+                if (Vector2.Distance(this.transform.position, Collider.gameObject.transform.position) < Distance && Collider.gameObject != this.gameObject && Collider.gameObject != Walls.gameObject)
                 {
                     Target = Collider.gameObject;
                 }
@@ -85,7 +85,7 @@ public class ZombieAttack : MonoBehaviour
         }
 
         else
-        { 
+        {
             rigid2d.MovePosition(Vector2.MoveTowards(this.transform.position, AttackOrigin, speed));
         }
 
