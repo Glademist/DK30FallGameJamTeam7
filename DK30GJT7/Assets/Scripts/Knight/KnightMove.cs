@@ -31,7 +31,7 @@ public class KnightMove : MonoBehaviour
         if (pathTarget.Count > 3)
         {
             Vector2 nextPos = new Vector2(pathTarget[pathTarget.Count - 2].x + 0.5f, pathTarget[pathTarget.Count - 2].y + 0.5f);
-            if (Vector2.Distance(this.transform.position, nextPos) >= 0.2f)
+            if (Vector2.Distance(this.transform.position, nextPos) >= 0.5f)
             {
                 Debug.Log(nextPos);
                 rigid2d.MovePosition(Vector2.MoveTowards(this.transform.position, nextPos, speed));
