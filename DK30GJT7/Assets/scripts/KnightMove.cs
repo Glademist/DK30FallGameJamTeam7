@@ -23,9 +23,9 @@ public class KnightMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             mousePos = Cam.ScreenToWorldPoint(Input.mousePosition);
-            CommandKnight(mousePos);
+            CommandKnight(new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
         }
-        if (Vector2.Distance(this.transform.position, target) >= speed)
+        if (Vector2.Distance(this.transform.position, target) >= 0.001f)
         {
             rigid2d.MovePosition(Vector2.MoveTowards(this.transform.position, target, speed));
         }
