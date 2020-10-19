@@ -2639,6 +2639,7 @@ GameObject:
   - component: {fileID: 1373504746}
   - component: {fileID: 1373504747}
   - component: {fileID: 1373504748}
+  - component: {fileID: 1373504749}
   m_Layer: 0
   m_Name: knight
   m_TagString: Untagged
@@ -2662,6 +2663,8 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0}
   speed: 0.5
   rigid2d: {fileID: 0}
+  pathfinding: {fileID: 0}
+  pathTarget: []
 --- !u!212 &1373504744
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2800,6 +2803,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.503371, y: 0.6268599}
   m_EdgeRadius: 0
+--- !u!114 &1373504749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373504742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776bc61da5bc9c7469cb24c9ab7fcf9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Colliders: {fileID: 573694910}
+  Distances: 
+  OpenXYList: []
+  ClosedXYList: []
+  XYList: []
+  XYParent: []
+  Path: []
+  XDistance: 0
+  YDistance: 0
+  TargetX: 0
+  TargetY: 0
+  NextInstance: {x: 0, y: 0}
+  target: {x: 0, y: 0}
+  origin: {x: 0, y: 0}
 --- !u!1 &1697152578
 GameObject:
   m_ObjectHideFlags: 0
