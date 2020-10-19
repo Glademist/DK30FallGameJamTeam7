@@ -4,33 +4,34 @@ using UnityEngine;
 
 public class KnightMove : MonoBehaviour
 {
-    public Vector2 target = new Vector2(0, 0);
+    public Vector2 target;
     Camera Cam;
     public Vector2 mousePos;
-    public float speed = 5;
+    public float speed = 0.5f;
     public Rigidbody2D rigid2d;
     // Start is called before the first frame update
     void Start()
     {
         Cam = Camera.main;
         rigid2d = this.GetComponent<Rigidbody2D>();
+        target = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float Step = speed * Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             mousePos = Cam.ScreenToWorldPoint(Input.mousePosition);
             CommandKnight(mousePos);
         }
-        if (Vector2.Distance(this.transform.position, target) >= 0.5 && target != new Vector2(this.transform.position.x, this.transform.position.y))
+        if (Vector2.Distance(this.transform.position, target) >= speed)
         {
-            rigid2d.MovePosition(Vector2.MoveTowards(this.transform.position, target, Step));
+            rigid2d.MovePosition(Vector2.MoveTowards(this.transform.position, target, speed));
         }
-        else
+        else if (target != new Vector2(this.transform.position.x, this.transform.position.y))
         {
+            rigid2d.MovePosition(Vector2.MoveTowards(this.transform.position, target, speed));
             target = this.transform.position;
         }
     }
