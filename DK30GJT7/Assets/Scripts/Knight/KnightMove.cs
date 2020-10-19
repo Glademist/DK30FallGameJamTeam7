@@ -68,6 +68,6 @@ public class KnightMove : MonoBehaviour
         //pathfinding.Target = new Vector2Int((int)Target.x, (int)Target.y);
         target = Target;
         pathTarget = pathfinding.LoadAStar(new Vector2Int((int)Mathf.Floor(this.transform.position.x), (int)Mathf.Floor(this.transform.position.y)), new Vector2Int((int)Mathf.Floor(Target.x), (int)Mathf.Floor(Target.y)));
-        Debug.Log(new Vector2Int((int)Mathf.Floor(Target.x), (int)Mathf.Floor(Target.y)));
+        
     }
 }
