@@ -44,7 +44,7 @@ public class KnightMove : MonoBehaviour
         }
         else
         {
-            if (Vector2.Distance(this.transform.position, target) >= 0.001f)
+            if (Vector2.Distance(this.transform.position, target) >= 0.5f)
             {
                 rigid2d.MovePosition(Vector2.MoveTowards(this.transform.position, target, speed));
             }
