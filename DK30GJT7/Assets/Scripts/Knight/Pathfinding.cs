@@ -42,8 +42,10 @@ public class Pathfinding : MonoBehaviour
             LoadAStarChunk(Origin, Target, Origin);
             NextInstance = OpenXYList[GetLowestDist()];
         }
-        while (!(XYContains(Target.x, Target.y, ClosedXYList)))
+        int i = 0;
+        while (!(XYContains(Target.x, Target.y, ClosedXYList)) && i < 100)
         {
+            i++;
             try
             {
                 NextInstance = OpenXYList[GetLowestDist()];
@@ -53,7 +55,7 @@ public class Pathfinding : MonoBehaviour
             }
             catch (System.ArgumentOutOfRangeException e)
             {
-                Debug.Log(GetLowestDist() + ", " + e);
+                Debug.Log( "could not find the path!, " + e);
                 Path.Clear();
                 return Path;
             }
@@ -66,7 +68,11 @@ public class Pathfinding : MonoBehaviour
         }
         else
         {
-            Debug.Log("Error With AStar");
+            Path.Clear();
+            ClearProcessedLists();
+            ClearLists();
+            ClearOpenLists();
+            Debug.Log("A* Could Not Find Path");
         }
 
         return Path;
