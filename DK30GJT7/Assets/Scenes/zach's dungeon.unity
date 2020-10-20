@@ -375,8 +375,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 10
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -500,6 +500,16 @@ PrefabInstance:
       propertyPath: Colliders
       value: 
       objectReference: {fileID: 1831097816}
+    - target: {fileID: 1736862263751600996, guid: 0a7685e8f6296ae4d874dda6c765651a,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736862263751600996, guid: 0a7685e8f6296ae4d874dda6c765651a,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1736862263751600999, guid: 0a7685e8f6296ae4d874dda6c765651a,
         type: 3}
       propertyPath: m_LocalPosition.x

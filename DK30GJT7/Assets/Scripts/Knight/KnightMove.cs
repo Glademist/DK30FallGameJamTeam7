@@ -33,7 +33,6 @@ public class KnightMove : MonoBehaviour
             Vector2 nextPos = new Vector2(pathTarget[pathTarget.Count - 2].x + 0.5f, pathTarget[pathTarget.Count - 2].y + 0.5f);
             if (Vector2.Distance(this.transform.position, nextPos) >= 0.5f)
             {
-                Debug.Log(nextPos);
                 rigid2d.MovePosition(Vector2.MoveTowards(this.transform.position, nextPos, speed));
                 DrawPath();
             }
@@ -68,6 +67,6 @@ public class KnightMove : MonoBehaviour
         //pathfinding.Target = new Vector2Int((int)Target.x, (int)Target.y);
         target = Target;
         pathTarget = pathfinding.LoadAStar(new Vector2Int((int)Mathf.Floor(this.transform.position.x), (int)Mathf.Floor(this.transform.position.y)), new Vector2Int((int)Mathf.Floor(Target.x), (int)Mathf.Floor(Target.y)));
-        Debug.Log(new Vector2Int((int)Mathf.Floor(Target.x), (int)Mathf.Floor(Target.y)));
+        
     }
 }

@@ -44,10 +44,19 @@ public class Pathfinding : MonoBehaviour
         }
         while (!(XYContains(Target.x, Target.y, ClosedXYList)))
         {
-            NextInstance = OpenXYList[GetLowestDist()];
-            ClosedXYList.Add(OpenXYList[GetLowestDist()]);
-            ClearOpenLists(GetLowestDist());
-            LoadAStarChunk(Origin, Target, NextInstance);
+            try
+            {
+                NextInstance = OpenXYList[GetLowestDist()];
+                ClosedXYList.Add(OpenXYList[GetLowestDist()]);
+                ClearOpenLists(GetLowestDist());
+                LoadAStarChunk(Origin, Target, NextInstance);
+            }
+            catch (System.ArgumentOutOfRangeException e)
+            {
+                Debug.Log(GetLowestDist() + ", " + e);
+                Path.Clear();
+                return Path;
+            }
         }
         if ((XYContains(Target.x, Target.y, ClosedXYList)))
         {
