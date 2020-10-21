@@ -7,7 +7,7 @@ public class KnightMove : MonoBehaviour
     public Vector2 target;
     Camera Cam;
     public Vector2 mousePos;
-    public float speed = 0.5f;
+    public float speed = 0.35f;
     public Rigidbody2D rigid2d;
     public Pathfinding pathfinding;
     public List<Vector2Int> pathTarget;
