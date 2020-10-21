@@ -25,8 +25,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("current health: " + currentHealth);
-        Debug.Log("max health: " + maxHealth);
+        Debug.Log(string.Format("Took {0} damage, current health is {1}/{2}", damage, currentHealth, maxHealth));
         healthBar.UpdateHealthbar(currentHealth, maxHealth);
         if(currentHealth <= 0)
         {
