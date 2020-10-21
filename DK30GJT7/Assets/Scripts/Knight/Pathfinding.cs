@@ -43,7 +43,7 @@ public class Pathfinding : MonoBehaviour
             NextInstance = OpenXYList[GetLowestDist()];
         }
         int i = 0;
-        while (!(XYContains(Target.x, Target.y, ClosedXYList)) && i < 100)
+        while (!(XYContains(Target.x, Target.y, ClosedXYList)) && i < 180)
         {
             i++;
             try
