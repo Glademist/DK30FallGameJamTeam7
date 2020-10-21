@@ -11,6 +11,10 @@ public class KnightMove : MonoBehaviour
     public Rigidbody2D rigid2d;
     public Pathfinding pathfinding;
     public List<Vector2Int> pathTarget;
+    public List<RectInt> rooms;
+    public RoomDetect DetectRoom;
+    public bool InRoom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,7 @@ public class KnightMove : MonoBehaviour
         Cam = Camera.main;
         rigid2d = this.GetComponent<Rigidbody2D>();
         target = this.transform.position;
+        DetectRoom = this.GetComponent<RoomDetect>();
     }
 
     // Update is called once per frame
@@ -53,6 +58,34 @@ public class KnightMove : MonoBehaviour
                 target = this.transform.position;
             }
         }
+        if (!IsInRoom())
+        {
+            InRoom = false;
+            RectInt newRoom = DetectRoom.DetectRoom(this.transform.position);
+            if (!rooms.Contains(newRoom))
+            {
+                rooms.Add(newRoom);
+            }
+        }
+        else
+        {
+            InRoom = true;
+        }
+    }
+
+
+
+    public bool IsInRoom()
+    {
+        Vector2Int Origin = new Vector2Int(Mathf.RoundToInt(this.transform.position.x), Mathf.RoundToInt(this.transform.position.y));
+        foreach (RectInt room in rooms)
+        {
+            if (Mathf.Abs(room.center.x - Origin.x) < room.width / 2 && Mathf.Abs(room.center.y - Origin.y) < room.height / 2)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void DrawPath()
@@ -62,6 +95,21 @@ public class KnightMove : MonoBehaviour
             Debug.DrawLine(new Vector2((pathTarget[i].x + 0.5f), (pathTarget[i].y + 0.5f)), new Vector2((pathTarget[i + 1].x + 0.5f), (pathTarget[i + 1].y + 0.5f)), Color.blue);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
+        DrawRooms();
+    }
+
+    public void DrawRooms()
+    {
+        foreach (RectInt room in rooms)
+        {
+            Gizmos.DrawCube(room.center, new Vector3(room.size.x, room.size.y, 10));
+        }
+    }
+
     public void CommandKnight(Vector2 Target)
     {
         //pathfinding.Target = new Vector2Int((int)Target.x, (int)Target.y);

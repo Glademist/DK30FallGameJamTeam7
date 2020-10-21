@@ -40,7 +40,4 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-DK30GJT7/.vs/DK30GJT7/v15/Server/sqlite3/storage.ide-wal
-DK30GJT7/.vs/DK30GJT7/v15/Server/sqlite3/storage.ide
-*.ide-wal
-DK30GJT7/.vs/DK30GJT7/v15/Server/sqlite3/storage.ide-wal
+DK30GJT7/.vs/DK30GJT7/v15/Server/**
