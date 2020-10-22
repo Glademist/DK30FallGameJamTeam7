@@ -8,6 +8,7 @@ public class SpikeTrap : MonoBehaviour
     Animator anim;
 
     float extendedTime = 2f, currentTime = 0f;
+    bool flipping = false;
 
     private void Start()
     {
@@ -16,27 +17,35 @@ public class SpikeTrap : MonoBehaviour
 
     private void Update()
     {
-        if (extended)
+        if (currentTime > 0)
         {
-            if (currentTime > 0)
+            currentTime -= Time.deltaTime;
+            if(!extended && currentTime > extendedTime / 2f)
             {
-                currentTime -= Time.deltaTime;
-            } else
-            {
-                extended = false;
-                anim.SetBool("Extended", false);
+                extended = true;
             }
         }
-        
+        else
+        {
+            extended = false;
+            anim.SetBool("Extended", false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!extended && collision.gameObject.name == "Player")
         {
-            extended = true;
             anim.SetBool("Extended", true);
             currentTime = extendedTime;
+        }
+
+        Health victim = collision.gameObject.GetComponent<Health>();
+
+        if (extended && victim != null)
+        {
+            Debug.Log("trying to deal damage");
+            victim.TakeDamage(1);
         }
     }
 }
