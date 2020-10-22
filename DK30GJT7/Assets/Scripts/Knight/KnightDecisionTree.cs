@@ -32,7 +32,7 @@ public class KnightDecisionTree : MonoBehaviour
     {
         UpdateRoomInterest();
         ChooseInterest();
-        if (CurrentInterest.Object == null)
+        if (CurrentInterest == null)
         {
             TargetRoom();
         }
@@ -144,7 +144,6 @@ public class KnightDecisionTree : MonoBehaviour
         resetTarget++;
         if (CurrentInterest != knightMove.TargetInterest || resetTarget >= 10)
         {
-            Debug.Log(knightMove.TargetInterest.Object);
             resetTarget = 0;
             knightMove.TargetInterest = CurrentInterest;
             knightMove.CommandKnight(CurrentInterest.Object.transform.position);
