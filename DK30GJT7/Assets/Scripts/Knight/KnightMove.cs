@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class KnightMove : MonoBehaviour
 {
@@ -11,9 +12,10 @@ public class KnightMove : MonoBehaviour
     public Rigidbody2D rigid2d;
     public Pathfinding pathfinding;
     public List<Vector2Int> pathTarget;
-    public List<RectInt> rooms;
-    public RoomDetect DetectRoom;
-    public bool InRoom;
+    public List<Room> rooms;
+    public Room currentRoom;
+    public bool DrawGizmos = false;
+    public Interest TargetInterest;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,6 @@ public class KnightMove : MonoBehaviour
         Cam = Camera.main;
         rigid2d = this.GetComponent<Rigidbody2D>();
         target = this.transform.position;
-        DetectRoom = this.GetComponent<RoomDetect>();
     }
 
     // Update is called once per frame
@@ -58,33 +59,22 @@ public class KnightMove : MonoBehaviour
                 target = this.transform.position;
             }
         }
-        if (!IsInRoom())
-        {
-            InRoom = false;
-            RectInt newRoom = DetectRoom.DetectRoom(this.transform.position);
-            if (!rooms.Contains(newRoom))
-            {
-                rooms.Add(newRoom);
-            }
-        }
-        else
-        {
-            InRoom = true;
-        }
+        IsInRoom();
     }
-
-
 
     public bool IsInRoom()
     {
         Vector2Int Origin = new Vector2Int(Mathf.RoundToInt(this.transform.position.x), Mathf.RoundToInt(this.transform.position.y));
-        foreach (RectInt room in rooms)
+        foreach (Room Room in rooms)
         {
+            RectInt room = Room.room;
             if (Mathf.Abs(room.center.x - Origin.x) < room.width / 2 && Mathf.Abs(room.center.y - Origin.y) < room.height / 2)
             {
+                currentRoom = Room;
                 return true;
             }
         }
+        currentRoom = null;
         return false;
     }
 
@@ -99,22 +89,27 @@ public class KnightMove : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
-        DrawRooms();
+        if (DrawGizmos)
+        {
+            DrawRooms();
+        }
     }
 
     public void DrawRooms()
     {
-        foreach (RectInt room in rooms)
+        
+        foreach (Room Room in rooms)
         {
+            RectInt room = Room.room;
+            Random.seed = (int)room.center.x + (int)room.center.y;
+            Gizmos.color = new Color(Random.value, Random.value, Random.value);
             Gizmos.DrawCube(room.center, new Vector3(room.size.x, room.size.y, 10));
         }
     }
 
     public void CommandKnight(Vector2 Target)
     {
-        //pathfinding.Target = new Vector2Int((int)Target.x, (int)Target.y);
         target = Target;
         pathTarget = pathfinding.LoadAStar(new Vector2Int((int)Mathf.Floor(this.transform.position.x), (int)Mathf.Floor(this.transform.position.y)), new Vector2Int((int)Mathf.Floor(Target.x), (int)Mathf.Floor(Target.y)));
-        
     }
 }
