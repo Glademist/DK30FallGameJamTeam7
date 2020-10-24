@@ -5,10 +5,12 @@ using UnityEngine;
 public class KnightController : MonoBehaviour
 {
     public float secondsToReprioritise;
-    private float secondsSinceLastReprioritise;
+    public float secondsSinceLastReprioritise;
 
-    private Stimulus target;
-    public List<Stimulus> stimuli = new List<Stimulus>();
+    [SerializeField]
+    private Stimulus target = null;
+    [SerializeField]
+    private List<Stimulus> stimuli = new List<Stimulus>();
 
     // Stop controller running, Knight is doing some uninteruptable action
     private bool interacting;
@@ -39,11 +41,14 @@ public class KnightController : MonoBehaviour
                 if (secondsSinceLastReprioritise >= secondsToReprioritise)
                 {
                     target = Reprioritise();
+                    Debug.Log("Knight - Prioritising " + target.type);
                     if(target.position != null)
                     {
                         MoveToPosition(target.position);
-                    }
-                    secondsSinceLastReprioritise = 0;
+                        if(!target.type.Equals("idle")){
+                            secondsSinceLastReprioritise = 0;
+                        }
+                    }                        
                 }
             }
         }

@@ -39,7 +39,7 @@ public class Interaction : MonoBehaviour
             knightController.AddKnightStimulus(null, goTo, "player_order");
         }
         // Call the knight to your position
-        if (Input.GetKeyDown("e")){
+        if (Input.GetKeyDown("f")){
             //Debug.Log("Player calling Knight");
             Vector2 goTo = (new Vector2(Mathf.Floor(transform.position.x) + 0.5f, Mathf.Floor(transform.position.y) + 0.5f));
             KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
