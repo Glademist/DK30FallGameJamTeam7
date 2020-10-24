@@ -5,15 +5,18 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
     public int keys = 1, food = 2;
+
     [SerializeField]
     TMPro.TextMeshProUGUI keyText;
-
-    float unlockDoor = 3.0f, currentTime = 0f;
-    Door doorBeingUnlocked;
-    bool unlockingDoor = false;
     ProgressBar actionProgress;
 
+    float unlockDoor = 3.0f, currentTime = 0f;
     float maxInteractionDistance = 3.0f;
+
+    Door doorBeingUnlocked;
+    bool unlockingDoor = false;
+    
+    public GameObject gold;
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +79,17 @@ public class Interaction : MonoBehaviour
                 }
 
             }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject thrownGold = Instantiate(gold, new Vector3(0, 0, 0), Quaternion.identity);
+            Rigidbody2D body = thrownGold.GetComponent<Rigidbody2D>();
+            Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 start = transform.position;
+            body.position = start + (target - start) / 5f;
+            body.velocity = target - start;
+
         }
     }
 
