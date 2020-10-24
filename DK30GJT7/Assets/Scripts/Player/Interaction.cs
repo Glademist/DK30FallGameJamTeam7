@@ -45,13 +45,6 @@ public class Interaction : MonoBehaviour
             KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
             knightController.AddKnightStimulus(null, goTo, "player_call");
         }
-        if (Input.GetMouseButtonDown(1))
-        {
-            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 goTo = (new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
-            KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
-            knightController.AddKnightStimulus(null, goTo, "player_order");
-        }
     }
 
     public void Interact(Collider2D hit){

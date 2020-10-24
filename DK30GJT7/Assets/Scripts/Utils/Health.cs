@@ -5,13 +5,15 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     ProgressBar healthBar;
-    private int maxHealth = 10, currentHealth;
+    public int maxHealth;
+    public int currentHealth;
+    public float healthbarHeight;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar = new ProgressBar(gameObject, new Vector3(100, 15, 1), new Vector3(90, 12, 1), new Vector2(0, 0.5f), Color.black, Color.green, true);
+        healthBar = new ProgressBar(gameObject, new Vector3(100, 15, 1), new Vector3(90, 12, 1), new Vector2(0, healthbarHeight), Color.black, Color.green, true);
     }
 
     private void Update()

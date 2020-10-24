@@ -293,6 +293,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight
       objectReference: {fileID: 0}
+    - target: {fileID: 7030620997181636904, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: currentHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030620997181636904, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: healthbarHeight
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030620997181636904, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7241538428093007076, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: secondsToReprioritise
@@ -32270,6 +32285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbab4858fa5dd2144917f9d1e656f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 10
+  healthbarHeight: 0.6
 --- !u!114 &1590619114
 MonoBehaviour:
   m_ObjectHideFlags: 0

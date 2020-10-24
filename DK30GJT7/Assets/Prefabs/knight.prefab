@@ -118,8 +118,9 @@ GameObject:
   - component: {fileID: 2418684363094216757}
   - component: {fileID: 7241538428093007076}
   - component: {fileID: 326067178733505884}
+  - component: {fileID: 7030620997181636904}
   m_Layer: 0
-  m_Name: Knight
+  m_Name: knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,6 +324,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsToReprioritise: 0
   secondsSinceLastReprioritise: 0
+  target:
+    gameobject: {fileID: 0}
+    position: {x: 0, y: 0}
+    type: 
+    timeSeen: 0
+  stimuli: []
+  pathfinding_mode: 0
 --- !u!114 &326067178733505884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,3 +356,15 @@ MonoBehaviour:
   xMin: 0
   yMax: 0
   yMin: 0
+--- !u!114 &7030620997181636904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418684363094216762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbab4858fa5dd2144917f9d1e656f192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
