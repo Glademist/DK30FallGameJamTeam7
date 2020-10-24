@@ -13,6 +13,8 @@ public class Interaction : MonoBehaviour
     bool unlockingDoor = false;
     ProgressBar actionProgress;
 
+    float maxInteractionDistance = 3.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,11 @@ public class Interaction : MonoBehaviour
                         Debug.Log("no keys");
                         return;
                     }
+                    if (Vector2.Distance(transform.position, door.transform.position) > maxInteractionDistance)
+                    {
+                        Debug.Log("too far away");
+                        return;
+                    }
                     unlockingDoor = true;
                     currentTime = unlockDoor;
                     doorBeingUnlocked = door;
@@ -76,5 +83,11 @@ public class Interaction : MonoBehaviour
     {
         keys += value;
         keyText.text = "x " + keys;
+    }
+
+    public void CancelInteration()
+    {
+        unlockingDoor = false;
+        actionProgress.ToggleVisible(false);
     }
 }
