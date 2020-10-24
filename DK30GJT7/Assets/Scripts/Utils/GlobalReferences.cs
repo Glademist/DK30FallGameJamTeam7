@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class References
+public static class GlobalReferences
 {
     public static GameObject Grid;
     public static GameObject Player;

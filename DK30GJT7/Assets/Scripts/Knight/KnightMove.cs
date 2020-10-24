@@ -28,11 +28,11 @@ public class KnightMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            mousePos = Cam.ScreenToWorldPoint(Input.mousePosition);
-            CommandKnight(new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
-        }
+        // if (Input.GetKeyDown(KeyCode.Mouse0))
+        // {
+        //     mousePos = Cam.ScreenToWorldPoint(Input.mousePosition);
+        //     CommandKnight(new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
+        // }
         if (pathTarget.Count > 3)
         {
             Vector2 nextPos = new Vector2(pathTarget[pathTarget.Count - 2].x + 0.5f, pathTarget[pathTarget.Count - 2].y + 0.5f);
