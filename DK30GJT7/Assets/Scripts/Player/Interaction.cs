@@ -4,17 +4,40 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    RaycastHit hit;
+    public int keys = 1, food = 2;
+
+    float unlockDoor = 3.0f, currentTime = 0f;
+    Door doorBeingUnlocked;
+    bool unlockingDoor = false;
+    ProgressBar actionProgress;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        actionProgress = new ProgressBar(gameObject, new Vector3(150, 15, 1), new Vector3(140, 12, 1), new Vector2(0, 0f), Color.black, Color.grey, false);
+        actionProgress.ToggleVisible(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (unlockingDoor)
+        {
+            if (currentTime > 0)
+            {
+                currentTime -= Time.deltaTime;
+                actionProgress.UpdateHealthbar(unlockDoor - currentTime, unlockDoor);
+            }
+            else
+            {
+                doorBeingUnlocked.UnlockDoor();
+                doorBeingUnlocked.TryOpenDoor();
+                actionProgress.ToggleVisible(false);
+                unlockingDoor = false;
+            }
+        }
+
+
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up);
@@ -23,12 +46,26 @@ public class Interaction : MonoBehaviour
             {
                 Debug.Log(hit.collider.name);
                 Door door = hit.collider.gameObject.GetComponent<Door>();
-                if (door != null)
+                if (door == null)
                 {
-                    Debug.Log("toggle door");
-                    door.ToggleDoor();
+                    return;
                 }
+                if (!door.TryOpenDoor())
+                {
+                    if (keys <= 0)
+                    {
+                        Debug.Log("no keys");
+                        return;
+                    }
+                    unlockingDoor = true;
+                    currentTime = unlockDoor;
+                    doorBeingUnlocked = door;
+                    actionProgress.ToggleVisible(true);
+                }
+
             }
         }
     }
+
+
 }
