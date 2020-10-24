@@ -5,6 +5,8 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
     public int keys = 1, food = 2;
+    [SerializeField]
+    TMPro.TextMeshProUGUI keyText;
 
     float unlockDoor = 3.0f, currentTime = 0f;
     Door doorBeingUnlocked;
@@ -16,6 +18,8 @@ public class Interaction : MonoBehaviour
     {
         actionProgress = new ProgressBar(gameObject, new Vector3(150, 15, 1), new Vector3(140, 12, 1), new Vector2(0, 0f), Color.black, Color.grey, false);
         actionProgress.ToggleVisible(false);
+
+        UpdateKeys(0);
     }
 
     // Update is called once per frame
@@ -34,6 +38,7 @@ public class Interaction : MonoBehaviour
                 doorBeingUnlocked.TryOpenDoor();
                 actionProgress.ToggleVisible(false);
                 unlockingDoor = false;
+                UpdateKeys(-1);
             }
         }
 
@@ -67,5 +72,9 @@ public class Interaction : MonoBehaviour
         }
     }
 
-
+    void UpdateKeys(int value)
+    {
+        keys += value;
+        keyText.text = "x " + keys;
+    }
 }
