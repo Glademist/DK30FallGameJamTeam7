@@ -2,21 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stimulus
-{
-    public GameObject gameobject;
-    public Vector2 position;
-    public string type;
-    public float timeSeen;
-
-    public Stimulus(GameObject stimulus_go, Vector2 stimulus_pos, string stimulus_type){
-        gameobject = stimulus_go;
-        position = stimulus_pos;
-        type =  stimulus_type;
-        timeSeen = Time.time;
-    }
-}
-
 public class KnightController : MonoBehaviour
 {
     public float secondsToReprioritise;
@@ -24,6 +9,7 @@ public class KnightController : MonoBehaviour
     public Stimulus target;
     public List<Stimulus> stimuli;
     public bool interacting;
+    public bool pathfinding_mode;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +17,7 @@ public class KnightController : MonoBehaviour
         GlobalReferences.Knight = gameObject;
         stimuli = new List<Stimulus>();
         interacting = false;
+        pathfinding_mode = false;
     }
 
     // Update is called once per frame
@@ -42,16 +29,22 @@ public class KnightController : MonoBehaviour
     private void FixedUpdate() 
     {
         secondsSinceLastReprioritise += Time.fixedDeltaTime;
-        if(interacting == false){
-            if (secondsSinceLastReprioritise >= secondsToReprioritise){
-                Debug.Log("Knight Reprioritising");
-                target = Reprioritise();
-                if(target.position != null){
-                    MoveToPosition(target.position);
+        if(!pathfinding_mode){
+            if(!interacting)
+            {
+                if (secondsSinceLastReprioritise >= secondsToReprioritise)
+                {
+                    Debug.Log("Knight Reprioritising");
+                    target = Reprioritise();
+                    if(target.position != null)
+                    {
+                        MoveToPosition(target.position);
+                    }
+                    secondsSinceLastReprioritise = 0;
                 }
-                secondsSinceLastReprioritise = 0;
             }
         }
+
     }
 
     private Stimulus Reprioritise()
