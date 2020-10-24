@@ -21,6 +21,8 @@ public class Interaction : MonoBehaviour
     Door doorBeingUnlocked;
     bool unlockingDoor = false;
     
+    public GameObject gotoCursor;
+
     public GameObject gold;
 
     // Start is called before the first frame update
@@ -71,6 +73,7 @@ public class Interaction : MonoBehaviour
             Vector2 goTo = (new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
             if (GlobalReferences.Knight)
             {
+                Instantiate(gotoCursor, new Vector3(goTo.x, goTo.y, 0), Quaternion.identity);
                 KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
                 knightController.AddKnightStimulus(null, goTo, "player_call");
             }
