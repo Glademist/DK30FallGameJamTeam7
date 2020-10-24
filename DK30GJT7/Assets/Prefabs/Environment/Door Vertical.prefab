@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3346761722600861389}
   - component: {fileID: 3346761722600861388}
   m_Layer: 0
-  m_Name: Door
+  m_Name: Door Vertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 3417009135852380354}
   - component: {fileID: 4280148221459394007}
   m_Layer: 0
-  m_Name: doors_base
+  m_Name: Door Base Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 5721960139570471203}
   - component: {fileID: 7656787800768717583}
   m_Layer: 0
-  m_Name: doors_top
+  m_Name: Door Top Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
