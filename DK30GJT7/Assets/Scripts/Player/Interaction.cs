@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    public int keys = 1, food = 2;
+    [SerializeField]
+    int keys = 0, food = 2;
 
     [SerializeField]
     TMPro.TextMeshProUGUI keyText;
@@ -93,7 +94,7 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    void UpdateKeys(int value)
+    public void UpdateKeys(int value)
     {
         keys += value;
         keyText.text = "x " + keys;
