@@ -111,14 +111,15 @@ GameObject:
   m_Component:
   - component: {fileID: 2418684363094216755}
   - component: {fileID: 2418684363094216752}
-  - component: {fileID: 2418684363094216753}
   - component: {fileID: 2418684363094216758}
   - component: {fileID: 2418684363094216759}
   - component: {fileID: 2418684363094216756}
+  - component: {fileID: 2418684363094216753}
   - component: {fileID: 2418684363094216757}
-  - component: {fileID: 1857708507}
+  - component: {fileID: 7241538428093007076}
+  - component: {fileID: 326067178733505884}
   m_Layer: 0
-  m_Name: knight
+  m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,6 +305,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.503371, y: 0.6268599}
   m_EdgeRadius: 0
+--- !u!114 &2418684363094216753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418684363094216762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65aecce20e792441ac2b9b99c379cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  mousePos: {x: 0, y: 0}
+  speed: 0.5
+  rigid2d: {fileID: 0}
+  pathTarget: []
+  rooms: []
+  DetectRoom: {fileID: 0}
+  InRoom: 0
 --- !u!114 &2418684363094216757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +351,6 @@ MonoBehaviour:
   NextInstance: {x: 0, y: 0}
   target: {x: 0, y: 0}
   origin: {x: 0, y: 0}
---- !u!114 &1857708507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -339,6 +359,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 2418684363094216762}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd1728af3b6be94ea0238188722df1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsToReprioritise: 0
+  secondsSinceLastReprioritise: 0
+--- !u!114 &326067178733505884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418684363094216762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7be1c9e2f534554487a560a74d9bc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Walls: {fileID: 0}
+  Doors: {fileID: 0}
+  OpenXYList: []
+  XYList: []
+  Room:
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  xMax: 0
+  xMin: 0
+  yMax: 0
+  yMin: 0
   m_Script: {fileID: 11500000, guid: c1c4e2e0e8ea5e5418781636123a0930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
