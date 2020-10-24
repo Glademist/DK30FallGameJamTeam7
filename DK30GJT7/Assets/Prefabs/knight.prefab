@@ -191,6 +191,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2418684363094216753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418684363094216762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65aecce20e792441ac2b9b99c379cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  mousePos: {x: 0, y: 0}
+  speed: 0.5
+  rigid2d: {fileID: 0}
+  pathfinding: {fileID: 0}
+  pathTarget: []
+  rooms:
+  - room:
+      x: -10
+      y: -6
+      width: 22
+      height: 13
+    Interest: 0
+    InterestGrowth: 0.5
+  - room:
+      x: -10
+      y: 9
+      width: 22
+      height: 10
+    Interest: 0
+    InterestGrowth: 0.5
+  currentRoom:
+    room:
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    Interest: 0
+    InterestGrowth: 0.5
+  DrawGizmos: 1
 --- !u!50 &2418684363094216758
 Rigidbody2D:
   serializedVersion: 4
@@ -203,8 +245,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 10
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -310,7 +352,6 @@ MonoBehaviour:
   NextInstance: {x: 0, y: 0}
   target: {x: 0, y: 0}
   origin: {x: 0, y: 0}
---- !u!114 &7241538428093007076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,3 +409,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbab4858fa5dd2144917f9d1e656f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Script: {fileID: 11500000, guid: c1c4e2e0e8ea5e5418781636123a0930, type: 3}
+  Comfort: 0
+  UnComfort: 0
+  Distracted: 0
+  Focused: 0
+  Exhaustion: 0
+  Energized: 0
+  Fear: 0
+  Courage: 0
+  Interests: []
+  CurrentInterest:
+    InitInterest: 0
+    InterestType: 
+    CurrentInterest: 0
+    Object: {fileID: 0}
+  InterestedRoom:
+    room:
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    Interest: 0
+    InterestGrowth: 0.5
+  knightMove: {fileID: 0}

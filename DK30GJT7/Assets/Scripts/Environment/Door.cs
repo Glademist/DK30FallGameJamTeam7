@@ -6,6 +6,8 @@ public class Door : MonoBehaviour
 {
     [SerializeField]
     bool open = false;
+    [SerializeField]
+    bool locked = false;
     public Sprite openDoor, closedDoor;
 
     SpriteRenderer spriteRend;
@@ -16,12 +18,6 @@ public class Door : MonoBehaviour
     {
         spriteRend = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
-    }
-
-
-    private void FixedUpdate()
-    {
-        
     }
     
     void UpdateDoor()
@@ -39,9 +35,25 @@ public class Door : MonoBehaviour
         }
     }
 
-    public void ToggleDoor()
+    void ToggleDoor()
     {
         open = !open;
         UpdateDoor();
+    }
+
+    //returns true if door gets opened, false if needs unlocked
+    public bool TryOpenDoor()
+    {
+        if (locked)
+        {
+            return false;
+        }
+        ToggleDoor();
+        return true;
+    }
+
+    public void UnlockDoor()
+    {
+        locked = false;
     }
 }

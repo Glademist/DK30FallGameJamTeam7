@@ -18,10 +18,12 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        // if (Input.GetMouseButtonDown(0))
-        // {
-        //     TakeDamage(1);
-        // }
+        /*
+        if (Input.GetMouseButtonDown(0))
+        {
+            TakeDamage(1);
+        }
+        */
     }
 
     public void TakeDamage(int damage)

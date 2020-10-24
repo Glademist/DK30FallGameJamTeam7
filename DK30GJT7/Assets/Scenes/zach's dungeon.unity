@@ -121,37 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &326073779 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2418684363094216762, guid: 87d49a6ea08f8bc4cbd1316262139299,
-    type: 3}
-  m_PrefabInstance: {fileID: 1217166334}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &326073780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326073779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7be1c9e2f534554487a560a74d9bc22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Walls: {fileID: 1831097816}
-  Doors: {fileID: 2110942541}
-  OpenXYList: []
-  XYList: []
-  Room:
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  xMax: 0
-  xMin: 0
-  yMax: 0
-  yMin: 0
 --- !u!1 &1216345302
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +292,39 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1857708507, guid: 87d49a6ea08f8bc4cbd1316262139299, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857708507, guid: 87d49a6ea08f8bc4cbd1316262139299, type: 3}
+      propertyPath: InterestRange
+      value: 
+      objectReference: {fileID: 1857708508}
+    - target: {fileID: 2418684363094216753, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[1].room.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418684363094216753, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[1].room.height
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418684363094216753, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[0].room.y
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418684363094216753, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[0].room.height
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418684363094216753, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: DrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2418684363094216755, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -383,16 +385,6 @@ PrefabInstance:
       propertyPath: Colliders
       value: 
       objectReference: {fileID: 1831097816}
-    - target: {fileID: 2418684363094216758, guid: 87d49a6ea08f8bc4cbd1316262139299,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418684363094216758, guid: 87d49a6ea08f8bc4cbd1316262139299,
-        type: 3}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2418684363094216762, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: m_Name
@@ -414,6 +406,7 @@ GameObject:
   - component: {fileID: 1718167087}
   - component: {fileID: 1718167086}
   - component: {fileID: 1718167085}
+  - component: {fileID: 1718167091}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -562,12 +555,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1718167091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718167084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d550eb5c19c6eb346b30b89c3d7ad8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interest:
+    InitInterest: 50
+    InterestType: Enemy
+    CurrentInterest: 0
+    Object: {fileID: 1718167084}
+    IsActive: 0
 --- !u!1839735485 &1831097816 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 1503199662402787133, guid: 99e1c1c481e4dcd4899e40454b6d6996,
     type: 3}
   m_PrefabInstance: {fileID: 1503199661012615909}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1857708499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2418684363094216762, guid: 87d49a6ea08f8bc4cbd1316262139299,
+    type: 3}
+  m_PrefabInstance: {fileID: 1217166334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1857708508
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857708499}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.27}
+  serializedVersion: 2
+  m_Radius: 6
 --- !u!1 &2006927620
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,12 +698,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1216345307}
---- !u!1839735485 &2110942541 stripped
-Tilemap:
-  m_CorrespondingSourceObject: {fileID: 1503199661643196109, guid: 99e1c1c481e4dcd4899e40454b6d6996,
-    type: 3}
-  m_PrefabInstance: {fileID: 1503199661012615909}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1503199661012615909
 PrefabInstance:
   m_ObjectHideFlags: 0
