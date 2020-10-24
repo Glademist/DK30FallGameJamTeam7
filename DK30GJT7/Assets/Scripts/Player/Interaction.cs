@@ -69,16 +69,22 @@ public class Interaction : MonoBehaviour
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 goTo = (new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
-            KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
-            knightController.AddKnightStimulus(null, goTo, "player_order");
+            if (GlobalReferences.Knight)
+            {
+                KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
+                knightController.AddKnightStimulus(null, goTo, "player_call");
+            }
         }
         // Call the knight to your position
         if (Input.GetKeyDown("f"))
         {
             //Debug.Log("Player calling Knight");
             Vector2 goTo = (new Vector2(Mathf.Floor(transform.position.x) + 0.5f, Mathf.Floor(transform.position.y) + 0.5f));
-            KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
-            knightController.AddKnightStimulus(null, goTo, "player_call");
+            if (GlobalReferences.Knight)
+            {
+                KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
+                knightController.AddKnightStimulus(null, goTo, "player_call");
+            }
         }
         // Throw an item
         if (Input.GetKeyDown("r"))
