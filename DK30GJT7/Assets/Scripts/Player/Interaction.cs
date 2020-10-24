@@ -26,7 +26,7 @@ public class Interaction : MonoBehaviour
             //Debug.Log("Mouse down");
             if (hit.collider != null)
             {
-                Debug.Log("Player interact:" + hit.collider.name);
+                //Debug.Log("Player interact:" + hit.collider.name);
                 Interact(hit.collider);
             }
         }
@@ -40,7 +40,7 @@ public class Interaction : MonoBehaviour
         }
         // Call the knight to your position
         if (Input.GetKeyDown("e")){
-            Debug.Log("Player calling Knight");
+            //Debug.Log("Player calling Knight");
             Vector2 goTo = (new Vector2(Mathf.Floor(transform.position.x) + 0.5f, Mathf.Floor(transform.position.y) + 0.5f));
             KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
             knightController.AddKnightStimulus(null, goTo, "player_call");

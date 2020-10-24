@@ -5,17 +5,21 @@ using UnityEngine;
 public class KnightController : MonoBehaviour
 {
     public float secondsToReprioritise;
-    public float secondsSinceLastReprioritise;
-    public Stimulus target;
-    public List<Stimulus> stimuli;
-    public bool interacting;
+    private float secondsSinceLastReprioritise;
+
+    private Stimulus target;
+    public List<Stimulus> stimuli = new List<Stimulus>();
+
+    // Stop controller running, Knight is doing some uninteruptable action
+    private bool interacting;
+
+    // Stop controller running, use to test Knight pathfinding
     public bool pathfinding_mode;
 
     // Start is called before the first frame update
     void Start()
     {
         GlobalReferences.Knight = gameObject;
-        stimuli = new List<Stimulus>();
         interacting = false;
         pathfinding_mode = false;
     }
@@ -34,7 +38,6 @@ public class KnightController : MonoBehaviour
             {
                 if (secondsSinceLastReprioritise >= secondsToReprioritise)
                 {
-                    Debug.Log("Knight Reprioritising");
                     target = Reprioritise();
                     if(target.position != null)
                     {
