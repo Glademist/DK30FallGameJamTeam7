@@ -25,8 +25,8 @@ public class ProgressBar
         this.attachedObject = obj;
         this.healthBarScale = healthBarScale;
         this.localOffsetX = localPos.x;
-        backgroundHealthBar = InitHealthBar("Background_bar", backgroundScale, new Vector3(localPos.x, localPos.y, 2), bgColur);
-        currentHealthBar = InitHealthBar("Health_bar", healthBarScale, new Vector3(localPos.x, localPos.y, 1), fgColour);
+        backgroundHealthBar = InitHealthBar("Background_bar", backgroundScale, new Vector3(localPos.x, localPos.y, -1), bgColur);
+        currentHealthBar = InitHealthBar("Health_bar", healthBarScale, new Vector3(localPos.x, localPos.y, -2), fgColour);
         barRend = currentHealthBar.GetComponent<SpriteRenderer>();
         bgRend = backgroundHealthBar.GetComponent<SpriteRenderer>();
     }
@@ -38,8 +38,8 @@ public class ProgressBar
         this.attachedObject = obj;
         this.healthBarScale = healthBarScale;
         this.localOffsetX = localPos.x;
-        backgroundHealthBar = InitHealthBarImage("Background_bar", backgroundScale, new Vector3(localPos.x, localPos.y, 1), bgColur);
-        currentHealthBar = InitHealthBarImage("Health_bar", healthBarScale, new Vector3(localPos.x, localPos.y, 2), fgColour);
+        backgroundHealthBar = InitHealthBarImage("Background_bar", backgroundScale, new Vector3(localPos.x, localPos.y, -2), bgColur);
+        currentHealthBar = InitHealthBarImage("Health_bar", healthBarScale, new Vector3(localPos.x, localPos.y, -1), fgColour);
         barImage = currentHealthBar.GetComponent<Image>();
         bgImage = backgroundHealthBar.GetComponent<Image>();
     }
@@ -47,10 +47,10 @@ public class ProgressBar
     public void UpdateHealthbar(float currentValue, float maxValue)
     {
         float percentHealth = currentValue / maxValue;
-        ToggleHidden(true);
+        ToggleVisible(true);
         if (percentHealth == 1)
         {
-            ToggleHidden(false);
+            ToggleVisible(false);
         }
 
         float scale = 200f;
@@ -64,7 +64,7 @@ public class ProgressBar
             currentHealthBar.transform.localScale = new Vector3(healthBarScale.x * percentHealth, healthBarScale.y, healthBarScale.z);
 
             float barOffset = (healthBarScale.x - (healthBarScale.x * percentHealth)) / scale;
-            currentHealthBar.transform.localPosition = new Vector3(-barOffset + localOffsetX, currentHealthBar.transform.localPosition.y, 1);
+            currentHealthBar.transform.localPosition = new Vector3(-barOffset + localOffsetX, currentHealthBar.transform.localPosition.y, -2);
         }
 
         //recolour healthbar for units
@@ -134,17 +134,17 @@ public class ProgressBar
         return bar;
     }
 
-    public void ToggleHidden(bool hidden)
+    public void ToggleVisible(bool visible)
     {
         if (barRend != null)
         {
-            barRend.enabled = hidden;
-            bgRend.enabled = hidden;
+            barRend.enabled = visible;
+            bgRend.enabled = visible;
         }
         else if (barImage != null)
         {
-            barImage.enabled = hidden;
-            bgImage.enabled = hidden;
+            barImage.enabled = visible;
+            bgImage.enabled = visible;
         }
     }
 

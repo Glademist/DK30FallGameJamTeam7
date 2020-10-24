@@ -36,7 +36,6 @@ public class Pathfinding : MonoBehaviour
         target = Target;
         if (OpenXYList.Count <= 0)
         {
-            Debug.Log("1st");
             ClearProcessedLists();
             ClearLists();
             LoadAStarChunk(Origin, Target, Origin);
@@ -62,7 +61,6 @@ public class Pathfinding : MonoBehaviour
         }
         if ((XYContains(Target.x, Target.y, ClosedXYList)))
         {
-            Debug.Log("AStar Successful");
             BuildPath();
             ClearOpenLists();
         }
