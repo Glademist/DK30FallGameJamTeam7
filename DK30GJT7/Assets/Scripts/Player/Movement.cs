@@ -10,10 +10,12 @@ public class Movement : MonoBehaviour
     float vertical;
 
     public float runSpeed = 10.0f;
+    Interaction interaction;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        interaction = GetComponent<Interaction>();
     }
 
     void Update()
@@ -25,5 +27,9 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        if(body.velocity.x != 0 || body.velocity.y != 0)
+        {
+            interaction.CancelInteration();
+        }
     }
 }
