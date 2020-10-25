@@ -323,7 +323,7 @@ PrefabInstance:
     - target: {fileID: 2418684363094216753, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: DrawGizmos
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2418684363094216755, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
