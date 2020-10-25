@@ -118,6 +118,8 @@ public class ProgressBar
         SpriteRenderer rend = bar.AddComponent<SpriteRenderer>();
         rend.sprite = Resources.Load<Sprite>("pixel_1x1");
         rend.sortingLayerName = "Foreground";
+        rend.sortingOrder = 5;
+
         rend.color = colour;
         return bar;
     }

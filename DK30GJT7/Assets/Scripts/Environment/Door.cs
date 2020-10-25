@@ -28,8 +28,10 @@ public class Door : MonoBehaviour
             collider.isTrigger = true;
         } else
         {
-            spriteRend.sprite = closedDoor;
-            collider.isTrigger = false;
+            if (!collider.IsTouchingLayers(-1)){
+                spriteRend.sprite = closedDoor;
+                collider.isTrigger = false;
+            }
         }
     }
 
