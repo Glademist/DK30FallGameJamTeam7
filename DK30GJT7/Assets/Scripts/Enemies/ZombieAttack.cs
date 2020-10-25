@@ -58,7 +58,7 @@ public class ZombieAttack : MonoBehaviour
         }
         if (Attacking)
         {
-            Attack();
+            Attack(Target);
         }
     }
 
@@ -77,7 +77,7 @@ public class ZombieAttack : MonoBehaviour
         }
     }
 
-    public void Attack()
+    public void Attack(GameObject target)
     {
         if (AttackTimer > AttackCooldown - AttackTime / 2)
         {

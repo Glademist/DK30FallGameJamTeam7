@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
+    RaycastHit hit;
+    Camera cam;
+    public Vector2 mousePos;
+
     [SerializeField]
     int keys = 0, food = 2;
 
@@ -22,6 +26,7 @@ public class Interaction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main;
         actionProgress = new ProgressBar(gameObject, new Vector3(150, 15, 1), new Vector3(140, 12, 1), new Vector2(0, 0f), Color.black, Color.grey, false);
         actionProgress.ToggleVisible(false);
 
@@ -48,41 +53,41 @@ public class Interaction : MonoBehaviour
             }
         }
 
-
+        // Interact with item at mouse position
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up);
-            Debug.Log("Mouse down");
+            //Debug.Log("Mouse down");
             if (hit.collider != null)
             {
-                Debug.Log(hit.collider.name);
-                Door door = hit.collider.gameObject.GetComponent<Door>();
-                if (door == null)
-                {
-                    return;
-                }
-                if (!door.TryOpenDoor())
-                {
-                    if (keys <= 0)
-                    {
-                        Debug.Log("no keys");
-                        return;
-                    }
-                    if (Vector2.Distance(transform.position, door.transform.position) > maxInteractionDistance)
-                    {
-                        Debug.Log("too far away");
-                        return;
-                    }
-                    unlockingDoor = true;
-                    currentTime = unlockDoor;
-                    doorBeingUnlocked = door;
-                    actionProgress.ToggleVisible(true);
-                }
-
+                //Debug.Log("Player interact:" + hit.collider.name);
+                Interact(hit.collider);
             }
         }
-
+        // Send knight to mouse position
         if (Input.GetMouseButtonDown(0))
+        {
+            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 goTo = (new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
+            if (GlobalReferences.Knight)
+            {
+                KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
+                knightController.AddKnightStimulus(null, goTo, "player_call");
+            }
+        }
+        // Call the knight to your position
+        if (Input.GetKeyDown("f"))
+        {
+            //Debug.Log("Player calling Knight");
+            Vector2 goTo = (new Vector2(Mathf.Floor(transform.position.x) + 0.5f, Mathf.Floor(transform.position.y) + 0.5f));
+            if (GlobalReferences.Knight)
+            {
+                KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
+                knightController.AddKnightStimulus(null, goTo, "player_call");
+            }
+        }
+        // Throw an item
+        if (Input.GetKeyDown("r"))
         {
             GameObject thrownGold = Instantiate(gold, new Vector3(0, 0, 0), Quaternion.identity);
             Rigidbody2D body = thrownGold.GetComponent<Rigidbody2D>();
@@ -90,6 +95,37 @@ public class Interaction : MonoBehaviour
             Vector2 start = transform.position;
             body.position = start + (target - start) / 5f;
             body.velocity = target - start;
+
+        }
+    }
+
+
+
+    public void Interact(Collider2D hit){
+        if(hit.gameObject.GetComponent<Door>())
+        {
+            Door door = hit.gameObject.GetComponent<Door>();
+            if (door == null)
+            {
+                return;
+            }
+            if (!door.TryOpenDoor())
+            {
+                if (keys <= 0)
+                {
+                    Debug.Log("no keys");
+                    return;
+                }
+                if (Vector2.Distance(transform.position, door.transform.position) > maxInteractionDistance)
+                {
+                    Debug.Log("too far away");
+                    return;
+                }
+                unlockingDoor = true;
+                currentTime = unlockDoor;
+                doorBeingUnlocked = door;
+                actionProgress.ToggleVisible(true);
+            }
 
         }
     }

@@ -10,7 +10,7 @@ public class KnightMove : MonoBehaviour
     public Vector2 mousePos;
     public float speed = 0.35f;
     public Rigidbody2D rigid2d;
-    public Pathfinding pathfinding;
+    Pathfinding pathfinding;
     public List<Vector2Int> pathTarget;
     public List<Room> rooms;
     public Room currentRoom;
@@ -29,7 +29,7 @@ public class KnightMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse2))
         {
             mousePos = Cam.ScreenToWorldPoint(Input.mousePosition);
             CommandKnight(new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));

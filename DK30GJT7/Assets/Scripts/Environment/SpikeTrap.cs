@@ -12,7 +12,9 @@ public class SpikeTrap : MonoBehaviour
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        GameObject vfx = transform.GetChild(0).gameObject;
+        anim = vfx.GetComponent<Animator>();
+        Debug.Log("animator"+ anim);
     }
 
     private void Update()
