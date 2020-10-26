@@ -4,27 +4,18 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    [SerializeField]
-    Interaction player;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(player.targetedObject == null)
+        Interaction player = collision.GetComponent<Interaction>();
+        if(player != null)
         {
-            Debug.Log("player can pick up");
-            player.targetedObject = transform.parent.gameObject;
+            if (player.targetedObject == null)
+            {
+                Debug.Log("player can pick up");
+                player.targetedObject = transform.parent.gameObject;
+            }
         }
+
     }
 }

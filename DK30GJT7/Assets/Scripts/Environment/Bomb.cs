@@ -41,6 +41,7 @@ public class Bomb : MonoBehaviour
         Debug.Log(string.Format("Found {0} collisions", collisions.Length));
         for (int i = 0; i < collisions.Length; i++)
         {
+            Debug.Log(collisions[i].name);
             Health character = collisions[i].gameObject.GetComponent<Health>();
             if(character != null)
             {
