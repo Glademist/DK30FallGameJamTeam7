@@ -26,6 +26,7 @@ public class SpikeTrap : MonoBehaviour
             {
                 extended = true;
             }
+
         }
         else
         {
