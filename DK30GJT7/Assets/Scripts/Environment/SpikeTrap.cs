@@ -8,7 +8,6 @@ public class SpikeTrap : MonoBehaviour
     Animator anim;
 
     float extendedTime = 2f, currentTime = 0f;
-    bool flipping = false;
 
     private void Start()
     {

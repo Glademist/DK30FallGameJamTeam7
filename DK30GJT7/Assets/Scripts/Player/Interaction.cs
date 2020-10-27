@@ -141,23 +141,20 @@ public class Interaction : MonoBehaviour
 
     public void Interact(Collider2D hit)
     {
+        if (Vector2.Distance(transform.position, hit.gameObject.transform.position) > maxInteractionDistance)
+        {
+            Debug.Log("too far away");
+            return;
+        }
+
         if (hit.gameObject.GetComponent<Door>())
         {
             Door door = hit.gameObject.GetComponent<Door>();
-            if (door == null)
-            {
-                return;
-            }
             if (!door.TryOpenDoor())
             {
                 if (keys <= 0)
                 {
                     Debug.Log("no keys");
-                    return;
-                }
-                if (Vector2.Distance(transform.position, door.transform.position) > maxInteractionDistance)
-                {
-                    Debug.Log("too far away");
                     return;
                 }
                 unlockingDoor = true;
@@ -166,6 +163,12 @@ public class Interaction : MonoBehaviour
                 actionProgress.ToggleVisible(true);
             }
 
+        }
+        else if (hit.gameObject.GetComponent<Lever>())
+        {
+            
+            Lever lever = hit.gameObject.GetComponent<Lever>();
+            lever.FlipLever();
         }
     }
 
