@@ -25,8 +25,6 @@ public class ProgressBar
         this.attachedObject = obj;
         this.healthBarScale = healthBarScale;
         this.localOffsetX = localPos.x;
-        backgroundHealthBar = InitHealthBar("Background_bar", backgroundScale, new Vector3(localPos.x, localPos.y, 2), bgColur);
-        currentHealthBar = InitHealthBar("Health_bar", healthBarScale, new Vector3(localPos.x, localPos.y, 1), fgColour);
         backgroundHealthBar = InitHealthBar("Background_bar", backgroundScale, new Vector3(localPos.x, localPos.y, -1), bgColur);
         currentHealthBar = InitHealthBar("Health_bar", healthBarScale, new Vector3(localPos.x, localPos.y, -2), fgColour);
         barRend = currentHealthBar.GetComponent<SpriteRenderer>();
@@ -40,8 +38,8 @@ public class ProgressBar
         this.attachedObject = obj;
         this.healthBarScale = healthBarScale;
         this.localOffsetX = localPos.x;
-        backgroundHealthBar = InitHealthBarImage("Background_bar", backgroundScale, new Vector3(localPos.x, localPos.y, -2), bgColur);
-        currentHealthBar = InitHealthBarImage("Health_bar", healthBarScale, new Vector3(localPos.x, localPos.y, -1), fgColour);
+        backgroundHealthBar = InitHealthBarImage("Background_bar", backgroundScale, new Vector3(localPos.x, localPos.y, -1), bgColur);
+        currentHealthBar = InitHealthBarImage("Health_bar", healthBarScale, new Vector3(localPos.x, localPos.y, -2), fgColour);
         barImage = currentHealthBar.GetComponent<Image>();
         bgImage = backgroundHealthBar.GetComponent<Image>();
     }
