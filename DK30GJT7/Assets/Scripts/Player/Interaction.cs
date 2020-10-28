@@ -78,7 +78,7 @@ public class Interaction : MonoBehaviour
                 heldObject.GetComponent<CircleCollider2D>().enabled = true;
 
                 heldObject.transform.position = start + (target - start) / 5f;
-                heldObjectBody.velocity = (target - start) * 20f;
+                heldObjectBody.velocity = (target - start) * 3f;
 
                 heldObject = null;
                 targetedObject = null;
