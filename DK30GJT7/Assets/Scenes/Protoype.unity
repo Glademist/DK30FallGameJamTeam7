@@ -34777,7 +34777,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.061834335}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -34788,7 +34788,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6305733, y: 0.6305733}
   m_EdgeRadius: 0
 --- !u!114 &1206832377
 MonoBehaviour:
@@ -37420,11 +37420,31 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3562040251466069720, guid: 432d2f06f87a8e0458a0e709c0fe2001,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerOnlyCollider
+      objectReference: {fileID: 0}
     - target: {fileID: 3562040251466069722, guid: 432d2f06f87a8e0458a0e709c0fe2001,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 749592617}
+    - target: {fileID: 3562040251466069725, guid: 432d2f06f87a8e0458a0e709c0fe2001,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.020785451
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562040251466069725, guid: 432d2f06f87a8e0458a0e709c0fe2001,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.71898925
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562040251466069725, guid: 432d2f06f87a8e0458a0e709c0fe2001,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.096794486
+      objectReference: {fileID: 0}
     - target: {fileID: 7903257153604790968, guid: 432d2f06f87a8e0458a0e709c0fe2001,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37478,6 +37498,11 @@ PrefabInstance:
     - target: {fileID: 7903257153604790968, guid: 432d2f06f87a8e0458a0e709c0fe2001,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7903257153604790970, guid: 432d2f06f87a8e0458a0e709c0fe2001,
+        type: 3}
+      propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7903257153604790972, guid: 432d2f06f87a8e0458a0e709c0fe2001,
