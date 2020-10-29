@@ -70,7 +70,6 @@ public class Interaction : MonoBehaviour
             if(heldObject != null)
             {
                 Vector2 start = transform.position;
-                Debug.Log("trying to throw a held object");
                 heldObject.transform.parent = null;
                 heldObjectBody.isKinematic = false;
                 heldObjectBody.constraints = RigidbodyConstraints2D.None;

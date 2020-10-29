@@ -27,7 +27,16 @@ public class Chest : MonoBehaviour
 
             if(storedObject != null)
             {
-                GameObject reward = Instantiate(storedObject, (Vector2)transform.position + offset, Quaternion.identity);
+                Vector2 targetPos = (Vector2)transform.position + offset;
+
+                RaycastHit2D hit = Physics2D.Raycast(targetPos, -Vector2.up);
+                if (hit.collider != null)
+                {
+                    targetPos = (Vector2)transform.position;
+                }
+
+
+                GameObject reward = Instantiate(storedObject, targetPos, Quaternion.identity);
             }
         }
     }
