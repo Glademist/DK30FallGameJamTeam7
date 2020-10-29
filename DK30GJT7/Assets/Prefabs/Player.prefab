@@ -228,4 +228,6 @@ MonoBehaviour:
   keys: 0
   food: 2
   keyText: {fileID: 0}
+  gotoCursor: {fileID: 7818734405096302547, guid: 662afd8c7f7f0d04fa30322659a1b005,
+    type: 3}
   gold: {fileID: 4554237686036847980, guid: f6544b4fc259ca642a08e18ada1dbc0e, type: 3}
