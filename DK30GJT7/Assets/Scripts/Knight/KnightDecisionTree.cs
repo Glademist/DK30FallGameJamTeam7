@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KnightDecisionTree : MonoBehaviour
 {
+    [Header("emotions")]
     public float Comfort = 0; //interest in staying put
     public float UnComfort = 0; //interest in moving forward
     public float Distracted = 0; //interest in new things
@@ -12,12 +13,12 @@ public class KnightDecisionTree : MonoBehaviour
     public float Energized = 0; //interest in combat
     public float Fear = 0; //interest in avoiding danger
     public float Courage = 0; //interest in facing danger
+
     public List<Interest> Interests;
     public Interest CurrentInterest;
     public Room InterestedRoom;
     public KnightMove knightMove;
     public CircleCollider2D InterestRange;
-    List<Collider2D> Colliders;
     int resetTarget = 0;
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class KnightDecisionTree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateInterests();
         UpdateRoomInterest();
         ChooseInterest();
         if (CurrentInterest == null)
@@ -77,6 +79,11 @@ public class KnightDecisionTree : MonoBehaviour
         Interests.Add(Interest);
     }
 
+    public void UpdateInterests()
+    {
+
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<HasInterest>() != null)
@@ -109,7 +116,7 @@ public class KnightDecisionTree : MonoBehaviour
                 }
             }
         }
-        foreach (Room Room in knightMove.rooms)
+        foreach (Room Room in knightMove.AccessibleRooms)
         {
             if (InterestedRoom == null)
             {
