@@ -13,6 +13,11 @@ public class KnightMove : MonoBehaviour
     Pathfinding pathfinding;
     public List<Vector2Int> pathTarget;
     public List<Room> rooms;
+    public List<Room> AccessibleRooms = new List<Room>();
+    List<Room> _UncheckedRooms = new List<Room>();
+    List<Room> _CheckedRooms = new List<Room>();
+    List<Door> _UncheckedDoors = new List<Door>();
+    List<Door> _CheckedDoors = new List<Door>();
     public Room currentRoom;
     public bool DrawGizmos = false;
     public Interest TargetInterest;
@@ -24,6 +29,59 @@ public class KnightMove : MonoBehaviour
         Cam = Camera.main;
         rigid2d = this.GetComponent<Rigidbody2D>();
         target = this.transform.position;
+        SetupDoors();
+        IsInRoom();
+        CheckDoors();
+    }
+
+    public void SetupDoors()
+    {
+        foreach (Room room in rooms)
+        {
+            foreach (Door door in room.Doors)
+            {
+                door.rooms.Add(room);
+                door.Knight = this.gameObject;
+            }
+        }
+    }
+
+    public void CheckDoors()
+    {
+        _UncheckedRooms.Add(currentRoom);
+        AccessibleRooms.Clear();
+        while (_UncheckedRooms.Count != 0)
+        {
+            _CheckedRooms.Add(_UncheckedRooms[0]);
+            AccessibleRooms.Add(_UncheckedRooms[0]);
+            foreach (Door door in _UncheckedRooms[0].Doors)
+            {
+                if (door.open)
+                {
+                    if (!_CheckedDoors.Contains(door) && !_UncheckedDoors.Contains(door))
+                    {
+                        _UncheckedDoors.Add(door);
+                    }
+                }
+            }
+            foreach (Door door in _UncheckedDoors)
+            {
+                _CheckedDoors.Add(door);
+                foreach (Room room in door.rooms)
+                {
+                    if (!_CheckedRooms.Contains(room) && !_UncheckedRooms.Contains(room))
+                    {
+                        _UncheckedRooms.Add(room);
+                    }
+                }
+            }
+            _UncheckedDoors.Clear();
+            _UncheckedRooms.RemoveAt(0);
+        }
+        _UncheckedDoors.Clear();
+        _CheckedDoors.Clear();
+        _UncheckedRooms.Clear();
+        _CheckedRooms.Clear();
     }
 
     // Update is called once per frame
