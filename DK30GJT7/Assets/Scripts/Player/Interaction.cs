@@ -167,8 +167,11 @@ public class Interaction : MonoBehaviour
         else if (hit.gameObject.GetComponent<Lever>())
         {
             
-            Lever lever = hit.gameObject.GetComponent<Lever>();
-            lever.FlipLever();
+            hit.gameObject.GetComponent<Lever>().FlipLever();
+        }
+        else if (hit.gameObject.GetComponent<Chest>())
+        {
+            hit.gameObject.GetComponent<Chest>().OpenChest();
         }
     }
 
