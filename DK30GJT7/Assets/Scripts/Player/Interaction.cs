@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    RaycastHit hit;
     Camera cam;
     public Vector2 mousePos;
 
@@ -20,6 +19,10 @@ public class Interaction : MonoBehaviour
 
     Door doorBeingUnlocked;
     bool unlockingDoor = false;
+
+    [SerializeField]
+    public GameObject heldObject, targetedObject;
+    Rigidbody2D heldObjectBody;
     
     public GameObject gotoCursor;
 
@@ -58,12 +61,30 @@ public class Interaction : MonoBehaviour
         // Interact with item at mouse position
         if (Input.GetMouseButtonDown(1))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up);
+            Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(target, -Vector2.up);
             //Debug.Log("Mouse down");
             if (hit.collider != null)
             {
                 //Debug.Log("Player interact:" + hit.collider.name);
                 Interact(hit.collider);
+            }
+
+            // Throw an item
+            if(heldObject != null)
+            {
+                Vector2 start = transform.position;
+                heldObject.transform.parent = null;
+                heldObjectBody.isKinematic = false;
+                heldObjectBody.constraints = RigidbodyConstraints2D.None;
+                heldObjectBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+                heldObject.GetComponent<CircleCollider2D>().enabled = true;
+
+                heldObject.transform.position = start + (target - start) / 5f;
+                heldObjectBody.velocity = (target - start) * 20f;
+
+                heldObject = null;
+                targetedObject = null;
             }
         }
         // Send knight to mouse position
@@ -89,6 +110,7 @@ public class Interaction : MonoBehaviour
                 knightController.AddKnightStimulus(null, goTo, "player_call");
             }
         }
+        /*
         // Throw an item
         if (Input.GetKeyDown("r"))
         {
@@ -99,29 +121,44 @@ public class Interaction : MonoBehaviour
             body.position = start + (target - start) / 5f;
             body.velocity = target - start;
 
+        }*/
+
+        if (Input.GetKeyDown("e"))
+        {
+            if(targetedObject != null)
+            {
+                Debug.Log("trying to pick up targeted object");
+                heldObject = targetedObject;
+                targetedObject = null;
+                heldObject.transform.parent = gameObject.transform;
+                heldObject.transform.localPosition = new Vector3(0, -0.3f);
+                heldObjectBody = heldObject.GetComponent<Rigidbody2D>();
+                heldObjectBody.isKinematic = true;
+                heldObjectBody.constraints = RigidbodyConstraints2D.FreezeAll;
+                heldObject.GetComponent<CircleCollider2D>().enabled = false;
+                
+            }
         }
     }
 
 
 
-    public void Interact(Collider2D hit){
-        if(hit.gameObject.GetComponent<Door>())
+    public void Interact(Collider2D hit)
+    {
+        if (Vector2.Distance(transform.position, hit.gameObject.transform.position) > maxInteractionDistance)
+        {
+            Debug.Log("too far away");
+            return;
+        }
+
+        if (hit.gameObject.GetComponent<Door>())
         {
             Door door = hit.gameObject.GetComponent<Door>();
-            if (door == null)
-            {
-                return;
-            }
             if (!door.TryOpenDoor())
             {
                 if (keys <= 0)
                 {
                     Debug.Log("no keys");
-                    return;
-                }
-                if (Vector2.Distance(transform.position, door.transform.position) > maxInteractionDistance)
-                {
-                    Debug.Log("too far away");
                     return;
                 }
                 unlockingDoor = true;
@@ -130,6 +167,15 @@ public class Interaction : MonoBehaviour
                 actionProgress.ToggleVisible(true);
             }
 
+        }
+        else if (hit.gameObject.GetComponent<Lever>())
+        {
+            
+            hit.gameObject.GetComponent<Lever>().FlipLever();
+        }
+        else if (hit.gameObject.GetComponent<Chest>())
+        {
+            hit.gameObject.GetComponent<Chest>().OpenChest();
         }
     }
 
