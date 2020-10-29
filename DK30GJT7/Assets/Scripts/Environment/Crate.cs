@@ -14,9 +14,8 @@ public class Crate : MonoBehaviour
             if (collision.gameObject.GetComponentInChildren<Pickup>() && storedObject != null)
             {
                 GameObject reward = Instantiate(storedObject, (Vector2)transform.position, Quaternion.identity);
+                Destroy(gameObject);
             }
-
-            Destroy(gameObject);
         }
     }
 }
