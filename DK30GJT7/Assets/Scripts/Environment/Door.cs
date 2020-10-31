@@ -34,8 +34,8 @@ public class Door : MonoBehaviour
             spriteRend.sprite = openDoor;
             collider.isTrigger = true;
             UpdateTilemap(walls, Location, null);
-            if(Knight != null){
-                Knight.GetComponent<KnightMove>().CheckDoors();
+            if(knight != null){
+                knight.GetComponent<KnightMove>().CheckDoors();
             }
         } else
         {
@@ -43,8 +43,8 @@ public class Door : MonoBehaviour
                 spriteRend.sprite = closedDoor;
                 collider.isTrigger = false;
                 UpdateTilemap(walls, Location, Ground);
-                if(Knight != null){
-                    Knight.GetComponent<KnightMove>().CheckDoors();
+                if(knight != null){
+                    knight.GetComponent<KnightMove>().CheckDoors();
                 }
             }
         }
