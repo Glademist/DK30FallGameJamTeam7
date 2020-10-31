@@ -11,9 +11,12 @@ public class Crate : MonoBehaviour
     {
         if (collision.relativeVelocity.magnitude > 10)
         {
-            if (collision.gameObject.GetComponentInChildren<Pickup>() && storedObject != null)
+            if (collision.gameObject.GetComponentInChildren<Pickup>())
             {
-                GameObject reward = Instantiate(storedObject, (Vector2)transform.position, Quaternion.identity);
+                if (storedObject != null)
+                {
+                    GameObject reward = Instantiate(storedObject, (Vector2)transform.position, Quaternion.identity);
+                }
                 Destroy(gameObject);
             }
         }
