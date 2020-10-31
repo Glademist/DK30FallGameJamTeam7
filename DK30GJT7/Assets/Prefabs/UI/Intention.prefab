@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3880817229720115574}
   - component: {fileID: 3322186246164278122}
+  - component: {fileID: 521638739}
   m_Layer: 0
   m_Name: Intention
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3880817229720115574
 Transform:
   m_ObjectHideFlags: 0
@@ -81,3 +82,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &521638739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876637468328069928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3a39521497a52419825f73845d925c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToShowCurrent: 0
+  mySprite: {fileID: 3322186246164278122}
+  sayExclamation: {fileID: 21300000, guid: 64ac762d4083a124a881ba8c11f6e433, type: 3}
+  thinkExclamation: {fileID: 21300000, guid: f69a48a2d65070b41a9c2692cc30cac0, type: 3}
+  thinkPointer: {fileID: 21300000, guid: 34375e682992c1b4a9ba46451a421cfe, type: 3}
+  placeHolder: {fileID: 21300000, guid: 708b528c60084cd45b8f57b74bd40520, type: 3}

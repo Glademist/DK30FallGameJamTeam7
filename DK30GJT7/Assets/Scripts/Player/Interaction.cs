@@ -28,13 +28,14 @@ public class Interaction : MonoBehaviour
 
     public GameObject gold;
 
+    public Intention intention;
+
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
         actionProgress = new ProgressBar(gameObject, new Vector3(150, 15, 1), new Vector3(140, 12, 1), new Vector2(0, 0f), Color.black, Color.grey, false);
         actionProgress.ToggleVisible(false);
-
         UpdateKeys(0);
     }
 
@@ -96,7 +97,7 @@ public class Interaction : MonoBehaviour
             {
                 Instantiate(gotoCursor, new Vector3(goTo.x, goTo.y, 0), Quaternion.identity);
                 KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
-                knightController.AddKnightStimulus(null, goTo, "player_call");
+                knightController.AddKnightStimulus(null, goTo, "go_to_player_pointer");
             }
         }
         // Call the knight to your position
@@ -106,8 +107,9 @@ public class Interaction : MonoBehaviour
             Vector2 goTo = (new Vector2(Mathf.Floor(transform.position.x) + 0.5f, Mathf.Floor(transform.position.y) + 0.5f));
             if (GlobalReferences.Knight)
             {
+                intention.ShowIntention("player_call", 1);
                 KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
-                knightController.AddKnightStimulus(null, goTo, "player_call");
+                knightController.AddKnightStimulus(null, goTo, "go_to_player_call");
             }
         }
         /*
