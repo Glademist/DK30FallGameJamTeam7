@@ -9,6 +9,7 @@ public class KnightController : MonoBehaviour
 
     [SerializeField]
     private Stimulus target = null;
+    public GameObject displayedIntention;
     [SerializeField]
     private List<Stimulus> stimuli = new List<Stimulus>();
 
@@ -41,10 +42,11 @@ public class KnightController : MonoBehaviour
                 if (secondsSinceLastReprioritise >= secondsToReprioritise)
                 {
                     target = Reprioritise();
-                    Debug.Log("Knight - Prioritising " + target.type);
+                    
                     if(target.position != null)
                     {
                         MoveToPosition(target.position);
+                        Debug.Log("Knight - Prioritising " + target.type);
                         if(!target.type.Equals("idle")){
                             secondsSinceLastReprioritise = 0;
                         }
