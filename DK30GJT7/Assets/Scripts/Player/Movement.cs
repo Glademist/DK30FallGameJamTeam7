@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     bool facingRight;
 
     public float runSpeed = 10.0f;
+    public GameObject vfx;
     Interaction interaction;
 
     void Start()
@@ -55,8 +56,8 @@ public class Movement : MonoBehaviour
     }
 
     private void FlipSprite(){
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        Vector3 pos = vfx.transform.localScale;
+        pos.x *= -1;
+        vfx.transform.localScale = pos;
     }
 }

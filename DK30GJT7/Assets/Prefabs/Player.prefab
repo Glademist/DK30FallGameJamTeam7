@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 10
+  vfx: {fileID: 3577333932239288040}
 --- !u!61 &3577333932862307948
 BoxCollider2D:
   m_ObjectHideFlags: 0
