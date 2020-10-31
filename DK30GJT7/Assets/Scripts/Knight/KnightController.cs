@@ -48,9 +48,9 @@ public class KnightController : MonoBehaviour
                     {
                         MoveToPosition(target.position);
                         Debug.Log("Knight - Prioritising " + target.type);
-                        intention.ShowIntention(target.type, 1);
-
+                        
                         if(!target.type.Equals("idle")){
+                            intention.ShowIntention(target.type, 1);
                             secondsSinceLastReprioritise = 0;
                         }
                     }                        
