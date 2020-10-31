@@ -97,9 +97,9 @@ public class Interaction : MonoBehaviour
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 goTo = (new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
+            Instantiate(gotoCursor, new Vector3(goTo.x, goTo.y, 0), Quaternion.identity);
             if (GlobalReferences.Knight)
             {
-                Instantiate(gotoCursor, new Vector3(goTo.x, goTo.y, 0), Quaternion.identity);
                 KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
                 knightController.AddKnightStimulus(null, goTo, "go_to_player_pointer");
             }
@@ -107,11 +107,11 @@ public class Interaction : MonoBehaviour
         // Call the knight to your position
         if (Input.GetKeyDown("f"))
         {
-            //Debug.Log("Player calling Knight");
+            Debug.Log("Player calling Knight");
             Vector2 goTo = (new Vector2(Mathf.Floor(transform.position.x) + 0.5f, Mathf.Floor(transform.position.y) + 0.5f));
+            intention.ShowIntention("player_call", .5f);
             if (GlobalReferences.Knight)
             {
-                intention.ShowIntention("player_call", 1);
                 KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
                 knightController.AddKnightStimulus(null, goTo, "go_to_player_call");
             }

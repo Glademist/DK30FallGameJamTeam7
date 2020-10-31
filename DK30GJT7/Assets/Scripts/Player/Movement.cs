@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
 
     float horizontal;
     float vertical;
+    bool facingRight;
 
     public float runSpeed = 10.0f;
     Interaction interaction;
@@ -32,5 +33,30 @@ public class Movement : MonoBehaviour
         {
             interaction.CancelInteration();
         }
+        ChangeFacingDirection();
+
+    }
+
+    private void ChangeFacingDirection(){
+        if(body.velocity.x != 0){
+            if(body.velocity.x < 0){
+                if(!facingRight){
+                    facingRight = true;
+                    FlipSprite();
+                }
+            }
+            else{
+                if(facingRight){
+                    facingRight = false;
+                    FlipSprite();
+                }
+            }
+        }
+    }
+
+    private void FlipSprite(){
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
