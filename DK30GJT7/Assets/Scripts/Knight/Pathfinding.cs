@@ -41,7 +41,7 @@ public class Pathfinding : MonoBehaviour
             LoadAStarChunk(Origin, Target, Origin);
             NextInstance = OpenXYList[GetLowestDist()];
         }
-        int i = 0;
+        int i = 0; //end if it's going for too long.
         while (!(XYContains(Target.x, Target.y, ClosedXYList)) && i < 180)
         {
             i++;

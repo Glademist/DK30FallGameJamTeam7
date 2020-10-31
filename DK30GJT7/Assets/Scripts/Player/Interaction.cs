@@ -63,12 +63,16 @@ public class Interaction : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(target, -Vector2.up);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(target, -Vector2.up);
             //Debug.Log("Mouse down");
-            if (hit.collider != null)
+
+            foreach(RaycastHit2D hit in hits)
             {
-                //Debug.Log("Player interact:" + hit.collider.name);
-                Interact(hit.collider);
+                if (hit.collider != null)
+                {
+                    //Debug.Log("Player interact:" + hit.collider.name);
+                    Interact(hit.collider);
+                }
             }
 
             // Throw an item
@@ -172,7 +176,7 @@ public class Interaction : MonoBehaviour
         }
         else if (hit.gameObject.GetComponent<Lever>())
         {
-            
+            Debug.Log("flip lever");
             hit.gameObject.GetComponent<Lever>().FlipLever();
         }
         else if (hit.gameObject.GetComponent<Chest>())
