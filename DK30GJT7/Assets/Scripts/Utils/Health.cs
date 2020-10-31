@@ -36,7 +36,10 @@ public class Health : MonoBehaviour
         healthBar.UpdateHealthbar(currentHealth, maxHealth);
         if(currentHealth <= 0)
         {
-            Debug.Log("I have died");
+            if(gameObject.name != "Player" && gameObject.name != "knight")
+            {
+                Destroy(gameObject);
+            }
         }
         if (enemy)
         {
