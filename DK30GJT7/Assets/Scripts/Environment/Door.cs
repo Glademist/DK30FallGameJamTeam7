@@ -33,14 +33,18 @@ public class Door : MonoBehaviour
             spriteRend.sprite = openDoor;
             collider.isTrigger = true;
             UpdateTilemap(walls, Location, null);
-            Knight.GetComponent<KnightMove>().CheckDoors();
+            if(Knight != null){
+                Knight.GetComponent<KnightMove>().CheckDoors();
+            }
         } else
         {
             if (!collider.IsTouchingLayers(-1)){
                 spriteRend.sprite = closedDoor;
                 collider.isTrigger = false;
                 UpdateTilemap(walls, Location, Ground);
-                Knight.GetComponent<KnightMove>().CheckDoors();
+                if(Knight != null){
+                    Knight.GetComponent<KnightMove>().CheckDoors();
+                }
             }
         }
     }
