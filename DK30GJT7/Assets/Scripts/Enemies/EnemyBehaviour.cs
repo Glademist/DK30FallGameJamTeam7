@@ -150,8 +150,10 @@ public class EnemyBehaviour : MonoBehaviour
 
         else if (Vector2.Distance(currentTarget.transform.position, transform.position) < attackRange)  //if target in attack range start attacking
         {
-            currentState = State.Attacking;
-            StartAttacking();
+            if (!targetHealth)
+            {
+                StartAttacking();
+            }
         }
     }
 
@@ -168,6 +170,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void StartAttacking()
     {
+        currentState = State.Attacking;
         attackTime = attackSpeed;
         targetHealth = currentTarget.GetComponent<Health>();
     }
@@ -185,6 +188,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (sleeping)
         {
+            anim.SetBool("Running", true);
             currentState = State.Wandering;
             sleeping = false;
             healthbar.ToggleVisible(true);
