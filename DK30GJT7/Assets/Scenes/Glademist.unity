@@ -1166,6 +1166,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chest
       objectReference: {fileID: 0}
+    - target: {fileID: 7103271714029265126, guid: 91f9e04b2c7595a409897a48f1698489,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f9e04b2c7595a409897a48f1698489, type: 3}
 --- !u!4 &481971857 stripped
@@ -1308,7 +1313,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -4376,12 +4381,12 @@ PrefabInstance:
     - target: {fileID: 7847932520372438935, guid: e0102fb06cb465144aff61e86760291b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.81
+      value: -10.76
       objectReference: {fileID: 0}
     - target: {fileID: 7847932520372438935, guid: e0102fb06cb465144aff61e86760291b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.05
+      value: 10.41
       objectReference: {fileID: 0}
     - target: {fileID: 7847932520372438935, guid: e0102fb06cb465144aff61e86760291b,
         type: 3}
@@ -4682,12 +4687,12 @@ PrefabInstance:
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: rooms.Array.data[1].room.width
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: rooms.Array.data[1].room.height
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
@@ -5634,7 +5639,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133245327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1506104696}

@@ -124,7 +124,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05382693, y: -0.07752353}
+  m_Offset: {x: 0.05382693, y: 0.27695912}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,7 +135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48888612, y: 0.2973224}
+  m_Size: {x: 0.48888612, y: 1.0062877}
   m_EdgeRadius: 0
 --- !u!61 &6522513335775771733
 BoxCollider2D:
@@ -150,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.046731353, y: 0.14881974}
+  m_Offset: {x: 0.051028132, y: 0.27557415}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -161,7 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.503371, y: 0.3689431}
+  m_Size: {x: 0.49477744, y: 0.98337924}
   m_EdgeRadius: 0
 --- !u!114 &6522513335775771732
 MonoBehaviour:
@@ -181,6 +181,7 @@ MonoBehaviour:
   rigid2d: {fileID: 6522513335942902352}
   pathTarget: []
   rooms: []
+  AccessibleRooms: []
   currentRoom:
     room:
       x: 0
@@ -189,6 +190,8 @@ MonoBehaviour:
       height: 0
     Interest: 0
     InterestGrowth: 0.5
+    isAccessible: 0
+    Doors: []
   DrawGizmos: 0
   TargetInterest:
     InitInterest: 50
