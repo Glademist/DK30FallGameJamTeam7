@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
     public RectInt Location;
     public Tile Ground;
     public List<Room> rooms;
-    public GameObject Knight;
+    private GameObject knight;
 
     SpriteRenderer spriteRend;
     BoxCollider2D collider;
@@ -24,6 +24,7 @@ public class Door : MonoBehaviour
     {
         spriteRend = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
+        knight = GlobalReferences.Knight;
     }
     
     void UpdateDoor()
@@ -33,14 +34,14 @@ public class Door : MonoBehaviour
             spriteRend.sprite = openDoor;
             collider.isTrigger = true;
             UpdateTilemap(walls, Location, null);
-            Knight.GetComponent<KnightMove>().CheckDoors();
+            knight.GetComponent<KnightMove>().CheckDoors();
         } else
         {
             if (!collider.IsTouchingLayers(-1)){
                 spriteRend.sprite = closedDoor;
                 collider.isTrigger = false;
                 UpdateTilemap(walls, Location, Ground);
-                Knight.GetComponent<KnightMove>().CheckDoors();
+                knight.GetComponent<KnightMove>().CheckDoors();
             }
         }
     }
