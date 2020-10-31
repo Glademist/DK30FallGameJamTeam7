@@ -12,6 +12,11 @@ public class EnemyBehaviour : MonoBehaviour
     Vector3 homePosition;
     CircleCollider2D sightRange;
 
+    //mimic
+    [SerializeField]
+    bool sleeping = false;
+    ProgressBar healthbar;
+
     //combat
     [SerializeField]
     float attackSpeed = 1f, attackTime = 0f;
@@ -19,7 +24,7 @@ public class EnemyBehaviour : MonoBehaviour
     int damage = 1;
     Health targetHealth;
 
-    enum State {Wandering, Seeking, Attacking, Returning}
+    enum State {Sleeping, Wandering, Seeking, Attacking, Returning}
     [SerializeField]
     State currentState;
     [SerializeField]
@@ -31,8 +36,15 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         currentState = State.Wandering;
+        healthbar = GetComponent<Health>().GetHealthbar();
+        if (sleeping)
+        {
+            currentState = State.Sleeping;
+            healthbar.ToggleVisible(false);
+        }
         homePosition = transform.position;
         sightRange = GetComponentInChildren<CircleCollider2D>();
+
         GameObject vfx = transform.GetChild(0).gameObject;
         anim = vfx.GetComponent<Animator>();
     }
@@ -58,7 +70,10 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        if (sleeping)
+        {
+            return;
+        }
 
         switch (currentState)
         {
@@ -163,6 +178,27 @@ public class EnemyBehaviour : MonoBehaviour
         {
             targetHealth.TakeDamage(damage);
             attackTime = attackSpeed;
+        }
+    }
+
+    public void WakeUp()    //wake up a sleeping enemy
+    {
+        if (sleeping)
+        {
+            currentState = State.Wandering;
+            sleeping = false;
+            healthbar.ToggleVisible(true);
+        }
+    }
+
+    public void WakeUp(GameObject victim)    //wake up a sleeping enemy
+    {
+        if (sleeping)
+        {
+            WakeUp();
+            currentTarget = victim;
+            StartAttacking();
+            AttackTarget();
         }
     }
 }

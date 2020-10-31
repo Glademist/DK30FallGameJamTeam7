@@ -9,11 +9,14 @@ public class Health : MonoBehaviour
     public int currentHealth;
     public float healthbarHeight;
 
+    EnemyBehaviour enemy;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
         healthBar = new ProgressBar(gameObject, new Vector3(100, 15, 1), new Vector3(90, 12, 1), new Vector2(0, healthbarHeight), Color.black, Color.green, true);
+        enemy = GetComponent<EnemyBehaviour>();
     }
 
     private void Update()
@@ -35,6 +38,10 @@ public class Health : MonoBehaviour
         {
             Debug.Log("I have died");
         }
+        if (enemy)
+        {
+            enemy.WakeUp();
+        }
     }
 
     public void Heal(int amount)
@@ -45,5 +52,10 @@ public class Health : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+    }
+
+    public ProgressBar GetHealthbar()
+    {
+        return this.healthBar;
     }
 }
