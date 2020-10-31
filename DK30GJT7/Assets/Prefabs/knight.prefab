@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 6522513335775771734}
   - component: {fileID: 1761323556}
   m_Layer: 0
-  m_Name: Knight
+  m_Name: knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,8 +102,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
-  m_LinearDrag: 10
+  m_Mass: 110
+  m_LinearDrag: 110
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -150,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.046731353, y: 0.27777815}
+  m_Offset: {x: 0.046731353, y: 0.14881974}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -161,7 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.503371, y: 0.6268599}
+  m_Size: {x: 0.503371, y: 0.3689431}
   m_EdgeRadius: 0
 --- !u!114 &6522513335775771732
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0}
   mousePos: {x: 0, y: 0}
-  speed: 0.5
+  speed: 0.05
   rigid2d: {fileID: 6522513335942902352}
   pathTarget: []
   rooms: []
