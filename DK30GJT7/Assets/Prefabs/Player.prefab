@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c985d8a29d1148b47b51bf01fd9f2d43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea630c11f5ab04458a401e215dcfb94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 6
+  runSpeed: 10
 --- !u!61 &3577333932862307948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.040493667, y: -0.191993}
+  m_Offset: {x: 0.040493667, y: -0.06970823}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -195,7 +195,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5950633, y: 0.38784075}
+  m_Size: {x: 0.5950633, y: 0.6324103}
   m_EdgeRadius: 0
 --- !u!114 &1590619111
 MonoBehaviour:
@@ -228,6 +228,8 @@ MonoBehaviour:
   keys: 0
   food: 2
   keyText: {fileID: 0}
+  heldObject: {fileID: 0}
+  targetedObject: {fileID: 0}
   gotoCursor: {fileID: 7818734405096302547, guid: 662afd8c7f7f0d04fa30322659a1b005,
     type: 3}
   gold: {fileID: 4554237686036847980, guid: f6544b4fc259ca642a08e18ada1dbc0e, type: 3}
