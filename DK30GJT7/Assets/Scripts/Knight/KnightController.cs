@@ -9,9 +9,11 @@ public class KnightController : MonoBehaviour
 
     [SerializeField]
     private Stimulus target = null;
+    public GameObject displayedIntention;
     [SerializeField]
     private List<Stimulus> stimuli = new List<Stimulus>();
-
+    public Intention intention;
+    
     // Stop controller running, Knight is doing some uninteruptable action
     private bool interacting;
 
@@ -41,11 +43,14 @@ public class KnightController : MonoBehaviour
                 if (secondsSinceLastReprioritise >= secondsToReprioritise)
                 {
                     target = Reprioritise();
-                    Debug.Log("Knight - Prioritising " + target.type);
+                    
                     if(target.position != null)
                     {
                         MoveToPosition(target.position);
+                        Debug.Log("Knight - Prioritising " + target.type);
+                        
                         if(!target.type.Equals("idle")){
+                            intention.ShowIntention(target.type, 1);
                             secondsSinceLastReprioritise = 0;
                         }
                     }                        
