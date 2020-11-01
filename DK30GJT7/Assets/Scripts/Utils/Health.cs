@@ -9,11 +9,14 @@ public class Health : MonoBehaviour
     public int currentHealth;
     public float healthbarHeight;
 
+    EnemyBehaviour enemy;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
         healthBar = new ProgressBar(gameObject, new Vector3(100, 15, 1), new Vector3(90, 12, 1), new Vector2(0, healthbarHeight), Color.black, Color.green, true);
+        enemy = GetComponent<EnemyBehaviour>();
     }
 
     private void Update()
@@ -33,7 +36,14 @@ public class Health : MonoBehaviour
         healthBar.UpdateHealthbar(currentHealth, maxHealth);
         if(currentHealth <= 0)
         {
-            Debug.Log("I have died");
+            if(gameObject.name != "Player" && gameObject.name != "knight")
+            {
+                Destroy(gameObject);
+            }
+        }
+        if (enemy)
+        {
+            enemy.WakeUp();
         }
     }
 
@@ -45,5 +55,10 @@ public class Health : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+    }
+
+    public ProgressBar GetHealthbar()
+    {
+        return this.healthBar;
     }
 }

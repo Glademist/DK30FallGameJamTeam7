@@ -28,7 +28,7 @@ public class PressurePad : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "PlayerOnlyCollider")
+        if (collision.GetComponent<Rigidbody2D>())
         {
             objects++;
             checkPressed();
