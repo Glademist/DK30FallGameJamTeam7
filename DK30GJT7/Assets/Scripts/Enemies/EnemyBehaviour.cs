@@ -4,74 +4,165 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    GameObject knight, player;
-    float aggroRange, attackRange;
+    [SerializeField]
+    float aggroRange = 20f, attackRange = 4f, moveSpeed = 1f;
+    [SerializeField]
     GameObject currentTarget;
+    public List<Collider2D> Collisions;
+    Vector3 homePosition;
+    CircleCollider2D sightRange;
 
-    enum State {Wandering, Seeking, Attacking}
+    //combat
+    [SerializeField]
+    float attackSpeed = 1f, attackTime = 0f;
+    [SerializeField]
+    int damage = 1;
+    Health targetHealth;
+
+    enum State {Wandering, Seeking, Attacking, Returning}
+    [SerializeField]
     State currentState;
+    [SerializeField]
+    LayerMask walls;
 
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         currentState = State.Wandering;
+        homePosition = transform.position;
+        sightRange = GetComponentInChildren<CircleCollider2D>();
+        GameObject vfx = transform.GetChild(0).gameObject;
+        anim = vfx.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(currentState == State.Wandering)
+        if(currentState == State.Attacking)
         {
-            //while wandering enemy will path randomly in a radius
-
-            //if(Health.recentlyTakenDamage)    add some damage taken boolean which determines if damage was taken recently
-            //{
-                //path back away from trap, use previously taken path if possible
-            //}
-
-            if(Vector2.Distance(knight.transform.position, transform.position) < aggroRange)
+            attackTime -= Time.deltaTime;
+            if (attackTime <= 0)
             {
-                currentState = State.Seeking;   //seeking means trying to get into combat range
-                currentTarget = knight;
+                AttackTarget();
             }
-
-            //can have different aggro ranges for knight or player
-            if (Vector2.Distance(player.transform.position, transform.position) < aggroRange)
-            {
-                currentState = State.Seeking;   //seeking means trying to get into combat range
-                currentTarget = player;
-            }
-        }
-
-        if(currentState == State.Seeking)
-        {
-            //path towards current target
-
-            if(Vector2.Distance(currentTarget.transform.position, transform.position) < attackRange)
-            {
-                currentState = State.Attacking;
-                //start attacking target
-            }
-
-
-            if (Vector2.Distance(currentTarget.transform.position, transform.position) > aggroRange)
-            {
-                currentState = State.Wandering;
-                //stop chasing target and resume wandering
-            }
-        }
-
-        if (currentState == State.Attacking)
-        {
-            //attack current target
 
             if (Vector2.Distance(currentTarget.transform.position, transform.position) > attackRange)
             {
                 currentState = State.Seeking;
                 //chase target to get back into attack range
             }
+        }       
+    }
 
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
+
+        switch (currentState)
+        {
+            case State.Wandering:
+                //while wandering enemy will path randomly in a radius
+
+                //if(Health.recentlyTakenDamage)    add some damage taken boolean which determines if damage was taken recently
+                //{
+                //path back away from trap, use previously taken path if possible
+                //}
+                Wander();
+                
+                break;
+            case State.Seeking:
+
+                Seek();
+
+                break;
+            case State.Attacking:
+
+                attackTime -= Time.deltaTime;
+                if(attackTime <= 0)
+                {
+                    AttackTarget();
+                }
+
+                if (Vector2.Distance(currentTarget.transform.position, transform.position) > attackRange)
+                {
+                    currentState = State.Seeking;
+                    //chase target to get back into attack range
+                }
+                break;
+            case State.Returning:
+                transform.position += (homePosition - transform.position) * moveSpeed * Time.deltaTime;
+
+                if (Vector2.Distance(transform.position, homePosition) < 1f)
+                {
+                    currentState = State.Wandering;
+                }
+                break;
+        }
+    }
+
+    void FindTarget()
+    {
+        foreach (Collider2D Collider in Collisions)
+        {
+            if (Collider.gameObject.name == "Player" || Collider.gameObject.name == "knight")
+            {
+                if (Vector2.Distance(this.transform.position, Collider.gameObject.transform.position) < aggroRange && Collider.gameObject != this.gameObject
+                    && !Physics2D.Linecast((Vector2)transform.position, (Vector2)Collider.gameObject.transform.position, walls))
+                {
+                    currentTarget = Collider.gameObject;
+                    Debug.Log("Acquired a target");
+                    currentState = State.Seeking;
+                    anim.SetBool("Running", true);
+                }
+            }
+        }
+    }
+
+    void Seek()
+    {
+        transform.position += (currentTarget.transform.position - transform.position) * moveSpeed * Time.deltaTime; //path towards current target
+
+        //if enemy leaves aggro range or sightline blocked return to home
+        if (Vector2.Distance(transform.position, homePosition) > aggroRange
+            || Physics2D.Linecast((Vector2)transform.position, (Vector2)currentTarget.transform.position, walls)
+            || Physics2D.Linecast((Vector2)transform.position, (Vector2)homePosition, walls))
+        {
+            currentState = State.Returning;
+            anim.SetBool("Running", false);
+        }
+
+        else if (Vector2.Distance(currentTarget.transform.position, transform.position) < attackRange)  //if target in attack range start attacking
+        {
+            currentState = State.Attacking;
+            StartAttacking();
+        }
+    }
+
+    void Wander()
+    {
+        ContactFilter2D Filter = new ContactFilter2D();
+        Filter = Filter.NoFilter();
+        sightRange.OverlapCollider(Filter, Collisions);
+        if (Collisions.Count > 1)
+        {
+            FindTarget();
+        }
+    }
+
+    void StartAttacking()
+    {
+        attackTime = attackSpeed;
+        targetHealth = currentTarget.GetComponent<Health>();
+    }
+
+    void AttackTarget()
+    {
+        if (targetHealth)
+        {
+            targetHealth.TakeDamage(damage);
+            attackTime = attackSpeed;
         }
     }
 }

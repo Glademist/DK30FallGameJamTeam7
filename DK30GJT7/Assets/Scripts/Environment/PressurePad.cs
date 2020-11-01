@@ -19,7 +19,7 @@ public class PressurePad : MonoBehaviour
 
         foreach (Transform child in TrapList.transform)
         {
-            if(child.name == "Spike Trap")
+            if (child.GetComponent<ToggledSpikeTrap>())
             {
                 traps.Add(child.GetComponent<ToggledSpikeTrap>());
             }
@@ -28,14 +28,20 @@ public class PressurePad : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        objects++;
-        checkPressed();
+        if (collision.gameObject.tag != "PlayerOnlyCollider")
+        {
+            objects++;
+            checkPressed();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        objects--;
-        checkPressed();
+        if (collision.GetComponent<Rigidbody2D>())
+        {
+            objects--;
+            checkPressed();
+        }
     }
 
     void checkPressed()

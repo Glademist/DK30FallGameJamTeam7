@@ -23,6 +23,12 @@ public class Interaction : MonoBehaviour
     [SerializeField]
     public GameObject heldObject, targetedObject;
     Rigidbody2D heldObjectBody;
+    
+    public GameObject gotoCursor;
+
+    public GameObject gold;
+
+    public Intention intention;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +36,6 @@ public class Interaction : MonoBehaviour
         cam = Camera.main;
         actionProgress = new ProgressBar(gameObject, new Vector3(150, 15, 1), new Vector3(140, 12, 1), new Vector2(0, 0f), Color.black, Color.grey, false);
         actionProgress.ToggleVisible(false);
-
         UpdateKeys(0);
     }
 
@@ -58,19 +63,22 @@ public class Interaction : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(target, -Vector2.up);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(target, -Vector2.up);
             //Debug.Log("Mouse down");
-            if (hit.collider != null)
+
+            foreach(RaycastHit2D hit in hits)
             {
-                //Debug.Log("Player interact:" + hit.collider.name);
-                Interact(hit.collider);
+                if (hit.collider != null)
+                {
+                    //Debug.Log("Player interact:" + hit.collider.name);
+                    Interact(hit.collider);
+                }
             }
 
             // Throw an item
             if(heldObject != null)
             {
                 Vector2 start = transform.position;
-                Debug.Log("trying to throw a held object");
                 heldObject.transform.parent = null;
                 heldObjectBody.isKinematic = false;
                 heldObjectBody.constraints = RigidbodyConstraints2D.None;
@@ -78,7 +86,7 @@ public class Interaction : MonoBehaviour
                 heldObject.GetComponent<CircleCollider2D>().enabled = true;
 
                 heldObject.transform.position = start + (target - start) / 5f;
-                heldObjectBody.velocity = (target - start) * 20f;
+                heldObjectBody.velocity = (target - start) * 3f;
 
                 heldObject = null;
                 targetedObject = null;
@@ -89,21 +97,23 @@ public class Interaction : MonoBehaviour
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 goTo = (new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
+            Instantiate(gotoCursor, new Vector3(goTo.x, goTo.y, 0), Quaternion.identity);
             if (GlobalReferences.Knight)
             {
                 KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
-                knightController.AddKnightStimulus(null, goTo, "player_call");
+                knightController.AddKnightStimulus(null, goTo, "go_to_player_pointer");
             }
         }
         // Call the knight to your position
         if (Input.GetKeyDown("f"))
         {
-            //Debug.Log("Player calling Knight");
+            Debug.Log("Player calling Knight");
             Vector2 goTo = (new Vector2(Mathf.Floor(transform.position.x) + 0.5f, Mathf.Floor(transform.position.y) + 0.5f));
+            intention.ShowIntention("player_call", .5f);
             if (GlobalReferences.Knight)
             {
                 KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
-                knightController.AddKnightStimulus(null, goTo, "player_call");
+                knightController.AddKnightStimulus(null, goTo, "go_to_player_call");
             }
         }
         /*
@@ -166,9 +176,12 @@ public class Interaction : MonoBehaviour
         }
         else if (hit.gameObject.GetComponent<Lever>())
         {
-            
-            Lever lever = hit.gameObject.GetComponent<Lever>();
-            lever.FlipLever();
+            Debug.Log("flip lever");
+            hit.gameObject.GetComponent<Lever>().FlipLever();
+        }
+        else if (hit.gameObject.GetComponent<Chest>())
+        {
+            hit.gameObject.GetComponent<Chest>().OpenChest();
         }
     }
 

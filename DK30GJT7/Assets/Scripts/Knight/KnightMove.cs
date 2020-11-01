@@ -41,7 +41,7 @@ public class KnightMove : MonoBehaviour
             foreach (Door door in room.Doors)
             {
                 door.rooms.Add(room);
-                door.Knight = this.gameObject;
+                //door.knight = this.gameObject;
             }
         }
     }
