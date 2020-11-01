@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Interest
+public class Interest : MonoBehaviour
 {
     public float InitInterest = 50;
     public string InterestType;

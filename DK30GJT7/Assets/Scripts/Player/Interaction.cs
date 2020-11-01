@@ -183,6 +183,10 @@ public class Interaction : MonoBehaviour
         {
             hit.gameObject.GetComponent<Chest>().OpenChest();
         }
+        else if (hit.gameObject.name == "Mimic")
+        {
+            hit.gameObject.GetComponent<EnemyBehaviour>().WakeUp(gameObject);
+        }
     }
 
     public void UpdateKeys(int value)

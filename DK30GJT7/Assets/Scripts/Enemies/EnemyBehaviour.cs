@@ -12,6 +12,12 @@ public class EnemyBehaviour : MonoBehaviour
     Vector3 homePosition;
     CircleCollider2D sightRange;
 
+    [SerializeField]
+    bool sleeping = false, hiding = false;
+    ProgressBar healthbar;
+    [SerializeField]
+    float waitTime = 5f;
+
     //combat
     [SerializeField]
     float attackSpeed = 1f, attackTime = 0f;
@@ -19,22 +25,37 @@ public class EnemyBehaviour : MonoBehaviour
     int damage = 1;
     Health targetHealth;
 
-    enum State {Wandering, Seeking, Attacking, Returning}
+    enum State {Sleeping, Wandering, Seeking, Attacking, Returning}
     [SerializeField]
     State currentState;
     [SerializeField]
     LayerMask walls;
 
     Animator anim;
+    SpriteRenderer rend;
 
     // Start is called before the first frame update
     void Start()
     {
         currentState = State.Wandering;
+        healthbar = GetComponent<Health>().GetHealthbar();
+        if (sleeping)
+        {
+            currentState = State.Sleeping;
+            healthbar.ToggleVisible(false);
+        }
+        
         homePosition = transform.position;
         sightRange = GetComponentInChildren<CircleCollider2D>();
+
         GameObject vfx = transform.GetChild(0).gameObject;
         anim = vfx.GetComponent<Animator>();
+        rend = vfx.GetComponent<SpriteRenderer>();
+        if (hiding)
+        {
+            healthbar.ToggleVisible(false);
+            rend.enabled = false;
+        }
     }
 
     private void Update()
@@ -58,7 +79,10 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        if (sleeping)
+        {
+            return;
+        }
 
         switch (currentState)
         {
@@ -111,8 +135,12 @@ public class EnemyBehaviour : MonoBehaviour
                 if (Vector2.Distance(this.transform.position, Collider.gameObject.transform.position) < aggroRange && Collider.gameObject != this.gameObject
                     && !Physics2D.Linecast((Vector2)transform.position, (Vector2)Collider.gameObject.transform.position, walls))
                 {
+                    if (hiding)
+                    {
+                        hiding = false;
+                        rend.enabled = true;
+                    }
                     currentTarget = Collider.gameObject;
-                    Debug.Log("Acquired a target");
                     currentState = State.Seeking;
                     anim.SetBool("Running", true);
                 }
@@ -135,7 +163,6 @@ public class EnemyBehaviour : MonoBehaviour
 
         else if (Vector2.Distance(currentTarget.transform.position, transform.position) < attackRange)  //if target in attack range start attacking
         {
-            currentState = State.Attacking;
             StartAttacking();
         }
     }
@@ -153,6 +180,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void StartAttacking()
     {
+        currentState = State.Attacking;
         attackTime = attackSpeed;
         targetHealth = currentTarget.GetComponent<Health>();
     }
@@ -163,6 +191,28 @@ public class EnemyBehaviour : MonoBehaviour
         {
             targetHealth.TakeDamage(damage);
             attackTime = attackSpeed;
+        }
+    }
+
+    public void WakeUp()    //wake up a sleeping enemy
+    {
+        if (sleeping)
+        {
+            anim.SetBool("Running", true);
+            currentState = State.Wandering;
+            sleeping = false;
+            healthbar.ToggleVisible(true);
+        }
+    }
+
+    public void WakeUp(GameObject victim)    //wake up a sleeping enemy
+    {
+        if (sleeping)
+        {
+            WakeUp();
+            currentTarget = victim;
+            StartAttacking();
+            AttackTarget();
         }
     }
 }
