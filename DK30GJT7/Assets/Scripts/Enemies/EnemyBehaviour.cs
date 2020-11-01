@@ -12,10 +12,11 @@ public class EnemyBehaviour : MonoBehaviour
     Vector3 homePosition;
     CircleCollider2D sightRange;
 
-    //mimic
     [SerializeField]
-    bool sleeping = false;
+    bool sleeping = false, hiding = false;
     ProgressBar healthbar;
+    [SerializeField]
+    float waitTime = 5f;
 
     //combat
     [SerializeField]
@@ -31,6 +32,7 @@ public class EnemyBehaviour : MonoBehaviour
     LayerMask walls;
 
     Animator anim;
+    SpriteRenderer rend;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +44,18 @@ public class EnemyBehaviour : MonoBehaviour
             currentState = State.Sleeping;
             healthbar.ToggleVisible(false);
         }
+        
         homePosition = transform.position;
         sightRange = GetComponentInChildren<CircleCollider2D>();
 
         GameObject vfx = transform.GetChild(0).gameObject;
         anim = vfx.GetComponent<Animator>();
+        rend = vfx.GetComponent<SpriteRenderer>();
+        if (hiding)
+        {
+            healthbar.ToggleVisible(false);
+            rend.enabled = false;
+        }
     }
 
     private void Update()
@@ -126,8 +135,12 @@ public class EnemyBehaviour : MonoBehaviour
                 if (Vector2.Distance(this.transform.position, Collider.gameObject.transform.position) < aggroRange && Collider.gameObject != this.gameObject
                     && !Physics2D.Linecast((Vector2)transform.position, (Vector2)Collider.gameObject.transform.position, walls))
                 {
+                    if (hiding)
+                    {
+                        hiding = false;
+                        rend.enabled = true;
+                    }
                     currentTarget = Collider.gameObject;
-                    Debug.Log("Acquired a target");
                     currentState = State.Seeking;
                     anim.SetBool("Running", true);
                 }
@@ -150,10 +163,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         else if (Vector2.Distance(currentTarget.transform.position, transform.position) < attackRange)  //if target in attack range start attacking
         {
-            if (!targetHealth)
-            {
-                StartAttacking();
-            }
+            StartAttacking();
         }
     }
 
