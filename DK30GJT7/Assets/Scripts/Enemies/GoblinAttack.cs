@@ -22,7 +22,7 @@ public class GoblinAttack : MonoBehaviour
             Vector2 start = transform.position;
             Vector2 targetPos = target.transform.position;
             body.position = start + (targetPos - start) / 5f;
-            body.velocity = (targetPos - start) * 10f;
+            body.velocity = (targetPos - start) * 3f;
         }
     }
 
