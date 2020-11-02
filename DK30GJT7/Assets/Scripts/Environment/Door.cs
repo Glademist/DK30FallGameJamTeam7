@@ -15,6 +15,7 @@ public class Door : MonoBehaviour
     public Tile Ground;
     public List<Room> rooms;
     private GameObject knight;
+    public KnightMove knightM;
 
     SpriteRenderer spriteRend;
     BoxCollider2D collider;
@@ -62,6 +63,7 @@ public class Door : MonoBehaviour
     {
         open = !open;
         UpdateDoor();
+        knightM.CheckDoors();
     }
 
     //returns true if door gets opened, false if needs unlocked

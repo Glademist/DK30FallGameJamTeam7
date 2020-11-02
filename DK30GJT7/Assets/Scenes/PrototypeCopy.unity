@@ -551,7 +551,7 @@ MonoBehaviour:
     height: 0
   Ground: {fileID: 0}
   rooms: []
-  Knight: {fileID: 0}
+  knightM: {fileID: 0}
 --- !u!212 &130814228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6260,7 +6260,7 @@ MonoBehaviour:
     height: 0
   Ground: {fileID: 0}
   rooms: []
-  Knight: {fileID: 0}
+  knightM: {fileID: 0}
 --- !u!212 &315438629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6991,6 +6991,9 @@ MonoBehaviour:
   keyText: {fileID: 1702215476}
   heldObject: {fileID: 0}
   targetedObject: {fileID: 0}
+  gotoCursor: {fileID: 0}
+  gold: {fileID: 0}
+  intention: {fileID: 0}
 --- !u!114 &770833637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7457,6 +7460,7 @@ GameObject:
   - component: {fileID: 987454652}
   - component: {fileID: 987454651}
   - component: {fileID: 987454650}
+  - component: {fileID: 987454655}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -7606,6 +7610,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &987454655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987454648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitInterest: 50
+  InterestType: 
+  CurrentInterest: 0
+  IsActive: 0
 --- !u!1 &997249626
 GameObject:
   m_ObjectHideFlags: 0
@@ -7772,7 +7792,7 @@ MonoBehaviour:
     height: 0
   Ground: {fileID: 0}
   rooms: []
-  Knight: {fileID: 0}
+  knightM: {fileID: 0}
 --- !u!212 &1084215464
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7950,7 +7970,6 @@ MonoBehaviour:
   InitInterest: 20
   InterestType: 
   CurrentInterest: 0
-  Object: {fileID: 0}
   IsActive: 0
 --- !u!1 &1155491513
 GameObject:
@@ -34662,7 +34681,7 @@ MonoBehaviour:
     height: 0
   Ground: {fileID: 0}
   rooms: []
-  Knight: {fileID: 0}
+  knightM: {fileID: 0}
 --- !u!212 &1231827161
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35126,7 +35145,7 @@ MonoBehaviour:
     height: 0
   Ground: {fileID: 0}
   rooms: []
-  Knight: {fileID: 0}
+  knightM: {fileID: 0}
 --- !u!212 &1440051645
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35518,6 +35537,7 @@ MonoBehaviour:
   Fear: 0
   Courage: 0
   Interests: []
+  KnownInterests: []
   CurrentInterest: {fileID: 0}
   InterestedRoom:
     room:
@@ -35530,7 +35550,6 @@ MonoBehaviour:
     isAccessible: 0
     Doors: []
   knightMove: {fileID: 0}
-  InterestRange: {fileID: 1693582606}
 --- !u!114 &1693582608
 MonoBehaviour:
   m_ObjectHideFlags: 0
