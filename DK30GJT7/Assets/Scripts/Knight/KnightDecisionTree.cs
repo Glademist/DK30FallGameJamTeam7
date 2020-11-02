@@ -15,10 +15,10 @@ public class KnightDecisionTree : MonoBehaviour
     public float Courage = 0; //interest in facing danger
 
     public List<Interest> Interests;
+    public List<Interest> KnownInterests;
     public Interest CurrentInterest;
     public Room InterestedRoom;
     public KnightMove knightMove;
-    public CircleCollider2D InterestRange;
     int resetTarget = 0;
 
     // Start is called before the first frame update
@@ -26,14 +26,20 @@ public class KnightDecisionTree : MonoBehaviour
     {
         knightMove = this.GetComponent<KnightMove>();
         CurrentInterest = null;
+        GetInterests();
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
-        UpdateInterests();
         UpdateRoomInterest();
         ChooseInterest();
+        if (knightMove.currentRoom != null)
+        {
+            UpdateInterests(knightMove.currentRoom.room);
+        }
         if (CurrentInterest == null)
         {
             TargetRoom();
@@ -45,6 +51,15 @@ public class KnightDecisionTree : MonoBehaviour
         else
         {
             TargetObject();
+        }
+    }
+
+    public void GetInterests()
+    {
+        Interests.Clear();
+        foreach (Interest interest in FindObjectsOfType<Interest>())
+        {
+            Interests.Add(interest);
         }
     }
 
@@ -73,24 +88,18 @@ public class KnightDecisionTree : MonoBehaviour
         }
     }
 
-    public void AddInterest(Interest Interest)
+    public void UpdateInterests(RectInt Area)
     {
-        Interest.CurrentInterest = Interest.InitInterest;
-        Interests.Add(Interest);
-    }
-
-    public void UpdateInterests()
-    {
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<HasInterest>() != null)
+        foreach (Interest interest in Interests)
         {
-            if (!Interests.Contains(collision.gameObject.GetComponent<HasInterest>().Interest))
+            if (interest == null)
             {
-                AddInterest(collision.gameObject.GetComponent<HasInterest>().Interest);
+                Interests.Remove(interest);
+            }
+            else if (Area.Contains(Vector2Int.RoundToInt(interest.transform.position)) && !KnownInterests.Contains(interest))
+            {
+                interest.CurrentInterest = 50;
+                KnownInterests.Add(interest);
             }
         }
     }
@@ -153,7 +162,7 @@ public class KnightDecisionTree : MonoBehaviour
         {
             resetTarget = 0;
             knightMove.TargetInterest = CurrentInterest;
-            knightMove.CommandKnight(CurrentInterest.Object.transform.position);
+            knightMove.CommandKnight(CurrentInterest.transform.position);
         }
     }
 }
