@@ -8,7 +8,6 @@ public class DartTrap : MonoBehaviour
     GameObject dart;
 
     float cooldown = 5f, currentTime = 0f;
-    [SerializeField]
     List<GameObject> targetObjects = new List<GameObject>();
 
     private void Update()

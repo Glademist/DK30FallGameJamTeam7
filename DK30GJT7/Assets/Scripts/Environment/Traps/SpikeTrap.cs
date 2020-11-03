@@ -7,13 +7,17 @@ public class SpikeTrap : MonoBehaviour
     public bool extended = false;
     Animator anim;
 
+    //manage extension
     float extendedTime = 2f, currentTime = 0f;
+    //manage damage
+    [SerializeField]
+    List<Health> targetObjects = new List<Health>();
+    float cooldown = 2f, currentDamageTime = 0f;
 
     private void Start()
     {
         GameObject vfx = transform.GetChild(0).gameObject;
         anim = vfx.GetComponent<Animator>();
-        Debug.Log("animator"+ anim);
     }
 
     private void Update()
@@ -32,22 +36,46 @@ public class SpikeTrap : MonoBehaviour
             extended = false;
             anim.SetBool("Extended", false);
         }
+
+        if (currentDamageTime > 0)
+        {
+            currentDamageTime -= Time.deltaTime;
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void FixedUpdate()
     {
-        if (!extended && collision.gameObject.name == "Player")
+        if (extended && currentDamageTime <= 0 && targetObjects.Count > 0)
+        {
+            foreach (Health victim in targetObjects)
+            {
+                victim.TakeDamage(1);
+            }
+            currentDamageTime = cooldown;
+        }
+
+        if (!extended && targetObjects.Count > 0)
         {
             anim.SetBool("Extended", true);
             currentTime = extendedTime;
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         Health victim = collision.gameObject.GetComponent<Health>();
-
-        if (extended && victim != null)
+        if (victim)
         {
-            Debug.Log("trying to deal damage");
-            victim.TakeDamage(1);
+            targetObjects.Add(victim);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Health victim = collision.gameObject.GetComponent<Health>();
+        if (victim)
+        {
+            targetObjects.Remove(victim);
         }
     }
 }
