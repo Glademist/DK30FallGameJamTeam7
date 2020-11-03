@@ -79,7 +79,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (sleeping)
+        if (sleeping || anim.GetCurrentAnimatorStateInfo(0).IsName("Imp_Appear"))   //wait for imp appear anim to finish
         {
             return;
         }
@@ -130,19 +130,24 @@ public class EnemyBehaviour : MonoBehaviour
     {
         foreach (Collider2D Collider in Collisions)
         {
-            if (Collider.gameObject.name == "Player" || Collider.gameObject.name == "knight")
+            if (Collider.gameObject.name == "Player" || Collider.gameObject.name == "Knight")
             {
                 if (Vector2.Distance(this.transform.position, Collider.gameObject.transform.position) < aggroRange && Collider.gameObject != this.gameObject
                     && !Physics2D.Linecast((Vector2)transform.position, (Vector2)Collider.gameObject.transform.position, walls))
                 {
                     if (hiding)
                     {
+                        anim.SetTrigger("Appear");
+                        
                         hiding = false;
                         rend.enabled = true;
                     }
+                    else
+                    {
+                        anim.SetBool("Running", true);
+                    }
                     currentTarget = Collider.gameObject;
                     currentState = State.Seeking;
-                    anim.SetBool("Running", true);
                 }
             }
         }
