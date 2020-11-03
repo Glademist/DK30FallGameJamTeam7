@@ -50,11 +50,11 @@ public class Health : MonoBehaviour
     public void Heal(int amount)
     {
         currentHealth += amount;
-        healthBar.UpdateHealthbar(currentHealth, maxHealth);
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
+        healthBar.UpdateHealthbar(currentHealth, maxHealth);
     }
 
     public ProgressBar GetHealthbar()
