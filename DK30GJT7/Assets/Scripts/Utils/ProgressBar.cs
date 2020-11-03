@@ -47,11 +47,6 @@ public class ProgressBar
     public void UpdateHealthbar(float currentValue, float maxValue)
     {
         float percentHealth = currentValue / maxValue;
-        ToggleVisible(true);
-        if (percentHealth == 1)
-        {
-            ToggleVisible(false);
-        }
 
         float scale = 200f;
         if (barImage)
@@ -70,38 +65,28 @@ public class ProgressBar
         //recolour healthbar for units
         if (recolourHealth) //assume green>yellow>red
         {
-
             if (percentHealth > 0.6)
             {
-                if (currentColour != Color.green)
-                {
-                    SetBarColour(Color.green);
-                }
+                SetBarColour(Color.green);
             }
             else if (percentHealth > 0.3)
             {
-                if (currentColour != Color.yellow)
-                {
-                    SetBarColour(Color.yellow);
-                }
+                SetBarColour(Color.yellow);
             }
             else
             {
-                if (currentColour != Color.red)
-                {
-                    SetBarColour(Color.red);
-                }
+                SetBarColour(Color.red);
             }
         }
     }
 
     void SetBarColour(Color colour)
     {
-        if (barRend != null)
+        if (barRend)
         {
             barRend.color = colour;
         }
-        else if (barImage != null)
+        else if (barImage)
         {
             barImage.color = colour;
         }

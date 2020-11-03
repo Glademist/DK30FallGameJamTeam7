@@ -57,6 +57,11 @@ public class Health : MonoBehaviour
         healthBar.UpdateHealthbar(currentHealth, maxHealth);
     }
 
+    public void UpdateHealthbar()
+    {
+        healthBar.UpdateHealthbar(currentHealth, maxHealth);
+    }
+
     public ProgressBar GetHealthbar()
     {
         return this.healthBar;

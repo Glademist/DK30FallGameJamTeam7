@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3335961502849798084}
   - component: {fileID: 6739335799811242195}
   - component: {fileID: 7120266232512001112}
+  - component: {fileID: 1196734168}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -71,6 +72,22 @@ CircleCollider2D:
   m_Offset: {x: -0.12767005, y: 0.018156767}
   serializedVersion: 2
   m_Radius: 0.4592371
+--- !u!114 &1196734168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438629500758398418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitInterest: 1000
+  InterestType: Food
+  CurrentInterest: 0
+  IsActive: 0
 --- !u!1 &976033998329181250
 GameObject:
   m_ObjectHideFlags: 0

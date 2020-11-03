@@ -40,6 +40,10 @@ public class KnightInteract : MonoBehaviour
             targetHealth.TakeDamage(damage);
             attackTime = attackSpeed;
         }
+        else
+        {
+            StopAttacking();
+        }
     }
 
     public void StartAttacking(GameObject target)
@@ -49,19 +53,33 @@ public class KnightInteract : MonoBehaviour
         targetHealth = target.GetComponent<Health>();
     }
 
+    public int GetTargetHealth()
+    {
+        if (targetHealth)
+        {
+            return targetHealth.currentHealth;
+        }
+        return 0;
+    }
+
     public void StopAttacking()
     {
         attacking = false;
     }
 
-    public void EatFood(Pickup food)
+    public bool IsAttacking()
     {
-        food.EatFood(knightHealth);
+        return attacking;
+    }
+
+    public void EatFood(GameObject food)
+    {
+        food.GetComponentInChildren<Pickup>().EatFood(knightHealth);
     }
 
     public bool IsPickup(GameObject pickup)
     {
-        if (pickup.GetComponent<Pickup>())
+        if (pickup.GetComponentInChildren<Pickup>())
         {
             return true;
         }
@@ -72,7 +90,7 @@ public class KnightInteract : MonoBehaviour
     {
         if (IsPickup(pickup))
         {
-            if (pickup.GetComponent<Pickup>().isFood)
+            if (pickup.GetComponentInChildren<Pickup>().isFood)
             {
                 return true;
             }
@@ -92,6 +110,5 @@ public class KnightInteract : MonoBehaviour
     public void CollectGold(GameObject gold)
     {
         gold.GetComponent<CollectGold>().LootGold();
-        //reduce greed stat
     }
 }
