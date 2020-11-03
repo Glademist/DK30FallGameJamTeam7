@@ -6,23 +6,51 @@ public class ToggledSpikeTrap : MonoBehaviour
 {
     public bool extended = true;
     Animator anim;
+    List<Health> targetObjects = new List<Health>();
+    float cooldown = 2f, currentTime = 0f;
 
     private void Start()
     {
         GameObject vfx = transform.GetChild(0).gameObject;
         anim = vfx.GetComponent<Animator>();
-        Debug.Log("animator" + anim);
         anim.SetBool("Extended", true);
+    }
+
+    private void Update()
+    {
+        if (currentTime > 0)
+        {
+            currentTime -= Time.deltaTime;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (extended && currentTime <= 0 && targetObjects.Count > 0)
+        {
+            foreach(Health victim in targetObjects)
+            {
+                victim.TakeDamage(1);
+            }
+            currentTime = cooldown;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Health victim = collision.gameObject.GetComponent<Health>();
-
-        if (extended && victim != null)
+        if (victim)
         {
-            Debug.Log("trying to deal damage");
-            victim.TakeDamage(1);
+            targetObjects.Add(victim);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Health victim = collision.gameObject.GetComponent<Health>();
+        if (victim)
+        {
+            targetObjects.Remove(victim);
         }
     }
 
