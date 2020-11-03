@@ -8,10 +8,10 @@ public class Interaction : MonoBehaviour
     public Vector2 mousePos;
 
     [SerializeField]
-    int keys = 0, food = 2;
+    int keys = 0, gold = 0;
 
     [SerializeField]
-    TMPro.TextMeshProUGUI keyText;
+    TMPro.TextMeshProUGUI keyText, goldText;
     ProgressBar actionProgress;
 
     float unlockDoor = 3.0f, currentTime = 0f;
@@ -23,10 +23,9 @@ public class Interaction : MonoBehaviour
     [SerializeField]
     public GameObject heldObject, targetedObject;
     Rigidbody2D heldObjectBody;
+    bool foodHeld = false;
     
     public GameObject gotoCursor;
-
-    public GameObject gold;
 
     public Intention intention;
 
@@ -95,13 +94,22 @@ public class Interaction : MonoBehaviour
         // Send knight to mouse position
         if (Input.GetMouseButtonDown(0))
         {
-            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 goTo = (new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
-            Instantiate(gotoCursor, new Vector3(goTo.x, goTo.y, 0), Quaternion.identity);
-            if (GlobalReferences.Knight)
+            if (foodHeld)
             {
-                KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
-                knightController.AddKnightStimulus(null, goTo, "go_to_player_pointer");
+                heldObject.GetComponentInChildren<Pickup>().EatFood(GetComponent<Health>());
+                heldObject = null;
+                targetedObject = null;
+            }
+            else
+            {
+                mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 goTo = (new Vector2(Mathf.Floor(mousePos.x) + 0.5f, Mathf.Floor(mousePos.y) + 0.5f));
+                Instantiate(gotoCursor, new Vector3(goTo.x, goTo.y, 0), Quaternion.identity);
+                if (GlobalReferences.Knight)
+                {
+                    KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
+                    knightController.AddKnightStimulus(null, goTo, "go_to_player_pointer");
+                }
             }
         }
         // Call the knight to your position
@@ -133,16 +141,7 @@ public class Interaction : MonoBehaviour
         {
             if(targetedObject != null)
             {
-                Debug.Log("trying to pick up targeted object");
-                heldObject = targetedObject;
-                targetedObject = null;
-                heldObject.transform.parent = gameObject.transform;
-                heldObject.transform.localPosition = new Vector3(0, -0.3f);
-                heldObjectBody = heldObject.GetComponent<Rigidbody2D>();
-                heldObjectBody.isKinematic = true;
-                heldObjectBody.constraints = RigidbodyConstraints2D.FreezeAll;
-                heldObject.GetComponent<CircleCollider2D>().enabled = false;
-                
+                PickupObject();
             }
         }
     }
@@ -195,9 +194,31 @@ public class Interaction : MonoBehaviour
         keyText.text = "x " + keys;
     }
 
+    public void UpdateGold(int value)
+    {
+        gold += value;
+        goldText.text = "x " + gold;
+    }
+
     public void CancelInteration()
     {
         unlockingDoor = false;
         actionProgress.ToggleVisible(false);
+    }
+
+    void PickupObject()
+    {
+        heldObject = targetedObject;
+        targetedObject = null;
+
+        Pickup pickup = heldObject.GetComponentInChildren<Pickup>();
+        if (pickup) { foodHeld = pickup.isFood; }
+        heldObject.transform.parent = gameObject.transform;
+        heldObject.transform.localPosition = new Vector3(0, -0.3f);
+        heldObjectBody = heldObject.GetComponent<Rigidbody2D>();
+        heldObjectBody.isKinematic = true;
+        heldObjectBody.constraints = RigidbodyConstraints2D.FreezeAll;
+        CircleCollider2D body = heldObject.GetComponent<CircleCollider2D>();
+        if (body) { body.enabled = false; }
     }
 }

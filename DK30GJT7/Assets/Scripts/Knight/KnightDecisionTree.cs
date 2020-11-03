@@ -21,10 +21,15 @@ public class KnightDecisionTree : MonoBehaviour
     public KnightMove knightMove;
     int resetTarget = 0;
 
+    //interest interaction
+    float interactionDistance = 2f;
+    KnightInteract interact;
+
     // Start is called before the first frame update
     void Awake()
     {
         knightMove = this.GetComponent<KnightMove>();
+        interact = GetComponent<KnightInteract>();
         CurrentInterest = null;
         GetInterests();
     }
@@ -158,11 +163,43 @@ public class KnightDecisionTree : MonoBehaviour
     public void TargetObject()
     {
         resetTarget++;
-        if (CurrentInterest != knightMove.TargetInterest || resetTarget >= 10)
+        if (CurrentInterest != knightMove.TargetInterest || resetTarget >= 10 && !interact.IsAttacking())
         {
             resetTarget = 0;
             knightMove.TargetInterest = CurrentInterest;
             knightMove.CommandKnight(CurrentInterest.transform.position);
+        }
+        if (Vector2.Distance(CurrentInterest.transform.position, transform.position) < interactionDistance)
+        {
+            InteractWithInterest();
+        }
+    }
+
+    void InteractWithInterest()
+    {
+
+        switch (CurrentInterest.InterestType)
+        {
+            case "Enemy":
+                if (!interact.IsAttacking())
+                {
+                    interact.StartAttacking(CurrentInterest.gameObject);
+                }
+                break;
+            case "Gold":
+                if (interact.IsGold(CurrentInterest.gameObject))
+                {
+                    interact.CollectGold(CurrentInterest.gameObject);
+                    //reduce greed stat
+                }
+                break;
+            case "Food":
+                if (interact.IsFood(CurrentInterest.gameObject))
+                {
+                    interact.EatFood(CurrentInterest.gameObject);
+                    //reduce hunger/increase energy
+                }
+                break;
         }
     }
 }
