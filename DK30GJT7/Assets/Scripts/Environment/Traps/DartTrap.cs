@@ -45,7 +45,7 @@ public class DartTrap : MonoBehaviour
     void ShootDart()
     {
         GameObject shotDart = Instantiate(dart, new Vector3(0, 0, 0), Quaternion.identity);
-        shotDart.transform.position = transform.position + new Vector3(0, -1.5f);
+        shotDart.transform.position = transform.position + new Vector3(0, -0f);
         shotDart.transform.Rotate(0, 0, 180);
         currentTime = cooldown;
     }
