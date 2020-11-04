@@ -79,7 +79,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (sleeping || anim.GetCurrentAnimatorStateInfo(0).IsName("Imp_Appear"))   //wait for imp appear anim to finish
+        if (sleeping || anim.GetCurrentAnimatorStateInfo(0).IsName("Imp_Appear2"))   //wait for imp appear anim to finish
         {
             return;
         }
