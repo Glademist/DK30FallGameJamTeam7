@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{6fdaeba4-350f-48e6-aed1-a97a0d6376c9}">
+		<property name="assetPath">
+			<value>Foley/fol_fs_pc_metal4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.17708333333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{10773899-6a9e-4d48-84f5-27cab3071a10}</destination>
+		</relationship>
+	</object>
+</objects>
