@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{bdfc9364-1847-4da9-8420-964ecba39e19}">
 		<property name="name">
 			<value>sfx_pc_eat</value>

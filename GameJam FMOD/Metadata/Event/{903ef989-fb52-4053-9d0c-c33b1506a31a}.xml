@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{903ef989-fb52-4053-9d0c-c33b1506a31a}">
 		<property name="name">
 			<value>fol_slime_death</value>

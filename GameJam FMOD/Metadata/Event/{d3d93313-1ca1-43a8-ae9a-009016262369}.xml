@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{d3d93313-1ca1-43a8-ae9a-009016262369}">
 		<property name="name">
 			<value>sfx_level_door_unlock</value>

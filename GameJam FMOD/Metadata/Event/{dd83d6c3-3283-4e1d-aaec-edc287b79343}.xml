@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{dd83d6c3-3283-4e1d-aaec-edc287b79343}">
 		<property name="name">
 			<value>sfx_level_lever</value>

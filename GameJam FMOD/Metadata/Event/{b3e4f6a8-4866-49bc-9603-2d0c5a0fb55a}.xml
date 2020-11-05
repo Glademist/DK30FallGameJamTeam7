@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{b3e4f6a8-4866-49bc-9603-2d0c5a0fb55a}">
 		<property name="name">
 			<value>sfx_level_door_close</value>
