@@ -54,7 +54,7 @@ public class Bomb : MonoBehaviour
             }
 
         }
-        Debug.Log("BOOM");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Desktop/SFX/sfx_bomb_explode", GetComponent<Transform>().position);
         Destroy(gameObject);
     }
 }
