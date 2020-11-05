@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{332602a6-ed77-480c-b0e0-651a72f49506}">
 		<property name="name">
 			<value>fol_fs_slime</value>

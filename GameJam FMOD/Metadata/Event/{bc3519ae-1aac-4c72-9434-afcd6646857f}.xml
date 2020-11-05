@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{bc3519ae-1aac-4c72-9434-afcd6646857f}">
 		<property name="name">
 			<value>fol_slime_attack</value>

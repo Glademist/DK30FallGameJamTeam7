@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{06f76468-354d-4a4f-b71d-fdf4ee7b501d}">
 		<property name="name">
 			<value>sfx_bomb_throw</value>
