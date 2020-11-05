@@ -6,8 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField]
     float aggroRange = 20f, attackRange = 4f, moveSpeed = 1f;
-    [SerializeField]
-    GameObject currentTarget;
+    public GameObject currentTarget;
     public List<Collider2D> Collisions;
     Vector3 homePosition;
     CircleCollider2D sightRange;
@@ -219,5 +218,15 @@ public class EnemyBehaviour : MonoBehaviour
             StartAttacking();
             AttackTarget();
         }
+    }
+
+    public bool IsAttacking()
+    {
+        return currentState == State.Attacking;
+    }
+
+    public bool IsSeeking()
+    {
+        return currentState == State.Seeking;
     }
 }

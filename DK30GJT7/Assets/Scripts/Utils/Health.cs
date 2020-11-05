@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log(string.Format("Took {0} damage, current health is {1}/{2}", damage, currentHealth, maxHealth));
+        //Debug.Log(string.Format("Took {0} damage, current health is {1}/{2}", damage, currentHealth, maxHealth));
         healthBar.UpdateHealthbar(currentHealth, maxHealth);
         if(currentHealth <= 0)
         {
@@ -65,5 +65,10 @@ public class Health : MonoBehaviour
     public ProgressBar GetHealthbar()
     {
         return this.healthBar;
+    }
+
+    public bool HealthLow()
+    {
+        return ((float)currentHealth / (float)maxHealth) < 0.4;
     }
 }

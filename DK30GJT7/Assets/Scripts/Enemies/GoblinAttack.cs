@@ -16,7 +16,6 @@ public class GoblinAttack : MonoBehaviour
     {
         if (attacking && thrownBomb == null)
         {
-            Debug.Log("trying to lob bombs");
             thrownBomb = Instantiate(bomb, new Vector3(0, 0, 0), Quaternion.identity);
             Rigidbody2D body = thrownBomb.GetComponent<Rigidbody2D>();
             Vector2 start = transform.position;

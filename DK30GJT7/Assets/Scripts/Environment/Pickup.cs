@@ -14,7 +14,7 @@ public class Pickup : MonoBehaviour
         {
             if (player.targetedObject == null)
             {
-                Debug.Log("player can pick up");
+                //Debug.Log("player can pick up");
                 player.targetedObject = transform.parent.gameObject;
             }
         }
