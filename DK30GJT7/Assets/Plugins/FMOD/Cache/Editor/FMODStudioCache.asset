@@ -15,8 +15,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_item_throw
   guid: 2c4eaf387bf7af4a8da64da2b2b436c4
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -24,6 +24,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 298
+--- !u!114 &-8948247247407393515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: ../Game Jam FMOD/Build/Desktop/SFX.bank
+  SubDir: 
+  lastModified: 637401810178816334
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-8690258634142332929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,8 +57,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_level_cratebreak
   guid: 54e23d99da8aab40b10e59e9e5690366
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -63,8 +81,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_trap_spike_extend
   guid: e434e57cd8080b4982dc412de31e650b
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -87,8 +105,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_fs_pc_metal
   guid: bcc8145bc92ded4ead8b34835c51870d
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -159,8 +177,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_trap_spike_retract
   guid: 2272fd15becc0a48ae60b2da8640287e
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -207,8 +225,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_trap_dart_hit
   guid: ebe995bc5861d043adbde1cab7749d76
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -216,6 +234,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 223
+--- !u!114 &-7543830029008613010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Foley.bank
+  m_EditorClassIdentifier: 
+  Path: ../Game Jam FMOD/Build/Desktop/Foley.bank
+  SubDir: 
+  lastModified: 637401810175264201
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-7492926872290864443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,8 +267,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_item_land
   guid: e657e71047bbe74682fd82dcc9cdd1ce
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -317,7 +353,7 @@ MonoBehaviour:
   lastModified: 637401763491554543
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-6347517531215834726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,8 +369,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_fs_slime
   guid: a602263377ed0c48b0e0651a72f49506
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -357,8 +393,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_fs_pc_leather
   guid: ffdddd3fa27d3d4a9e0d84eab39ba4f7
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -383,7 +419,7 @@ MonoBehaviour:
   lastModified: 637401763490278267
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-4561237798848683955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,8 +525,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_item_gold
   guid: df2fbd6a385e0442a6fcb96874cabfde
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -513,8 +549,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_level_slide_stone
   guid: c54191fa392e60409136423eb070f5ff
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -539,7 +575,7 @@ MonoBehaviour:
   lastModified: 637401763490946166
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-2847741635772130704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,8 +615,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_goblin_death
   guid: 5e8bfb88f8fc0a43b199e806b91f47d7
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -603,8 +639,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_item_find
   guid: f6c2b10469c2784c81b9960f0d5be9ad
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -651,8 +687,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_mimic_death
   guid: 5bb6700a83630444b04b5a0faa8fc651
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -675,8 +711,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_zombie_death
   guid: 1db722b2d51803449d6e8551945e4b00
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -699,8 +735,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_imp_death
   guid: 39ffa255034a664693d0179eb36d505b
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -747,8 +783,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_level_chestopen
   guid: c7cf9f646922124c9608f775d81c37ba
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -771,8 +807,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_king_throwgold
   guid: 270535b4bba650408d776aff0cfdbcf2
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -795,8 +831,8 @@ MonoBehaviour:
   Path: event:/ADR/adr_mimic_move
   guid: 53be15a30106ba479a21246cdeb53c05
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -819,8 +855,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_slime_attack
   guid: ae1935bcac1a724c9434afcd6646857f
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -867,8 +903,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_bomb_land
   guid: 756e5476a5923e4ba67239791045160d
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -938,7 +974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../Game Jam FMOD/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637401763491045908
+  lastModified: 637401810178337921
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -958,9 +994,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -25760375114517833}
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   EditorEvents:
   - {fileID: 5976577505521553785}
   - {fileID: 8925318866460413404}
@@ -1004,10 +1040,10 @@ MonoBehaviour:
   - {fileID: 904324856054727482}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2870171658345657143}
+  - {fileID: 3995496015684354651}
   StringsBanks:
   - {fileID: -25760375114517833}
-  stringsBankWriteTime: 637401763491045908
+  stringsBankWriteTime: 637401810178337921
   cacheVersion: 3
 --- !u!114 &93587072124489883
 MonoBehaviour:
@@ -1044,8 +1080,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_pc_eat
   guid: 6493fcbd4718a94d8420964ecba39e19
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1068,8 +1104,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_bomb_explode
   guid: f06b0864056f7e42ad18fc93e8ddbb47
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1092,8 +1128,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_pc_knight_death
   guid: 57bbcded7add4142b7d2b0d5fc5261a8
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1116,8 +1152,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_bomb_throw
   guid: 6864f7064d354f4ab71dfdf4ee7b501d
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1140,8 +1176,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_level_slide_wood
   guid: fbb6b4e3cf926f449b0bd93153f26b7f
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1164,8 +1200,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_level_door_unlock
   guid: 1333d9d3a11ca843ae9a009016262369
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1212,8 +1248,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_pc_squire_death
   guid: caff0aa52672504abbe7a77bff967e88
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1284,8 +1320,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_level_lever
   guid: c3d683dd83321d4eaaecedc287b79343
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1380,8 +1416,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_trap_dart_fire
   guid: 225e7451e6d65b40853e89c5b5e60481
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1461,6 +1497,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 754
+--- !u!114 &3995496015684354651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../Game Jam FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637401810178258213
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &4029246435893404601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,8 +1626,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_level_plate
   guid: aba055f49c33974c98368564ade4f0a3
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1596,8 +1650,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_mimic_wake
   guid: 8ed99b766c8fb84091faf4b2b5fd82e0
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1644,8 +1698,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_item_pickup
   guid: 3963ba4eb45af04aa881ebf5119044bb
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1668,8 +1722,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_fs_mimic
   guid: 1a7aa2c8cfbaa8429fe9458a9fbcdc0a
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1716,8 +1770,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_slime_death
   guid: 89f93e9052fb53409d0cc33b1506a31a
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1764,8 +1818,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_imp_appear
   guid: 78999d67a23cc64992642f04ceff0337
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1812,8 +1866,8 @@ MonoBehaviour:
   Path: event:/SFX/sfx_level_door_close
   guid: a8f6e4b36648bc4996032d0c5a0fb55a
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1836,8 +1890,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_king_death
   guid: 70a714b1226d154f8ec7a1395ec1ddaa
   Banks:
-  - {fileID: -2870171658345657143}
-  - {fileID: -6386558602281012732}
+  - {fileID: 3995496015684354651}
+  - {fileID: -8948247247407393515}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1860,8 +1914,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_fs_zombie
   guid: f905f37b12ff7e4e802cd28a9cc125a5
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1884,8 +1938,8 @@ MonoBehaviour:
   Path: event:/Foley/fol_fs_small
   guid: 2d6b413312ba4b45b34b0a37bea42fc4
   Banks:
-  - {fileID: -4870594433913289183}
-  - {fileID: -2870171658345657143}
+  - {fileID: -7543830029008613010}
+  - {fileID: 3995496015684354651}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
