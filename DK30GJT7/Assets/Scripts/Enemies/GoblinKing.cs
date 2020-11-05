@@ -19,6 +19,7 @@ public class GoblinKing : MonoBehaviour
     void Start()
     {
         behaviour = GetComponent<EnemyBehaviour>();
+        GetComponent<Health>().HideHealth();
     }
 
     // Update is called once per frame

@@ -71,4 +71,9 @@ public class Health : MonoBehaviour
     {
         return ((float)currentHealth / (float)maxHealth) < 0.4;
     }
+
+    public void HideHealth()
+    {
+        healthBar.ToggleVisible(false);
+    }
 }
