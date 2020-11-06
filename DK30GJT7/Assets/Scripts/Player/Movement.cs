@@ -12,12 +12,14 @@ public class Movement : MonoBehaviour
 
     public float runSpeed = 10.0f;
     Interaction interaction;
+    GameObject vfx;
 
     void Start()
     {
         GlobalReferences.Player = gameObject;
         body = GetComponent<Rigidbody2D>();
         interaction = GetComponent<Interaction>();
+        vfx = transform.GetChild(0).gameObject;
     }
 
     void Update()
@@ -55,8 +57,8 @@ public class Movement : MonoBehaviour
     }
 
     private void FlipSprite(){
-        Vector3 theScale = transform.localScale;
+        Vector3 theScale = vfx.transform.localScale;
         theScale.x *= -1;
-        transform.localScale = theScale;
+        vfx.transform.localScale = theScale;
     }
 }

@@ -68,12 +68,8 @@ public class GoblinKing : MonoBehaviour
         Rigidbody2D body = thrownObject.GetComponent<Rigidbody2D>();
         Vector2 start = transform.position;
         Vector2 target = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0);
-        target += start;
-        Debug.Log("thrown target x: " + target.x + " y: " + target.y);
-        
-        Debug.Log("start pos x: " + start.x + " y: " + start.y);
-        thrownObject.transform.position = start + (target - start) / 2f;
-        body.velocity = (target - start) * 4;
+        thrownObject.transform.position = (start + target) / 2f;
+        body.velocity = (target) * 4;
     }
 
     private GameObject GetRandomObject()
