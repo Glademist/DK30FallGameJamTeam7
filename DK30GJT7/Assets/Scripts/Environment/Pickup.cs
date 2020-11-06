@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour
@@ -14,11 +15,12 @@ public class Pickup : MonoBehaviour
         {
             if (player.targetedObject == null)
             {
-                Debug.Log("player can pick up");
+                //Debug.Log("player can pick up");
                 player.targetedObject = transform.parent.gameObject;
             }
         }
     }
+
 
     public void EatFood(Health consumer)
     {

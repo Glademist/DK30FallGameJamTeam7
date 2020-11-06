@@ -13,12 +13,17 @@ public class Crate : MonoBehaviour
         {
             if (collision.gameObject.GetComponentInChildren<Pickup>())
             {
-                if (storedObject != null)
-                {
-                    GameObject reward = Instantiate(storedObject, (Vector2)transform.position, Quaternion.identity);
-                }
-                Destroy(gameObject);
+                SmashCrate();
             }
         }
+    }
+
+    public void SmashCrate()
+    {
+        if (storedObject != null)
+        {
+            GameObject reward = Instantiate(storedObject, (Vector2)transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject);
     }
 }

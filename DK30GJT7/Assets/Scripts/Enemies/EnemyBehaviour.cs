@@ -6,8 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField]
     float aggroRange = 20f, attackRange = 4f, moveSpeed = 1f;
-    [SerializeField]
-    GameObject currentTarget;
+    public GameObject currentTarget;
     public List<Collider2D> Collisions;
     Vector3 homePosition;
     CircleCollider2D sightRange;
@@ -25,11 +24,16 @@ public class EnemyBehaviour : MonoBehaviour
     int damage = 1;
     Health targetHealth;
 
+    //enemy state
     enum State {Sleeping, Wandering, Seeking, Attacking, Returning}
     [SerializeField]
     State currentState;
     [SerializeField]
     LayerMask walls;
+
+    //wandering
+    float wanderCooldown = 2f, wanderTimer = 2f;
+    Rigidbody2D body;
 
     Animator anim;
     SpriteRenderer rend;
@@ -37,6 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        body = GetComponent<Rigidbody2D>();
         currentState = State.Wandering;
         healthbar = GetComponent<Health>().GetHealthbar();
         if (sleeping)
@@ -163,7 +168,6 @@ public class EnemyBehaviour : MonoBehaviour
             || Physics2D.Linecast((Vector2)transform.position, (Vector2)homePosition, walls))
         {
             currentState = State.Returning;
-            anim.SetBool("Running", false);
         }
 
         else if (Vector2.Distance(currentTarget.transform.position, transform.position) < attackRange)  //if target in attack range start attacking
@@ -174,6 +178,22 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Wander()
     {
+        anim.SetBool("Running", false);
+        wanderTimer -= Time.deltaTime;
+        if(wanderTimer <= 0)
+        {
+            if(Vector2.Distance(transform.position, homePosition) > 2)
+            {
+                body.velocity = (homePosition - transform.position);
+            }
+            else
+            {
+                body.velocity = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0);
+                wanderTimer = wanderCooldown;
+            }
+        }
+
+
         ContactFilter2D Filter = new ContactFilter2D();
         Filter = Filter.NoFilter();
         sightRange.OverlapCollider(Filter, Collisions);
@@ -185,6 +205,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void StartAttacking()
     {
+        anim.SetBool("Running", false);
         currentState = State.Attacking;
         attackTime = attackSpeed;
         targetHealth = currentTarget.GetComponent<Health>();
@@ -219,5 +240,15 @@ public class EnemyBehaviour : MonoBehaviour
             StartAttacking();
             AttackTarget();
         }
+    }
+
+    public bool IsAttacking()
+    {
+        return currentState == State.Attacking;
+    }
+
+    public bool IsSeeking()
+    {
+        return currentState == State.Seeking;
     }
 }

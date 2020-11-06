@@ -38,17 +38,23 @@ public class Bomb : MonoBehaviour
     void Explode()
     {
         Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, explodeRadius);
-        Debug.Log(string.Format("Found {0} collisions", collisions.Length));
+        //Debug.Log(string.Format("Found {0} collisions", collisions.Length));
         for (int i = 0; i < collisions.Length; i++)
         {
             Debug.Log(collisions[i].name);
             Health character = collisions[i].gameObject.GetComponent<Health>();
-            if(character != null)
+            if(character)
             {
                 character.TakeDamage(damage);
             }
+            Crate crate = collisions[i].gameObject.GetComponent<Crate>();
+            if (crate)
+            {
+                crate.SmashCrate();
+            }
+
         }
-        Debug.Log("BOOM");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_bomb_explode", GetComponent<Transform>().position);
         Destroy(gameObject);
     }
 }

@@ -7,11 +7,11 @@ public class Dart : MonoBehaviour
     public int damage = 2;
     float speed = 4f;
 
-    float timer = 0.2f;
+    float timer = 0.1f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (timer > 0)
+        if (timer > 0 && collision.gameObject.layer == 8)
         {
             return;
         }
