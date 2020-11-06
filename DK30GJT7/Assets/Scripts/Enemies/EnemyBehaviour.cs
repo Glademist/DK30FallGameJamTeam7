@@ -168,7 +168,6 @@ public class EnemyBehaviour : MonoBehaviour
             || Physics2D.Linecast((Vector2)transform.position, (Vector2)homePosition, walls))
         {
             currentState = State.Returning;
-            anim.SetBool("Running", false);
         }
 
         else if (Vector2.Distance(currentTarget.transform.position, transform.position) < attackRange)  //if target in attack range start attacking
@@ -179,6 +178,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Wander()
     {
+        anim.SetBool("Running", false);
         wanderTimer -= Time.deltaTime;
         if(wanderTimer <= 0)
         {
@@ -205,6 +205,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void StartAttacking()
     {
+        anim.SetBool("Running", false);
         currentState = State.Attacking;
         attackTime = attackSpeed;
         targetHealth = currentTarget.GetComponent<Health>();
