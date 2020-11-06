@@ -20,6 +20,9 @@ public class Door : MonoBehaviour
     SpriteRenderer spriteRend;
     BoxCollider2D collider;
 
+    //handle lighting
+    public Lighting connectedRoomA, connectedRoomB;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,14 +43,22 @@ public class Door : MonoBehaviour
             }
         } else
         {
-            if (!collider.IsTouchingLayers(-1)){
+            //if (!collider.IsTouchingLayers(-1)){
                 spriteRend.sprite = closedDoor;
                 collider.isTrigger = false;
                 UpdateTilemap(walls, Location, Ground);
                 if(knight != null){
                     knight.GetComponent<KnightMove>().CheckDoors();
                 }
-            }
+            //}
+        }
+        if (connectedRoomA)
+        {
+            connectedRoomA.ChangeVisibility(open);
+        }
+        if (connectedRoomB)
+        {
+            connectedRoomB.ChangeVisibility(open);
         }
     }
 
