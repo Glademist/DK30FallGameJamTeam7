@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
   HasSourceProject: 0
-  HasPlatforms: 1
-  sourceProjectPath: ../Game Jam FMOD/Game Jam FMOD.fspro
-  sourceBankPath: ../Game Jam FMOD
+  HasPlatforms: 0
+  sourceProjectPath: ../GameJam FMOD/Game Jam FMOD.fspro
+  sourceBankPath: ../../Game Jam FMOD/Build/Desktop
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
     Value: 0
   BankDirectorySettings:
   - Platform: 2
-    Value: 
+    Value: Desktop
   VirtualChannelSettings:
   - Platform: 1
     Value: 1024
