@@ -667,7 +667,7 @@ namespace FMODUnity
             if (firstUpdate)
             {
                 RefreshBanks();
-                bool isValid;
+                bool isValid = true;
                 string validateMessage;
                 EditorUtils.ValidateSource(out isValid, out validateMessage);
                 if (!isValid)
