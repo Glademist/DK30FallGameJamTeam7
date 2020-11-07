@@ -16,7 +16,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: ../GameJam FMOD/Game Jam FMOD.fspro
-  sourceBankPath: ../../Game Jam FMOD/Build/Desktop
+  sourceBankPath: ../Game Jam FMOD/Build/Desktop
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

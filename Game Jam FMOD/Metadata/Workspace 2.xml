@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="Workspace" id="{7a0e2e8e-751b-4ae6-b8f9-14ab7a739e36}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../../../../Documents/GitHub/DK30FallGameJamTeam7/Game Jam FMOD</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{85086635-14c1-4f27-80bf-12ebbc84a27a}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{e5d08a6e-36cf-4fe7-9b25-c5db0b139dca}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{e9fce77d-bf04-4b9b-b95c-a60a62aa7736}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{bbd913a1-7cb8-42b3-937f-6d1dbd64c2cd}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{4ea4a549-b351-4beb-ac24-a2ad8c8f9039}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{10773899-6a9e-4d48-84f5-27cab3071a10}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{4d400042-2a32-4f2b-953b-98c4e15665d8}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{79e4df50-a00f-4b40-8609-8de86a789d4f}</destination>
+		</relationship>
+	</object>
+</objects>
