@@ -8,6 +8,7 @@ public class DartTrap : MonoBehaviour
     GameObject dart;
 
     float cooldown = 5f, currentTime = 0f;
+    [SerializeField]
     List<GameObject> targetObjects = new List<GameObject>();
 
     private void Update()
@@ -44,6 +45,7 @@ public class DartTrap : MonoBehaviour
 
     void ShootDart()
     {
+        Debug.Log("dart has been shot");
         GameObject shotDart = Instantiate(dart, new Vector3(0, 0, 0), Quaternion.identity);
         shotDart.transform.position = transform.position + new Vector3(0, -0f);
         shotDart.transform.Rotate(0, 0, 180);
