@@ -7,7 +7,7 @@ public class DTLeft : MonoBehaviour
     [SerializeField]
     GameObject dart;
 
-    float cooldown = 5f, currentTime = 0f;
+    float cooldown = 1.5f, currentTime = 0f;
     List<GameObject> targetObjects = new List<GameObject>();
 
     private void Update()
@@ -46,7 +46,7 @@ public class DTLeft : MonoBehaviour
     {
         GameObject shotDart = Instantiate(dart, new Vector3(0, 0, 0), Quaternion.identity);
         shotDart.transform.position = transform.position + new Vector3(0, -0f);
-        shotDart.transform.Rotate(0, 0, 180);
+        shotDart.transform.Rotate(0, 0, 270);
         currentTime = cooldown;
     }
 }
