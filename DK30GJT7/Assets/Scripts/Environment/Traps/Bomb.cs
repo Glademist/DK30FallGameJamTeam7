@@ -9,17 +9,27 @@ public class Bomb : MonoBehaviour
     int damage = 3;
 
     Animator anim;
+    public bool disabled = false;
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject vfx = transform.GetChild(0).gameObject;
         anim = vfx.GetComponent<Animator>();
+
+        if (disabled)
+        {
+            anim.enabled = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (disabled)
+        {
+            return;
+        }
         if (explodeTime > 0)
         {
             explodeTime -= Time.deltaTime;
@@ -56,5 +66,11 @@ public class Bomb : MonoBehaviour
         }
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_bomb_explode", GetComponent<Transform>().position);
         Destroy(gameObject);
+    }
+
+    public void EnableBomb()
+    {
+        disabled = false;
+        anim.enabled = true;
     }
 }
