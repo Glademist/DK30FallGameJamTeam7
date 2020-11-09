@@ -11,12 +11,23 @@ public class Pickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Interaction player = collision.GetComponent<Interaction>();
-        if(player != null)
+        if(player)
         {
             if (player.targetedObject == null)
             {
-                //Debug.Log("player can pick up");
                 player.targetedObject = transform.parent.gameObject;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Interaction player = collision.GetComponent<Interaction>();
+        if (player)
+        {
+            if (player.targetedObject == transform.parent.gameObject)
+            {
+                player.targetedObject = null;
             }
         }
     }
