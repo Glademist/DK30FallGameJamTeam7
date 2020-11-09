@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6522513335288417162}
   - component: {fileID: 6522513335775771735}
   - component: {fileID: 6522513335775771734}
-  - component: {fileID: 1761323556}
+  - component: {fileID: 8602783192871418638}
   m_Layer: 0
   m_Name: knight
   m_TagString: Untagged
@@ -194,12 +194,7 @@ MonoBehaviour:
     isAccessible: 0
     Doors: []
   DrawGizmos: 0
-  TargetInterest:
-    InitInterest: 50
-    InterestType: 
-    CurrentInterest: 0
-    Object: {fileID: 0}
-    IsActive: 0
+  TargetInterest: {fileID: 0}
 --- !u!114 &6522513335288417162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +261,7 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 20
   healthbarHeight: 1.3
---- !u!114 &1761323556
+--- !u!114 &8602783192871418638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,20 +270,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 6522513335775771721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bd1728af3b6be94ea0238188722df1a, type: 3}
+  m_Script: {fileID: 11500000, guid: c1c4e2e0e8ea5e5418781636123a0930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsToReprioritise: 3
-  secondsSinceLastReprioritise: 0
-  target:
-    gameobject: {fileID: 0}
-    position: {x: 0, y: 0}
-    type: 
-    timeSeen: 0
-  displayedIntention: {fileID: 0}
-  stimuli: []
-  intention: {fileID: 7375943449205401229}
-  pathfinding_mode: 0
+  Comfort: 0
+  UnComfort: 0
+  Distracted: 0
+  Focused: 0
+  Exhaustion: 0
+  Energized: 0
+  Fear: 0
+  Courage: 0
+  Interests: []
+  KnownInterests: []
+  CurrentInterest: {fileID: 0}
+  InterestedRoom:
+    room:
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    Interest: 0
+    InterestGrowth: 0
+    isAccessible: 0
+    Doors: []
+  knightMove: {fileID: 0}
 --- !u!1 &6522513336267241585
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,15 +476,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7375943449022199262}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7375943449205401229 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 521638739, guid: 0820f1b9d89544044abdd11bf6eabce1,
-    type: 3}
-  m_PrefabInstance: {fileID: 7375943449022199262}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e3a39521497a52419825f73845d925c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
