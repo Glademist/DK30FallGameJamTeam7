@@ -26,8 +26,8 @@ public class Interaction : MonoBehaviour
     bool foodHeld = false;
     
     public GameObject gotoCursor;
-
     public Intention intention;
+    public ShowSpeech speech;
 
     // Start is called before the first frame update
     void Start()
@@ -88,7 +88,7 @@ public class Interaction : MonoBehaviour
                 heldObjectBody.velocity = (target - start) * 3f;
 
                 heldObject = null;
-                targetedObject = null;
+                //targetedObject = null;
             }
         }
         // Send knight to mouse position
@@ -146,8 +146,6 @@ public class Interaction : MonoBehaviour
         }
     }
 
-
-
     public void Interact(Collider2D hit)
     {
         if (Vector2.Distance(transform.position, hit.gameObject.transform.position) > maxInteractionDistance)
@@ -163,7 +161,7 @@ public class Interaction : MonoBehaviour
             {
                 if (keys <= 0)
                 {
-                    Debug.Log("no keys");
+                    speech.Display();
                     return;
                 }
                 unlockingDoor = true;
@@ -209,7 +207,7 @@ public class Interaction : MonoBehaviour
     void PickupObject()
     {
         heldObject = targetedObject;
-        targetedObject = null;
+        //targetedObject = null;
 
         Pickup pickup = heldObject.GetComponentInChildren<Pickup>();
         if (pickup) { foodHeld = pickup.isFood; }
