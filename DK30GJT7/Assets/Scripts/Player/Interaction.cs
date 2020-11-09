@@ -87,8 +87,13 @@ public class Interaction : MonoBehaviour
                 heldObject.transform.position = start + (target - start) / 5f;
                 heldObjectBody.velocity = (target - start) * 3f;
 
+                //activate a thrown bomb
+                Bomb bomb = heldObject.GetComponent<Bomb>();
+                if (bomb)
+                {
+                    bomb.EnableBomb();
+                }
                 heldObject = null;
-                //targetedObject = null;
             }
         }
         // Send knight to mouse position
