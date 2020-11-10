@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField]
     Health squire, knight;
     [SerializeField]
     GameObject panel;
@@ -19,18 +18,39 @@ public class GameOver : MonoBehaviour
         {
             knight = knightObj.GetComponent<Health>();
         }
+
+        GameObject squireObj = GameObject.Find("Player");
+        if (knightObj)
+        {
+            squire = squireObj.GetComponent<Health>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(squire.currentHealth <= 0 ||  knight.currentHealth <= 0)
+        if (knight)
         {
-            panel.SetActive(true);
-            anim.SetTrigger("ShowMenu");
-
-            //disable player movement
-            squire.gameObject.GetComponent<Movement>().enabled = false;
+            if (squire.currentHealth <= 0 || knight.currentHealth <= 0)
+            {
+                GameOverScreen();
+            }
         }
+        else
+        {
+            if (squire.currentHealth <= 0)
+            {
+                GameOverScreen();
+            }
+        }
+    }
+
+    void GameOverScreen()
+    {
+        panel.SetActive(true);
+        anim.SetTrigger("ShowMenu");
+
+        //disable player movement
+        squire.gameObject.GetComponent<Movement>().enabled = false;
     }
 }

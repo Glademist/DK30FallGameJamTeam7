@@ -85,7 +85,7 @@ public class Interaction : MonoBehaviour
                 heldObject.GetComponent<CircleCollider2D>().enabled = true;
 
                 heldObject.transform.position = start + (target - start) / 5f;
-                heldObjectBody.velocity = (target - start) * 3f;
+                heldObjectBody.velocity = (target - start).normalized * 50f;
 
                 //activate a thrown bomb
                 Bomb bomb = heldObject.GetComponent<Bomb>();
