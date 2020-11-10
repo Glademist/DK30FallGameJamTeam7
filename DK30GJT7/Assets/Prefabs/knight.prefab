@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6522513335775771735}
   - component: {fileID: 6522513335775771734}
   - component: {fileID: 8602783192871418638}
+  - component: {fileID: 5608509283425671337}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -295,6 +296,21 @@ MonoBehaviour:
     isAccessible: 0
     Doors: []
   knightMove: {fileID: 0}
+--- !u!114 &5608509283425671337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522513335775771721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b29471c7d89b840a6ec80a7b45efe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  attackTime: 0
+  damage: 1
 --- !u!1 &6522513336267241585
 GameObject:
   m_ObjectHideFlags: 0
