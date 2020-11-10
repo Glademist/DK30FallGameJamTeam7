@@ -10,10 +10,11 @@ public class GoblinKing : MonoBehaviour
 
 
     public GameObject knight;
-
     public GameObject goblin, fakeGold, foodCrate;
-
     float throwCooldown = 20f, currentCooldown = 10f;
+
+    //create ladder when iit dies
+    public GameObject ladder;
 
     // Start is called before the first frame update
     void Start()
@@ -86,5 +87,10 @@ public class GoblinKing : MonoBehaviour
                 return foodCrate;
         }
         return goblin;
+    }
+
+    private void OnDestroy()
+    {
+        ladder.SetActive(true);
     }
 }

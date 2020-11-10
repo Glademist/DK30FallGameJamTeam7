@@ -146,6 +146,7 @@ public class EnemyBehaviour : MonoBehaviour
                         
                         hiding = false;
                         rend.enabled = true;
+                        healthbar.ToggleVisible(true);
                     }
                     else
                     {
@@ -239,6 +240,7 @@ public class EnemyBehaviour : MonoBehaviour
             currentTarget = victim;
             StartAttacking();
             AttackTarget();
+            healthbar.ToggleVisible(true);
         }
     }
 
