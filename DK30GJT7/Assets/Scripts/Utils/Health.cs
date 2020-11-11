@@ -17,6 +17,12 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
         healthBar = new ProgressBar(gameObject, new Vector3(100, 15, 1), new Vector3(90, 12, 1), new Vector2(0, healthbarHeight), Color.black, Color.green, true);
         enemy = GetComponent<EnemyBehaviour>();
+
+        if(name == "Knight" && UpdateKnightHealth.knightHealth != 0)
+        {
+            currentHealth = UpdateKnightHealth.knightHealth;
+            UpdateHealthbar();
+        }
     }
 
     private void Update()
