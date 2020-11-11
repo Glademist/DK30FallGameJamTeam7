@@ -100,6 +100,11 @@ public class KnightDecisionTree : MonoBehaviour
             if (interest == null)
             {
                 Interests.Remove(interest);
+                KnownInterests.Remove(interest);
+                if (CurrentInterest == interest)
+                {
+                    CurrentInterest = null;
+                }
             }
             else if (Area.Contains(Vector2Int.RoundToInt(interest.transform.position)) && !KnownInterests.Contains(interest))
             {
@@ -111,9 +116,9 @@ public class KnightDecisionTree : MonoBehaviour
 
     public void ChooseInterest()
     {
-        if (Interests.Count > 0)
+        if (KnownInterests.Count > 0)
         {
-            foreach (Interest Interest in Interests)
+            foreach (Interest Interest in KnownInterests)
             {
                 if (CurrentInterest == null)
                 {
@@ -129,6 +134,10 @@ public class KnightDecisionTree : MonoBehaviour
                     CurrentInterest = NextInterest;
                 }
             }
+        }
+        if (knightMove.AccessibleRooms.Count <= 1)
+        {
+            knightMove.CheckDoors();
         }
         foreach (Room Room in knightMove.AccessibleRooms)
         {
