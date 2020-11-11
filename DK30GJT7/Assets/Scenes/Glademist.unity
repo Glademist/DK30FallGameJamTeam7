@@ -2101,6 +2101,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &630942104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3346761722600861389, guid: f2abd1e63de85304096fb1a560e15f6e,
+    type: 3}
+  m_PrefabInstance: {fileID: 162793876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3b00d8d63006542beb0cef2295b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &654296347
 GameObject:
   m_ObjectHideFlags: 0
@@ -7944,6 +7956,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
+      propertyPath: rooms.Array.data[1].Doors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[0].Doors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
       propertyPath: DrawGizmos
       value: 1
       objectReference: {fileID: 0}
@@ -8162,6 +8184,21 @@ PrefabInstance:
       propertyPath: rooms.Array.data[1].isAccessible
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[1].Doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 630942104}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[0].Doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 630942104}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[0].Doors.Array.data[1]
+      value: 
+      objectReference: {fileID: 1994339190}
     - target: {fileID: 6522513335775771735, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: Walls
@@ -9958,6 +9995,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1994339190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3346761722600861389, guid: f2abd1e63de85304096fb1a560e15f6e,
+    type: 3}
+  m_PrefabInstance: {fileID: 835640527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3b00d8d63006542beb0cef2295b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2009566057
 GameObject:
   m_ObjectHideFlags: 0
