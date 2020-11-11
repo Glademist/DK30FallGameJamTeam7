@@ -10107,6 +10107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6522513335288417162, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: Colliders
+      value: 
+      objectReference: {fileID: 1060213809}
     - target: {fileID: 6522513335775771721, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: m_Name
@@ -10115,12 +10120,12 @@ PrefabInstance:
     - target: {fileID: 6522513335775771728, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.47
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771728, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.66
+      value: -12.73
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771728, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
@@ -10295,12 +10300,12 @@ PrefabInstance:
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: rooms.Array.data[2].isAccessible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: rooms.Array.data[1].isAccessible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
@@ -10325,7 +10330,7 @@ PrefabInstance:
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: rooms.Array.data[3].isAccessible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
@@ -10355,7 +10360,7 @@ PrefabInstance:
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: rooms.Array.data[4].isAccessible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
@@ -10415,7 +10420,7 @@ PrefabInstance:
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: rooms.Array.data[6].isAccessible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
