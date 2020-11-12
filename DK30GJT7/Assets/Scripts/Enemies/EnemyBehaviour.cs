@@ -38,6 +38,10 @@ public class EnemyBehaviour : MonoBehaviour
     Animator anim;
     SpriteRenderer rend;
 
+    //facing direction
+    GameObject vfx;
+    Vector2 rightFacing, leftFacing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +57,7 @@ public class EnemyBehaviour : MonoBehaviour
         homePosition = transform.position;
         sightRange = GetComponentInChildren<CircleCollider2D>();
 
-        GameObject vfx = transform.GetChild(0).gameObject;
+        vfx = transform.GetChild(0).gameObject;
         anim = vfx.GetComponent<Animator>();
         rend = vfx.GetComponent<SpriteRenderer>();
         if (hiding)
@@ -61,6 +65,9 @@ public class EnemyBehaviour : MonoBehaviour
             healthbar.ToggleVisible(false);
             rend.enabled = false;
         }
+
+        rightFacing = new Vector2(vfx.transform.localScale.x, vfx.transform.localScale.y);
+        leftFacing = new Vector2(vfx.transform.localScale.x * -1, vfx.transform.localScale.y);
     }
 
     private void Update()
@@ -87,6 +94,20 @@ public class EnemyBehaviour : MonoBehaviour
         if (sleeping || anim.GetCurrentAnimatorStateInfo(0).IsName("Imp_Appear2"))   //wait for imp appear anim to finish
         {
             return;
+        }
+        
+        
+        if (currentTarget != null)
+        {
+            
+            if (currentTarget.transform.position.x >= transform.position.x)
+            {
+                vfx.transform.localScale = rightFacing;
+            }
+            else
+            {
+                vfx.transform.localScale = leftFacing;
+            }
         }
 
         switch (currentState)

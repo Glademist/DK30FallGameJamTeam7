@@ -25,6 +25,18 @@ public class NextLevel : MonoBehaviour
             return;
         }
 
+        GameObject knight = GameObject.Find("Knight");
+
+        if (knight)
+        {
+            int knightHealth = knight.GetComponent<Health>().currentHealth;
+            UpdateKnightHealth.knightHealth = knightHealth;
+            if (knightHealth <= 0)
+            {
+                return;
+            }
+        }
+
         if (!lastLevel)
         {
             player.transform.position = new Vector3(0, 0);

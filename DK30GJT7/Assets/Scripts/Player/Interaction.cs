@@ -29,6 +29,8 @@ public class Interaction : MonoBehaviour
     public Intention intention;
     public ShowSpeech speech;
 
+    AudioManager audio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,7 @@ public class Interaction : MonoBehaviour
         actionProgress = new ProgressBar(gameObject, new Vector3(150, 15, 1), new Vector3(140, 12, 1), new Vector2(0, 0f), Color.black, Color.grey, false);
         actionProgress.ToggleVisible(false);
         UpdateKeys(0);
+        audio = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -77,6 +80,7 @@ public class Interaction : MonoBehaviour
             // Throw an item
             if(heldObject != null)
             {
+                audio.Play("Throw");
                 Vector2 start = transform.position;
                 heldObject.transform.parent = null;
                 heldObjectBody.isKinematic = false;
@@ -129,18 +133,6 @@ public class Interaction : MonoBehaviour
                 knightController.AddKnightStimulus(null, goTo, "go_to_player_call");
             }
         }
-        /*
-        // Throw an item
-        if (Input.GetKeyDown("r"))
-        {
-            GameObject thrownGold = Instantiate(gold, new Vector3(0, 0, 0), Quaternion.identity);
-            Rigidbody2D body = thrownGold.GetComponent<Rigidbody2D>();
-            Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 start = transform.position;
-            body.position = start + (target - start) / 5f;
-            body.velocity = target - start;
-
-        }*/
 
         if (Input.GetKeyDown("e"))
         {
