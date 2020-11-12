@@ -10349,6 +10349,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5808958684684293658, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.29
+      objectReference: {fileID: 0}
     - target: {fileID: 6522513335288417162, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: Colliders
