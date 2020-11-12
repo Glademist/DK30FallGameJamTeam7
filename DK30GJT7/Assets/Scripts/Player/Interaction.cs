@@ -80,7 +80,6 @@ public class Interaction : MonoBehaviour
             // Throw an item
             if(heldObject != null)
             {
-                audio.Play("Throw");
                 Vector2 start = transform.position;
                 heldObject.transform.parent = null;
                 heldObjectBody.isKinematic = false;
@@ -90,12 +89,15 @@ public class Interaction : MonoBehaviour
 
                 heldObject.transform.position = start + (target - start) / 5f;
                 heldObjectBody.velocity = (target - start).normalized * 50f;
-
+                
                 //activate a thrown bomb
                 Bomb bomb = heldObject.GetComponent<Bomb>();
                 if (bomb)
                 {
                     bomb.EnableBomb();
+                    FindObjectOfType<AudioManager>().Play("Bomb_Throw");
+                } else {
+                    audio.Play("Throw");
                 }
                 heldObject = null;
             }
@@ -106,6 +108,7 @@ public class Interaction : MonoBehaviour
             if (foodHeld)
             {
                 heldObject.GetComponentInChildren<Pickup>().EatFood(GetComponent<Health>());
+                FindObjectOfType<AudioManager>().Play("Eat_Food");
                 heldObject = null;
                 targetedObject = null;
             }
