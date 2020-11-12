@@ -74,7 +74,10 @@ public class Door : MonoBehaviour
     {
         open = !open;
         UpdateDoor();
-        knightM.CheckDoors();
+        if (knightM != null)
+        {
+            knightM.CheckDoors();
+        }
     }
 
     //returns true if door gets opened, false if needs unlocked
