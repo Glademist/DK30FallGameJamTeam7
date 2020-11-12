@@ -32,5 +32,6 @@ public class Menu : MonoBehaviour
         Destroy(GameObject.Find("Player"));
         Destroy(GameObject.Find("GameCamera"));
         Destroy(GameObject.Find("BaseUI"));
+        Destroy(GameObject.Find("AudioManager"));
     }
 }
