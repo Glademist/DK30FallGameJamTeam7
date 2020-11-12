@@ -28,6 +28,7 @@ public class SpikeTrap : MonoBehaviour
             if(!extended && currentTime > extendedTime / 2f)
             {
                 extended = true;
+                FindObjectOfType<AudioManager>().Play("Spikes_Up");
             }
 
         }
@@ -35,6 +36,7 @@ public class SpikeTrap : MonoBehaviour
         {
             extended = false;
             anim.SetBool("Extended", false);
+            FindObjectOfType<AudioManager>().Play("Spikes_Down");
         }
 
         if (currentDamageTime > 0)

@@ -32,6 +32,7 @@ public class PressurePad : MonoBehaviour
         {
             objects++;
             checkPressed();
+            FindObjectOfType<AudioManager>().Play("Plate_Activated");
         }
     }
 
@@ -65,6 +66,7 @@ public class PressurePad : MonoBehaviour
         for (int i = 0; i < traps.Count; i++)
         {
             traps[i].Flip(!pressed);
+            FindObjectOfType<AudioManager>().Play("Spikes_Down");
         }
     }
 }

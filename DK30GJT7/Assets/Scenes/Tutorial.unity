@@ -7897,6 +7897,42 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Gold_Pick
+    clip: {fileID: 8300000, guid: 4d6fe633d30f53844a156da7ce193061, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dart_Fired
+    clip: {fileID: 8300000, guid: 637c49c1db9f2114284f72aadfd76471, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dart_Hit
+    clip: {fileID: 8300000, guid: 277db9e9781d61a44a84a4d6f46a218d, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Plate_Activated
+    clip: {fileID: 8300000, guid: 761bde7cb98df9f4aa0447c349c46af9, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Spikes_Up
+    clip: {fileID: 8300000, guid: f837fe7b465acbe4491e9785e98bddba, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Spikes_Down
+    clip: {fileID: 8300000, guid: b70e8729701d9774f9a7acf3a18b44ea, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1946830691
 Transform:
   m_ObjectHideFlags: 0

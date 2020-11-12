@@ -196,6 +196,7 @@ public class Interaction : MonoBehaviour
     {
         gold += value;
         goldText.text = "x " + gold;
+        FindObjectOfType<AudioManager>().Play("Gold_Pick");
     }
 
     public void CancelInteration()

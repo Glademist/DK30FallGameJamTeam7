@@ -48,5 +48,6 @@ public class DTLeft : MonoBehaviour
         shotDart.transform.position = transform.position + new Vector3(0, -0f);
         shotDart.transform.Rotate(0, 0, 270);
         currentTime = cooldown;
+        FindObjectOfType<AudioManager>().Play("Dart_Fired");
     }
 }

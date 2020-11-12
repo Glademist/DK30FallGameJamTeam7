@@ -50,5 +50,6 @@ public class DartTrap : MonoBehaviour
         shotDart.transform.position = transform.position + new Vector3(0, -0f);
         shotDart.transform.Rotate(0, 0, 180);
         currentTime = cooldown;
+        FindObjectOfType<AudioManager>().Play("Dart_Fired");
     }
 }
