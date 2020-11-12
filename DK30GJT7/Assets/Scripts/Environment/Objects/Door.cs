@@ -87,6 +87,7 @@ public class Door : MonoBehaviour
         {
             return false;
         }
+        FindObjectOfType<AudioManager>().Play("Door_Toggle");
         ToggleDoor();
         return true;
     }
