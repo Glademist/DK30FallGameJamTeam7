@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7903257153604790968}
   - component: {fileID: 7903257153604790970}
   - component: {fileID: 7903257153604790969}
+  - component: {fileID: -637517968734064281}
   m_Layer: 0
   m_Name: BigRock
   m_TagString: Untagged
@@ -151,3 +152,16 @@ CircleCollider2D:
   m_Offset: {x: -0.11358106, y: -0.010961056}
   serializedVersion: 2
   m_Radius: 0.96151817
+--- !u!114 &-637517968734064281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7903257153604790973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5123a2aa1b304bc42bce624e4d754f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: Stone

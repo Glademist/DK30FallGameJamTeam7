@@ -14,8 +14,7 @@ public class Movement : MonoBehaviour
     Interaction interaction;
     GameObject vfx;
 
-    AudioManager audio;
-    float stepDelay = 0.2f, currentDelay = 0f;
+    
 
     void Start()
     {
@@ -23,19 +22,12 @@ public class Movement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         interaction = GetComponent<Interaction>();
         vfx = transform.GetChild(0).gameObject;
-
-        audio = FindObjectOfType<AudioManager>();
     }
 
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-
-        if(currentDelay > 0)
-        {
-            currentDelay -= Time.deltaTime;
-        }
     }
 
     private void FixedUpdate()
@@ -44,15 +36,8 @@ public class Movement : MonoBehaviour
         if(body.velocity.x != 0 || body.velocity.y != 0)    //moving
         {
             interaction.CancelInteration();
-            if (currentDelay <= 0)
-            {
-                int index = Random.Range(0, 3);
-                audio.Play("Squire_Move" + index);
-                currentDelay = stepDelay;
-            }
         }
         ChangeFacingDirection();
-
     }
 
     

@@ -46,6 +46,7 @@ public class Health : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            FindObjectOfType<AudioManager>().Play(name + "_Die");
         }
         if (enemy)
         {

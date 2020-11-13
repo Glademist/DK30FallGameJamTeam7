@@ -37,7 +37,7 @@ public class Interaction : MonoBehaviour
         cam = Camera.main;
         actionProgress = new ProgressBar(gameObject, new Vector3(150, 15, 1), new Vector3(140, 12, 1), new Vector2(0, 0f), Color.black, Color.grey, false);
         actionProgress.ToggleVisible(false);
-        UpdateKeys(0);
+        //UpdateKeys(0);
         audio = FindObjectOfType<AudioManager>();
     }
 
@@ -58,6 +58,7 @@ public class Interaction : MonoBehaviour
                 actionProgress.ToggleVisible(false);
                 unlockingDoor = false;
                 UpdateKeys(-1);
+                audio.StopPlaying("Door_Unlock");
             }
         }
 
@@ -95,7 +96,7 @@ public class Interaction : MonoBehaviour
                 if (bomb)
                 {
                     bomb.EnableBomb();
-                    FindObjectOfType<AudioManager>().Play("Bomb_Throw");
+                    audio.Play("Bomb_Throw");
                 } else {
                     audio.Play("Throw");
                 }
@@ -108,7 +109,7 @@ public class Interaction : MonoBehaviour
             if (foodHeld)
             {
                 heldObject.GetComponentInChildren<Pickup>().EatFood(GetComponent<Health>());
-                FindObjectOfType<AudioManager>().Play("Eat_Food");
+                audio.Play("Eat_Food");
                 heldObject = null;
                 targetedObject = null;
             }
@@ -168,6 +169,7 @@ public class Interaction : MonoBehaviour
                 currentTime = unlockDoor;
                 doorBeingUnlocked = door;
                 actionProgress.ToggleVisible(true);
+                audio.Play("Door_Unlock");
             }
 
         }
@@ -190,19 +192,21 @@ public class Interaction : MonoBehaviour
     {
         keys += value;
         keyText.text = "x " + keys;
+        audio.Play("Key_Pickup");
     }
 
     public void UpdateGold(int value)
     {
         gold += value;
         goldText.text = "x " + gold;
-        FindObjectOfType<AudioManager>().Play("Gold_Pick");
+        audio.Play("Gold_Pick");
     }
 
     public void CancelInteration()
     {
         unlockingDoor = false;
         actionProgress.ToggleVisible(false);
+        audio.StopPlaying("Door_Unlock");
     }
 
     void PickupObject()

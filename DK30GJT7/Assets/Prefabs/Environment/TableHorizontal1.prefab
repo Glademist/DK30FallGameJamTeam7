@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7903257153604790968}
   - component: {fileID: 7903257153604790970}
   - component: {fileID: 100375151229964940}
+  - component: {fileID: 5008694403552485986}
   m_Layer: 0
   m_Name: TableHorizontal1
   m_TagString: Untagged
@@ -161,3 +162,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9032259, y: 0.7975855}
   m_EdgeRadius: 0
+--- !u!114 &5008694403552485986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7903257153604790973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5123a2aa1b304bc42bce624e4d754f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: Wood

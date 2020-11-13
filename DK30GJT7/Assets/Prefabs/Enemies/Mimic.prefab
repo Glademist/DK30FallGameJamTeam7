@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 3508137660469287293}
   - component: {fileID: 5999279409627406623}
   - component: {fileID: 5999279409627406616}
+  - component: {fileID: 627300816434518489}
   m_Layer: 0
   m_Name: Mimic
   m_TagString: Untagged
@@ -223,6 +224,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   Collisions: []
   sleeping: 1
+  hiding: 0
+  waitTime: 5
   attackSpeed: 3
   attackTime: 0
   damage: 3
@@ -271,3 +274,16 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   healthbarHeight: 0.5
+--- !u!114 &627300816434518489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999279409627406622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c545dd7e8e8af546b94ab3b7d1fd553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Mimic
