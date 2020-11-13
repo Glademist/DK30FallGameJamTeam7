@@ -24,6 +24,10 @@ public class EnemyBehaviour : MonoBehaviour
     int damage = 1;
     Health targetHealth;
 
+    //Audio
+    AudioManager audio;
+    public float speed = 0f;
+
     //enemy state
     enum State {Sleeping, Wandering, Seeking, Attacking, Returning}
     [SerializeField]
@@ -68,11 +72,13 @@ public class EnemyBehaviour : MonoBehaviour
 
         rightFacing = new Vector2(vfx.transform.localScale.x, vfx.transform.localScale.y);
         leftFacing = new Vector2(vfx.transform.localScale.x * -1, vfx.transform.localScale.y);
+
+        audio = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
     {
-        if(currentState == State.Attacking)
+        if (currentState == State.Attacking)
         {
             attackTime -= Time.deltaTime;
             if (attackTime <= 0)
@@ -168,6 +174,7 @@ public class EnemyBehaviour : MonoBehaviour
                         hiding = false;
                         rend.enabled = true;
                         healthbar.ToggleVisible(true);
+                        audio.Play("Imp_Appear");
                     }
                     else
                     {
@@ -183,6 +190,7 @@ public class EnemyBehaviour : MonoBehaviour
     void Seek()
     {
         transform.position += (currentTarget.transform.position - transform.position) * moveSpeed * Time.deltaTime; //path towards current target
+        speed = (currentTarget.transform.position - transform.position).magnitude * moveSpeed * Time.deltaTime;
 
         //if enemy leaves aggro range or sightline blocked return to home
         if (Vector2.Distance(transform.position, homePosition) > aggroRange
@@ -200,6 +208,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Wander()
     {
+        speed = 0f;
         anim.SetBool("Running", false);
         wanderTimer -= Time.deltaTime;
         if(wanderTimer <= 0)
@@ -262,6 +271,8 @@ public class EnemyBehaviour : MonoBehaviour
             StartAttacking();
             AttackTarget();
             healthbar.ToggleVisible(true);
+
+            audio.Play(name + "_Wake");
         }
     }
 

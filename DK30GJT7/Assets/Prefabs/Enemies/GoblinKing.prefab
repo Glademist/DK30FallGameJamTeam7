@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 4901042793700882990}
   - component: {fileID: 4901042793700882987}
   - component: {fileID: 4901042793700882986}
+  - component: {fileID: -2323219259794597324}
   m_Layer: 0
   m_Name: GoblinKing
   m_TagString: Untagged
@@ -294,3 +295,16 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   healthbarHeight: 0
+--- !u!114 &-2323219259794597324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7200921878949206643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c545dd7e8e8af546b94ab3b7d1fd553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: GoblinKing
