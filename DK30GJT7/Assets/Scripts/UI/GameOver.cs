@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    Health squire, knight;
+    public Health squire, knight;
     [SerializeField]
     GameObject panel;
     [SerializeField]
     Animator anim;
+
+    bool knightPresent = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +26,22 @@ public class GameOver : MonoBehaviour
         {
             squire = squireObj.GetComponent<Health>();
         }
+
+        if (knight)
+        {
+            knightPresent = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (knight)
+        if (knightPresent)
         {
+            if(knight == null)
+            {
+                GameOverScreen();
+            }
             if (squire.currentHealth <= 0 || knight.currentHealth <= 0)
             {
                 GameOverScreen();

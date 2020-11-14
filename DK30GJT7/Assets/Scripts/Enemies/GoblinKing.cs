@@ -78,6 +78,7 @@ public class GoblinKing : MonoBehaviour
         Vector2 target = GetThrowPosition();
         thrownObject.transform.position = (start + target) / 2f;
         body.velocity = (target) * 4;
+        thrownObject.AddComponent<AddToInterests>();
 
         Destroy(thrownObject, 20);
     }

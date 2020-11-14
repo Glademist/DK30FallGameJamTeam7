@@ -23,6 +23,7 @@ public class Crate : MonoBehaviour
         if (storedObject != null)
         {
             GameObject reward = Instantiate(storedObject, (Vector2)transform.position, Quaternion.identity);
+            reward.AddComponent<AddToInterests>();
         }
         Destroy(gameObject);
         FindObjectOfType<AudioManager>().Play("Crate_Smash");
