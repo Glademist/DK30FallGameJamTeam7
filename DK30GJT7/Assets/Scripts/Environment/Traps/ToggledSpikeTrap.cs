@@ -9,6 +9,8 @@ public class ToggledSpikeTrap : MonoBehaviour
     List<Health> targetObjects = new List<Health>();
     float cooldown = 2f, currentTime = 0f;
 
+    public int damage = 1;
+
     private void Start()
     {
         GameObject vfx = transform.GetChild(0).gameObject;
@@ -30,7 +32,7 @@ public class ToggledSpikeTrap : MonoBehaviour
         {
             foreach(Health victim in targetObjects)
             {
-                victim.TakeDamage(1);
+                victim.TakeDamage(damage);
             }
             currentTime = cooldown;
         }

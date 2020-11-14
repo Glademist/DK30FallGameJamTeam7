@@ -25,6 +25,7 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         ResetGame();
+        DestroyAudio();
     }
 
     void ResetGame()
@@ -32,6 +33,10 @@ public class Menu : MonoBehaviour
         Destroy(GameObject.Find("Player"));
         Destroy(GameObject.Find("GameCamera"));
         Destroy(GameObject.Find("BaseUI"));
+    }
+
+    void DestroyAudio()
+    {
         Destroy(GameObject.Find("AudioManager"));
     }
 }
