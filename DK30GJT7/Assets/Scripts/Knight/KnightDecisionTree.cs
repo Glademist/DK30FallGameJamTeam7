@@ -135,7 +135,7 @@ public class KnightDecisionTree : MonoBehaviour
                 }
             }
         }
-        foreach (Room Room in knightMove.AccessibleRooms)
+        foreach (Room Room in knightMove.AdjacentRooms())
         {
             if (InterestedRoom == null)
             {
