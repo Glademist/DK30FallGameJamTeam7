@@ -6484,6 +6484,11 @@ PrefabInstance:
       propertyPath: rooms.Array.data[5].Doors.Array.data[2]
       value: 
       objectReference: {fileID: 1697590475}
+    - target: {fileID: 8602783192871418638, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d49a6ea08f8bc4cbd1316262139299, type: 3}
 --- !u!114 &714518542 stripped

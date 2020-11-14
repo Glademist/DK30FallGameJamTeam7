@@ -993,13 +993,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Move_Stone
     clip: {fileID: 8300000, guid: 743d2497f9243bd40b3e11ac49296e40, type: 3}
-    volume: 1
+    volume: 0.1
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Move_Wood
     clip: {fileID: 8300000, guid: a241451c56e4f0c4f98efa5e1689f982, type: 3}
-    volume: 1
+    volume: 0.1
     pitch: 1
     loop: 1
     source: {fileID: 0}

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5417537798795131802}
   - component: {fileID: 4592672910329864622}
   - component: {fileID: 8116974312081137929}
+  - component: {fileID: -1617079417194273743}
   m_Layer: 0
-  m_Name: Bread 1
+  m_Name: Bread
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,6 +72,22 @@ CircleCollider2D:
   m_Offset: {x: -0.005315304, y: -0.11692929}
   serializedVersion: 2
   m_Radius: 0.3352356
+--- !u!114 &-1617079417194273743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2214196608305033205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitInterest: 50
+  InterestType: Food
+  CurrentInterest: 0
+  IsActive: 0
 --- !u!1 &4313381330359109089
 GameObject:
   m_ObjectHideFlags: 0

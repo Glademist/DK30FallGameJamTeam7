@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4430178003929965309}
   - component: {fileID: 4430178003929965306}
   - component: {fileID: 3760868499421935737}
+  - component: {fileID: 2328572253374992585}
   m_Layer: 0
   m_Name: Hidden Imp
   m_TagString: Untagged
@@ -81,6 +82,7 @@ MonoBehaviour:
   attackSpeed: 3
   attackTime: 0
   damage: 3
+  speed: 0
   currentState: 0
   walls:
     serializedVersion: 2
@@ -139,6 +141,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Imp
+--- !u!114 &2328572253374992585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4430178003929965308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitInterest: 50
+  InterestType: Enemy
+  CurrentInterest: 0
+  IsActive: 0
 --- !u!1 &6815625360653119919
 GameObject:
   m_ObjectHideFlags: 0

@@ -209,6 +209,12 @@ public class KnightDecisionTree : MonoBehaviour
                     //reduce hunger/increase energy
                 }
                 break;
+            case "Chest":
+                if (interact.IsChest(CurrentInterest.gameObject))
+                {
+                    interact.OpenChest(CurrentInterest.gameObject);
+                }
+                break;
         }
     }
 }

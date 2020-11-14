@@ -6,18 +6,23 @@ public class MovingSound : MonoBehaviour
 {
     public string material;
     public bool playing = false;
-    Rigidbody2D body;
     AudioManager audio;
+
+    Vector3 lastPos;
+    public float velocity = 0f;
 
     private void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        lastPos = transform.position;
         audio = FindObjectOfType<AudioManager>();
     }
 
     private void FixedUpdate()
     {
-        if(body.velocity.magnitude > 0)
+        velocity = (transform.position - lastPos).magnitude;
+        lastPos = transform.position;
+
+        if(velocity > 0.01f)
         {
             if (!playing)
             {
@@ -27,8 +32,11 @@ public class MovingSound : MonoBehaviour
         }
         else
         {
-            playing = false;
-            audio.StopPlaying("Move_" + material);
+            if (playing)
+            {
+                playing = false;
+                audio.StopPlaying("Move_" + material);
+            }
         }
     }
 }
