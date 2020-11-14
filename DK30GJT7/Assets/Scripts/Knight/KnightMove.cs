@@ -46,6 +46,23 @@ public class KnightMove : MonoBehaviour
         }
     }
 
+    public List<Room> AdjacentRooms()
+    {
+        List<Room> adjacentRooms = new List<Room>();
+        for (int i = 0; i < AccessibleRooms.Count; i ++)
+        {
+            foreach (Door door in currentRoom.Doors)
+            {
+                if (AccessibleRooms[i].Doors.Contains(door))
+                {
+                    adjacentRooms.Add(AccessibleRooms[i]);
+                }
+            }
+        }
+
+        return adjacentRooms;
+    }
+
     public void CheckDoors()
     {
         _UncheckedRooms.Add(currentRoom);
