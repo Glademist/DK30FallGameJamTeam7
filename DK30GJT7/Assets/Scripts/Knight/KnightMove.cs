@@ -54,8 +54,9 @@ public class KnightMove : MonoBehaviour
         {
             _CheckedRooms.Add(_UncheckedRooms[0]);
             AccessibleRooms.Add(_UncheckedRooms[0]);
-            foreach (Door door in _UncheckedRooms[0].Doors)
+            for (int i = 0; i < _UncheckedRooms[0].Doors.Count; i++)
             {
+                Door door = _UncheckedRooms[0].Doors[i];
                 if (door.open)
                 {
                     if (!_CheckedDoors.Contains(door) && !_UncheckedDoors.Contains(door))
@@ -64,8 +65,9 @@ public class KnightMove : MonoBehaviour
                     }
                 }
             }
-            foreach (Door door in _UncheckedDoors)
+            for (int i = 0; i < _UncheckedDoors.Count; i++)
             {
+                Door door = _UncheckedDoors[i];
                 _CheckedDoors.Add(door);
                 foreach (Room room in door.rooms)
                 {

@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitInterest: 50
+  InitInterest: 400
   InterestType: Enemy
   CurrentInterest: 0
   IsActive: 0

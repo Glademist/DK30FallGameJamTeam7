@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitInterest: 50
+  InitInterest: 500
   InterestType: Food
   CurrentInterest: 0
   IsActive: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFood: 1
-  restoration: 10
+  restoration: 20
 --- !u!1 &5030251641900991223
 GameObject:
   m_ObjectHideFlags: 0
