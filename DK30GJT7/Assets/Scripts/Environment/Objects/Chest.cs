@@ -37,6 +37,7 @@ public class Chest : MonoBehaviour
 
 
                 GameObject reward = Instantiate(storedObject, targetPos, Quaternion.identity);
+                reward.AddComponent<AddToInterests>();
             }
         }
     }

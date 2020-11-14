@@ -51,9 +51,9 @@ public class SpikeTrap : MonoBehaviour
     {
         if (extended && currentDamageTime <= 0 && targetObjects.Count > 0)
         {
-            foreach (Health victim in targetObjects)
+            for(int i = 0; i < targetObjects.Count; i++)
             {
-                victim.TakeDamage(damage);
+                targetObjects[i].TakeDamage(damage);
             }
             currentDamageTime = cooldown;
         }

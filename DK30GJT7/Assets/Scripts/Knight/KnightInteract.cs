@@ -127,5 +127,6 @@ public class KnightInteract : MonoBehaviour
     public void OpenChest(GameObject chest)
     {
         chest.GetComponent<Chest>().OpenChest();
+        Destroy(chest.GetComponent<Interest>());
     }
 }

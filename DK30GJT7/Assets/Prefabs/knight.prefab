@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5608509283425671337}
   - component: {fileID: 5808958684684293658}
   - component: {fileID: -6406344079912019632}
+  - component: {fileID: -8322437641291301940}
   m_Layer: 0
   m_Name: knight
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6522513335775771721}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.745332, y: -2.6994386, z: -11}
+  m_LocalPosition: {x: 4.745332, y: -2.6994386, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6522513336267241598}
@@ -166,6 +167,7 @@ MonoBehaviour:
       width: 0
       height: 0
     Interest: 0
+    addedInterest: 0
     InterestGrowth: 0.5
     isAccessible: 0
     Doors: []
@@ -234,8 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbab4858fa5dd2144917f9d1e656f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 10
+  maxHealth: 30
+  currentHealth: 30
   healthbarHeight: 1.3
 --- !u!114 &8602783192871418638
 MonoBehaviour:
@@ -267,6 +269,7 @@ MonoBehaviour:
       width: 0
       height: 0
     Interest: 0
+    addedInterest: 0
     InterestGrowth: 0
     isAccessible: 0
     Doors: []
@@ -315,6 +318,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Knight
+--- !u!114 &-8322437641291301940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522513335775771721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf970c1ab4d8854faaa6886c6069d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6522513336267241585
 GameObject:
   m_ObjectHideFlags: 0

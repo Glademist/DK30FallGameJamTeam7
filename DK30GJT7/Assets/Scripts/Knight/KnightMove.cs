@@ -134,7 +134,6 @@ public class KnightMove : MonoBehaviour
                 return true;
             }
         }
-        currentRoom = null;
         return false;
     }
 
