@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7200921878949206640}
   - component: {fileID: 7200921878949206641}
   - component: {fileID: 7200921878949206642}
+  - component: {fileID: -5083498288642599356}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -162,3 +163,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.2439642}
   m_Size: {x: 1, y: 1.5120716}
   m_Direction: 0
+--- !u!114 &-5083498288642599356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7200921878949206643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitInterest: 1000
+  InterestType: Enemy
+  CurrentInterest: 0
+  IsActive: 0
