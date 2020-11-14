@@ -137,7 +137,7 @@ public class KnightDecisionTree : MonoBehaviour
         }
         if (knightMove.AccessibleRooms.Count <= 1)
         {
-            //knightMove.CheckDoors();
+            knightMove.CheckDoors();
         }
         foreach (Room Room in knightMove.AccessibleRooms)
         {
