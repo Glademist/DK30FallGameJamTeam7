@@ -9243,6 +9243,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6522513335288417162, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: Colliders
+      value: 
+      objectReference: {fileID: 905806659}
     - target: {fileID: 6522513335775771721, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: m_Name
