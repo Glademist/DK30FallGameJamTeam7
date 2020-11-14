@@ -30,9 +30,14 @@ public class ToggledSpikeTrap : MonoBehaviour
     {
         if (extended && currentTime <= 0 && targetObjects.Count > 0)
         {
-            foreach(Health victim in targetObjects)
+            for(int i = 0; i < targetObjects.Count; i++)
             {
-                victim.TakeDamage(damage);
+                if(targetObjects[i] == null)
+                {
+                    targetObjects.RemoveAt(i);
+                    i--;
+                }
+                targetObjects[i].TakeDamage(damage);
             }
             currentTime = cooldown;
         }

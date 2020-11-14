@@ -230,4 +230,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFood: 1
-  restoration: 20
+  restoration: 40

@@ -22,6 +22,7 @@ public class Lever : MonoBehaviour
     public void FlipLever()
     {
         lever = !lever;
+        FindObjectOfType<AudioManager>().Play("Lever");
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         for(int i = 0; i < traps.Count; i++)
         {
