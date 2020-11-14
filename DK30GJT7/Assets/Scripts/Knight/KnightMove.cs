@@ -49,7 +49,7 @@ public class KnightMove : MonoBehaviour
     public List<Room> AdjacentRooms()
     {
         List<Room> adjacentRooms = new List<Room>();
-        for (int i = 0; i < AccessibleRooms.Count; i++)
+        for (int i = 0; i < AccessibleRooms.Count; i ++)
         {
             foreach (Door door in currentRoom.Doors)
             {
@@ -173,7 +173,7 @@ public class KnightMove : MonoBehaviour
 
     public void DrawRooms()
     {
-
+        
         foreach (Room Room in rooms)
         {
             RectInt room = Room.room;
