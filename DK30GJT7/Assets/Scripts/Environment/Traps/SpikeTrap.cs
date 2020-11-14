@@ -14,6 +14,8 @@ public class SpikeTrap : MonoBehaviour
     List<Health> targetObjects = new List<Health>();
     float cooldown = 2f, currentDamageTime = 0f;
 
+    public int damage = 1;
+
     private void Start()
     {
         GameObject vfx = transform.GetChild(0).gameObject;
@@ -51,7 +53,7 @@ public class SpikeTrap : MonoBehaviour
         {
             foreach (Health victim in targetObjects)
             {
-                victim.TakeDamage(1);
+                victim.TakeDamage(damage);
             }
             currentDamageTime = cooldown;
         }

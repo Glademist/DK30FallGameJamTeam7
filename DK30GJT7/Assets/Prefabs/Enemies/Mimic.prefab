@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 5999279409627406623}
   - component: {fileID: 5999279409627406616}
   - component: {fileID: 627300816434518489}
-  - component: {fileID: -1705122087926257180}
+  - component: {fileID: 2060876813752934178}
   m_Layer: 0
   m_Name: Mimic
   m_TagString: Untagged
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Mimic
---- !u!114 &-1705122087926257180
+--- !u!114 &2060876813752934178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitInterest: 1000
+  InitInterest: 400
   InterestType: Enemy
   CurrentInterest: 0
   IsActive: 0

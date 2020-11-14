@@ -80,6 +80,12 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (currentState == State.Attacking)
         {
+            if (currentTarget == null)
+            {
+                currentState = State.Returning;
+                return;
+            }
+
             attackTime -= Time.deltaTime;
             if (attackTime <= 0)
             {
@@ -132,20 +138,6 @@ public class EnemyBehaviour : MonoBehaviour
 
                 Seek();
 
-                break;
-            case State.Attacking:
-
-                attackTime -= Time.deltaTime;
-                if(attackTime <= 0)
-                {
-                    AttackTarget();
-                }
-
-                if (Vector2.Distance(currentTarget.transform.position, transform.position) > attackRange)
-                {
-                    currentState = State.Seeking;
-                    //chase target to get back into attack range
-                }
                 break;
             case State.Returning:
                 transform.position += (homePosition - transform.position) * moveSpeed * Time.deltaTime;

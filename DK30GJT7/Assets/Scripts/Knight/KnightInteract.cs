@@ -39,6 +39,9 @@ public class KnightInteract : MonoBehaviour
         {
             targetHealth.TakeDamage(damage);
             attackTime = attackSpeed;
+
+            //chance to stop attacking
+
         }
         else
         {
@@ -110,5 +113,19 @@ public class KnightInteract : MonoBehaviour
     public void CollectGold(GameObject gold)
     {
         gold.GetComponent<CollectGold>().LootGold();
+    }
+
+    public bool IsChest(GameObject pickup)
+    {
+        if (pickup.GetComponent<Chest>())
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void OpenChest(GameObject chest)
+    {
+        chest.GetComponent<Chest>().OpenChest();
     }
 }

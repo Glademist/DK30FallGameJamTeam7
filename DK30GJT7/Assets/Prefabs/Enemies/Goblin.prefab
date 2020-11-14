@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2344357723331263199}
   - component: {fileID: 2344357723331263198}
   - component: {fileID: -4998441048614669446}
-  - component: {fileID: 6369837983664827650}
+  - component: {fileID: -8780954388896384743}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Goblin
---- !u!114 &6369837983664827650
+--- !u!114 &-8780954388896384743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitInterest: 1000
+  InitInterest: 800
   InterestType: Enemy
   CurrentInterest: 0
   IsActive: 0

@@ -54,11 +54,9 @@ public class KnightMove : MonoBehaviour
         {
             _CheckedRooms.Add(_UncheckedRooms[0]);
             AccessibleRooms.Add(_UncheckedRooms[0]);
-            // foreach (Door door in _UncheckedRooms[0].Doors)
             for (int i = 0; i < _UncheckedRooms[0].Doors.Count; i++)
             {
                 Door door = _UncheckedRooms[0].Doors[i];
-                Debug.Log(door);
                 if (door.open)
                 {
                     if (!_CheckedDoors.Contains(door) && !_UncheckedDoors.Contains(door))
@@ -79,6 +77,7 @@ public class KnightMove : MonoBehaviour
                     }
                 }
             }
+            _UncheckedDoors.Clear();
             _UncheckedRooms.RemoveAt(0);
         }
         _UncheckedDoors.Clear();
@@ -135,6 +134,7 @@ public class KnightMove : MonoBehaviour
                 return true;
             }
         }
+        currentRoom = null;
         return false;
     }
 

@@ -9749,6 +9749,11 @@ PrefabInstance:
       propertyPath: rooms.Array.data[7].Doors.Array.data[0]
       value: 
       objectReference: {fileID: 794227194}
+    - target: {fileID: 8602783192871418638, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d49a6ea08f8bc4cbd1316262139299, type: 3}
 --- !u!114 &714518542 stripped
@@ -20485,7 +20490,7 @@ PrefabInstance:
     - target: {fileID: 2601462603184797674, guid: 0f3b40dbbdc2e114b86fb9d0778aa6c7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2601462603184797675, guid: 0f3b40dbbdc2e114b86fb9d0778aa6c7,
         type: 3}

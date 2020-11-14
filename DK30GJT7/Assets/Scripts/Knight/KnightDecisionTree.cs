@@ -95,7 +95,7 @@ public class KnightDecisionTree : MonoBehaviour
 
     public void UpdateInterests(RectInt Area)
     {
-        for (int i = 0; i < Interests.Count; i ++)
+        for (int i = 0; i < Interests.Count; i++)
         {
             if (Interests[i] == null)
             {
@@ -134,17 +134,13 @@ public class KnightDecisionTree : MonoBehaviour
                     CurrentInterest = NextInterest;
                 }
             }
-        }/*
+        }
         if (knightMove.AccessibleRooms.Count <= 1)
         {
-            Debug.Log(knightMove.AccessibleRooms.Count);
             knightMove.CheckDoors();
-        }*/
-         //foreach (Room Room in knightMove.AccessibleRooms)
-
-        for (int i = 0; i < knightMove.AccessibleRooms.Count; i++)
+        }
+        foreach (Room Room in knightMove.AccessibleRooms)
         {
-            Room Room = knightMove.AccessibleRooms[i];
             if (InterestedRoom == null)
             {
                 InterestedRoom = Room;
@@ -156,7 +152,7 @@ public class KnightDecisionTree : MonoBehaviour
                 {
                     NextRoom = Room;
                 }
-                if (NextRoom.Interest - Vector2.Distance(this.transform.position, Room.room.center) + NextRoom.addedInterest >= InterestedRoom.Interest + InterestedRoom.addedInterest)
+                if (NextRoom.Interest - Vector2.Distance(this.transform.position, Room.room.center) >= InterestedRoom.Interest)
                 {
                     InterestedRoom = NextRoom;
                 }
@@ -211,6 +207,12 @@ public class KnightDecisionTree : MonoBehaviour
                 {
                     interact.EatFood(CurrentInterest.gameObject);
                     //reduce hunger/increase energy
+                }
+                break;
+            case "Chest":
+                if (interact.IsChest(CurrentInterest.gameObject))
+                {
+                    interact.OpenChest(CurrentInterest.gameObject);
                 }
                 break;
         }

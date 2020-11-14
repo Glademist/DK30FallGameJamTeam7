@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2632591701641569440}
   - component: {fileID: 2632591701641569447}
   - component: {fileID: -1039383145245873604}
-  - component: {fileID: 7810896716945943994}
+  - component: {fileID: -6449486419048728561}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -79,9 +79,9 @@ MonoBehaviour:
   sleeping: 0
   hiding: 0
   waitTime: 5
-  attackSpeed: 1
+  attackSpeed: 1.5
   attackTime: 0
-  damage: 1
+  damage: 2
   speed: 0
   currentState: 0
   walls:
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Slime
---- !u!114 &7810896716945943994
+--- !u!114 &-6449486419048728561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitInterest: 1000
+  InitInterest: 800
   InterestType: Enemy
   CurrentInterest: 0
   IsActive: 0

@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 4901042793700882987}
   - component: {fileID: 4901042793700882986}
   - component: {fileID: -2323219259794597324}
-  - component: {fileID: 4162279439608213069}
+  - component: {fileID: -7374253188980272853}
   m_Layer: 0
   m_Name: GoblinKing
   m_TagString: Untagged
@@ -248,9 +248,9 @@ MonoBehaviour:
   sleeping: 0
   hiding: 0
   waitTime: 5
-  attackSpeed: 1
+  attackSpeed: 3
   attackTime: 0
-  damage: 1
+  damage: 3
   speed: 0
   currentState: 0
   walls:
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: GoblinKing
---- !u!114 &4162279439608213069
+--- !u!114 &-7374253188980272853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cfebe196e4eff46bed0b95626147f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitInterest: 1000
+  InitInterest: 2000
   InterestType: Enemy
   CurrentInterest: 0
   IsActive: 0
