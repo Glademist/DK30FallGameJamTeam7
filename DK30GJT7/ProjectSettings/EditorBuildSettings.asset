@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: f560f6a257ca0f042afc16a0fc5a0571
   - enabled: 1
-    path: Assets/Scenes/NewMap1.unity
-    guid: 6466c4d1c41e1ec408941a1bb6d288ef
-  - enabled: 1
     path: Assets/Scenes/EasyMap.unity
     guid: d4a90254429bb47449e6ae4882dc3e11
   - enabled: 1
     path: Assets/Scenes/Day10.unity
     guid: 03e73d7438707ff4cac853d568432743
+  - enabled: 1
+    path: Assets/Scenes/NewMap1.unity
+    guid: 6466c4d1c41e1ec408941a1bb6d288ef
   m_configObjects: {}

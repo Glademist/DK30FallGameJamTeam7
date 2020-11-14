@@ -6564,6 +6564,36 @@ PrefabInstance:
       propertyPath: rooms.Array.data[5].Doors.Array.data[2]
       value: 
       objectReference: {fileID: 1697590475}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[1].addedInterest
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[4].addedInterest
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[3].addedInterest
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[5].addedInterest
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[6].addedInterest
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[7].addedInterest
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 8602783192871418638, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: m_Enabled
@@ -14739,6 +14769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f96b8307e9a904997ac46e96e98c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squire: {fileID: 0}
+  knight: {fileID: 0}
   panel: {fileID: 1172324108}
   anim: {fileID: 1868611640}
 --- !u!95 &1868611640
