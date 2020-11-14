@@ -148,7 +148,7 @@ public class KnightDecisionTree : MonoBehaviour
                 {
                     NextRoom = Room;
                 }
-                if (NextRoom.Interest - Vector2.Distance(this.transform.position, Room.room.center) >= InterestedRoom.Interest)
+                if (NextRoom.Interest - Vector2.Distance(this.transform.position, Room.room.center) + NextRoom.addedInterest >= InterestedRoom.Interest + InterestedRoom.addedInterest)
                 {
                     InterestedRoom = NextRoom;
                 }
