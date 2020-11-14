@@ -12,6 +12,7 @@ public class GoblinKing : MonoBehaviour
     public GameObject knight;
     public GameObject goblin, fakeGold, foodCrate;
     float throwCooldown = 6f, currentCooldown = 10f;
+    float throwRange = 4f;
 
     //create ladder when it dies
     public GameObject ladder;
@@ -55,8 +56,11 @@ public class GoblinKing : MonoBehaviour
         if (!fightStarted)
         {   
             fightStarted = true;
-            //healthbar.SetActive(true);
+            healthbar.SetActive(true);
+            //behaviour.currentTarget = knight;
+            knight.transform.position = behaviour.currentTarget.transform.position;
             behaviour.currentTarget = knight;
+            knight.GetComponent<KnightDecisionTree>().CurrentInterest = GetComponent<Interest>();
         }
     }
 
@@ -75,7 +79,7 @@ public class GoblinKing : MonoBehaviour
         GameObject thrownObject = Instantiate(GetRandomObject(), new Vector3(0, 0, 0), Quaternion.identity);
         Rigidbody2D body = thrownObject.GetComponent<Rigidbody2D>();
         Vector2 start = transform.position;
-        Vector2 target = GetThrowPosition();
+        Vector2 target = transform.position + GetThrowPosition();
         thrownObject.transform.position = (start + target) / 2f;
         body.velocity = (target) * 4;
         thrownObject.AddComponent<AddToInterests>();
@@ -85,7 +89,7 @@ public class GoblinKing : MonoBehaviour
 
     Vector3 GetThrowPosition()
     {
-        Vector2 target = new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0);
+        Vector2 target = new Vector3(Random.Range(-throwRange, throwRange), Random.Range(-throwRange, throwRange), 0);
         RaycastHit2D[] hits = Physics2D.RaycastAll(target, -Vector2.up);
 
         foreach (RaycastHit2D hit in hits)

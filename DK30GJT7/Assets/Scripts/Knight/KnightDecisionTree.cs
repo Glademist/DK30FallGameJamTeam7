@@ -135,11 +135,7 @@ public class KnightDecisionTree : MonoBehaviour
                 }
             }
         }
-        if (knightMove.AccessibleRooms.Count <= 1)
-        {
-            knightMove.CheckDoors();
-        }
-        foreach (Room Room in knightMove.AccessibleRooms)
+        foreach (Room Room in knightMove.AdjacentRooms())
         {
             if (InterestedRoom == null)
             {
@@ -152,7 +148,7 @@ public class KnightDecisionTree : MonoBehaviour
                 {
                     NextRoom = Room;
                 }
-                if (NextRoom.Interest - Vector2.Distance(this.transform.position, Room.room.center) >= InterestedRoom.Interest)
+                if (NextRoom.Interest - Vector2.Distance(this.transform.position, Room.room.center) + NextRoom.addedInterest >= InterestedRoom.Interest + InterestedRoom.addedInterest)
                 {
                     InterestedRoom = NextRoom;
                 }

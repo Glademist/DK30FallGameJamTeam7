@@ -1824,7 +1824,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -6253,7 +6253,7 @@ PrefabInstance:
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: DrawGizmos
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
@@ -6498,7 +6498,7 @@ PrefabInstance:
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
       propertyPath: rooms.Array.data[3].addedInterest
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
@@ -6519,6 +6519,16 @@ PrefabInstance:
         type: 3}
       propertyPath: rooms.Array.data[7].addedInterest
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[1].addedInterest
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522513335775771732, guid: 87d49a6ea08f8bc4cbd1316262139299,
+        type: 3}
+      propertyPath: rooms.Array.data[2].addedInterest
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8602783192871418638, guid: 87d49a6ea08f8bc4cbd1316262139299,
         type: 3}
@@ -14620,6 +14630,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f96b8307e9a904997ac46e96e98c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squire: {fileID: 0}
+  knight: {fileID: 0}
   panel: {fileID: 1172324108}
   anim: {fileID: 1868611640}
 --- !u!95 &1868611640
