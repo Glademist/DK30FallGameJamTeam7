@@ -21,7 +21,9 @@ public class Door : MonoBehaviour
     BoxCollider2D collider;
 
     //handle lighting
-    public Lighting connectedRoomA, connectedRoomB;
+    //public Lighting connectedRoomA, connectedRoomB;
+
+    AudioManager audio;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class Door : MonoBehaviour
         spriteRend = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
         knight = GlobalReferences.Knight;
+        audio = FindObjectOfType<AudioManager>();
     }
     
     void UpdateDoor()
@@ -52,6 +55,7 @@ public class Door : MonoBehaviour
                 }
             //}
         }
+        /*
         if (connectedRoomA)
         {
             connectedRoomA.ChangeVisibility(open);
@@ -59,7 +63,7 @@ public class Door : MonoBehaviour
         if (connectedRoomB)
         {
             connectedRoomB.ChangeVisibility(open);
-        }
+        }*/
     }
 
     public void UpdateTilemap(Tilemap map, RectInt area, Tile tile)
@@ -73,6 +77,14 @@ public class Door : MonoBehaviour
     void ToggleDoor()
     {
         open = !open;
+        if (open)
+        {
+            audio.Play("Chest_Open");
+        }
+        else
+        {
+            audio.Play("Door_Close");
+        }
         UpdateDoor();
         if (knightM != null)
         {

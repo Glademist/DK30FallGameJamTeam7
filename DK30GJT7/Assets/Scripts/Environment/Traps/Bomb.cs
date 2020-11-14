@@ -64,6 +64,7 @@ public class Bomb : MonoBehaviour
             }
 
         }
+        FindObjectOfType<AudioManager>().Play("Bomb_Explode");
         Destroy(gameObject);
     }
 

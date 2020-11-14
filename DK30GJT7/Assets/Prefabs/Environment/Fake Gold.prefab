@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4070978354948916623}
   - component: {fileID: 5534153351436618026}
   - component: {fileID: 4534138145045609886}
+  - component: {fileID: 136161500225930326}
   m_Layer: 0
   m_Name: Fake Gold
   m_TagString: Untagged
@@ -182,3 +183,16 @@ MonoBehaviour:
   InterestType: Gold
   CurrentInterest: 0
   IsActive: 0
+--- !u!114 &136161500225930326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070978354948916619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc6dc0789e8fd6479f4e59153fb86ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound_name: Gold_Land

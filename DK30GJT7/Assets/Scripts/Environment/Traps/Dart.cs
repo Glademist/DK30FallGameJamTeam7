@@ -20,6 +20,7 @@ public class Dart : MonoBehaviour
         {
             victim.TakeDamage(damage);
         }
+        FindObjectOfType<AudioManager>().Play("Dart_Hit");
         Destroy(gameObject);
     }
 

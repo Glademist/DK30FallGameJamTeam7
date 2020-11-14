@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 293860790160133228}
   - component: {fileID: 293860790160133229}
   - component: {fileID: 293860790160133218}
+  - component: {fileID: 9093376641822309980}
   m_Layer: 0
   m_Name: Food Crate
   m_TagString: Untagged
@@ -176,3 +177,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9093376641822309980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293860790160133230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5123a2aa1b304bc42bce624e4d754f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: Wood

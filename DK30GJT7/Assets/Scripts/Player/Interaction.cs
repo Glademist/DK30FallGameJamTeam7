@@ -37,7 +37,7 @@ public class Interaction : MonoBehaviour
         cam = Camera.main;
         actionProgress = new ProgressBar(gameObject, new Vector3(150, 15, 1), new Vector3(140, 12, 1), new Vector2(0, 0f), Color.black, Color.grey, false);
         actionProgress.ToggleVisible(false);
-        UpdateKeys(0);
+        //UpdateKeys(0);
         audio = FindObjectOfType<AudioManager>();
     }
 
@@ -58,6 +58,7 @@ public class Interaction : MonoBehaviour
                 actionProgress.ToggleVisible(false);
                 unlockingDoor = false;
                 UpdateKeys(-1);
+                audio.StopPlaying("Door_Unlock");
             }
         }
 
@@ -80,7 +81,6 @@ public class Interaction : MonoBehaviour
             // Throw an item
             if(heldObject != null)
             {
-                audio.Play("Throw");
                 Vector2 start = transform.position;
                 heldObject.transform.parent = null;
                 heldObjectBody.isKinematic = false;
@@ -90,12 +90,15 @@ public class Interaction : MonoBehaviour
 
                 heldObject.transform.position = start + (target - start) / 5f;
                 heldObjectBody.velocity = (target - start).normalized * 50f;
-
+                
                 //activate a thrown bomb
                 Bomb bomb = heldObject.GetComponent<Bomb>();
                 if (bomb)
                 {
                     bomb.EnableBomb();
+                    audio.Play("Bomb_Throw");
+                } else {
+                    audio.Play("Throw");
                 }
                 heldObject = null;
             }
@@ -106,6 +109,7 @@ public class Interaction : MonoBehaviour
             if (foodHeld)
             {
                 heldObject.GetComponentInChildren<Pickup>().EatFood(GetComponent<Health>());
+                audio.Play("Eat_Food");
                 heldObject = null;
                 targetedObject = null;
             }
@@ -165,6 +169,7 @@ public class Interaction : MonoBehaviour
                 currentTime = unlockDoor;
                 doorBeingUnlocked = door;
                 actionProgress.ToggleVisible(true);
+                audio.Play("Door_Unlock");
             }
 
         }
@@ -187,18 +192,21 @@ public class Interaction : MonoBehaviour
     {
         keys += value;
         keyText.text = "x " + keys;
+        audio.Play("Key_Pickup");
     }
 
     public void UpdateGold(int value)
     {
         gold += value;
         goldText.text = "x " + gold;
+        audio.Play("Gold_Pick");
     }
 
     public void CancelInteration()
     {
         unlockingDoor = false;
         actionProgress.ToggleVisible(false);
+        audio.StopPlaying("Door_Unlock");
     }
 
     void PickupObject()

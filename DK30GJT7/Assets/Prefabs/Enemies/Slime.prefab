@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5144808969002654914}
   - component: {fileID: 2632591701641569440}
   - component: {fileID: 2632591701641569447}
+  - component: {fileID: -1039383145245873604}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -74,8 +75,12 @@ MonoBehaviour:
   moveSpeed: 1
   currentTarget: {fileID: 0}
   Collisions: []
+  sleeping: 0
+  hiding: 0
+  waitTime: 5
   attackSpeed: 1
   attackTime: 0
+  damage: 1
   currentState: 0
   walls:
     serializedVersion: 2
@@ -121,6 +126,19 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   healthbarHeight: 0.5
+--- !u!114 &-1039383145245873604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632591701641569441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c545dd7e8e8af546b94ab3b7d1fd553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Slime
 --- !u!1 &5144808968090483616
 GameObject:
   m_ObjectHideFlags: 0
