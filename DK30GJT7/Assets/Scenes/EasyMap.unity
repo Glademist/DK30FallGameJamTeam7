@@ -5824,6 +5824,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1257660073}
     m_Modifications:
+    - target: {fileID: 2891314851850526482, guid: 1a64e16200bf3dc45b82fc52f3946978,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2891314851850526487, guid: 1a64e16200bf3dc45b82fc52f3946978,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11165,6 +11170,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1257660073}
     m_Modifications:
+    - target: {fileID: 2891314851850526482, guid: 1a64e16200bf3dc45b82fc52f3946978,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2891314851850526487, guid: 1a64e16200bf3dc45b82fc52f3946978,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11277,6 +11287,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1257660073}
     m_Modifications:
+    - target: {fileID: 2891314851850526482, guid: 1a64e16200bf3dc45b82fc52f3946978,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2891314851850526487, guid: 1a64e16200bf3dc45b82fc52f3946978,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11806,6 +11821,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1257660073}
     m_Modifications:
+    - target: {fileID: 2891314851850526482, guid: 1a64e16200bf3dc45b82fc52f3946978,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2891314851850526487, guid: 1a64e16200bf3dc45b82fc52f3946978,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12969,6 +12989,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1257660073}
     m_Modifications:
+    - target: {fileID: 2891314851850526482, guid: 1a64e16200bf3dc45b82fc52f3946978,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2891314851850526487, guid: 1a64e16200bf3dc45b82fc52f3946978,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -134,13 +134,17 @@ public class KnightDecisionTree : MonoBehaviour
                     CurrentInterest = NextInterest;
                 }
             }
-        }
+        }/*
         if (knightMove.AccessibleRooms.Count <= 1)
         {
+            Debug.Log(knightMove.AccessibleRooms.Count);
             knightMove.CheckDoors();
-        }
-        foreach (Room Room in knightMove.AccessibleRooms)
+        }*/
+         //foreach (Room Room in knightMove.AccessibleRooms)
+
+        for (int i = 0; i < knightMove.AccessibleRooms.Count; i++)
         {
+            Room Room = knightMove.AccessibleRooms[i];
             if (InterestedRoom == null)
             {
                 InterestedRoom = Room;
