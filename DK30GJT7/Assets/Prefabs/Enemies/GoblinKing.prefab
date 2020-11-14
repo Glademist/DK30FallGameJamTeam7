@@ -248,9 +248,9 @@ MonoBehaviour:
   sleeping: 0
   hiding: 0
   waitTime: 5
-  attackSpeed: 1
+  attackSpeed: 3
   attackTime: 0
-  damage: 1
+  damage: 3
   speed: 0
   currentState: 0
   walls:
