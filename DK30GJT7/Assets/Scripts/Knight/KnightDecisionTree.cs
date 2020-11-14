@@ -95,21 +95,21 @@ public class KnightDecisionTree : MonoBehaviour
 
     public void UpdateInterests(RectInt Area)
     {
-        foreach (Interest interest in Interests)
+        for (int i = 0; i < Interests.Count; i ++)
         {
-            if (interest == null)
+            if (Interests[i] == null)
             {
-                Interests.Remove(interest);
-                KnownInterests.Remove(interest);
-                if (CurrentInterest == interest)
+                Interests.Remove(Interests[i]);
+                KnownInterests.Remove(Interests[i]);
+                if (CurrentInterest == Interests[i])
                 {
                     CurrentInterest = null;
                 }
             }
-            else if (Area.Contains(Vector2Int.RoundToInt(interest.transform.position)) && !KnownInterests.Contains(interest))
+            else if (Area.Contains(Vector2Int.RoundToInt(Interests[i].transform.position)) && !KnownInterests.Contains(Interests[i]))
             {
-                interest.CurrentInterest = 50;
-                KnownInterests.Add(interest);
+                Interests[i].CurrentInterest = 50;
+                KnownInterests.Add(Interests[i]);
             }
         }
     }
@@ -152,7 +152,7 @@ public class KnightDecisionTree : MonoBehaviour
                 {
                     NextRoom = Room;
                 }
-                if (NextRoom.Interest - Vector2.Distance(this.transform.position, Room.room.center) >= InterestedRoom.Interest)
+                if (NextRoom.Interest - Vector2.Distance(this.transform.position, Room.room.center) + NextRoom.addedInterest >= InterestedRoom.Interest + InterestedRoom.addedInterest)
                 {
                     InterestedRoom = NextRoom;
                 }
