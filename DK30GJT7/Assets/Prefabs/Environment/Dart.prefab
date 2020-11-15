@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+  rotation: 180
 --- !u!50 &471914509068411403
 Rigidbody2D:
   serializedVersion: 4

@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     public float runSpeed = 10.0f;
     Interaction interaction;
     GameObject vfx;
+    Animator anim;
 
     
 
@@ -22,6 +23,7 @@ public class Movement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         interaction = GetComponent<Interaction>();
         vfx = transform.GetChild(0).gameObject;
+        anim = vfx.GetComponent<Animator>();
     }
 
     void Update()
@@ -38,6 +40,7 @@ public class Movement : MonoBehaviour
             interaction.CancelInteration();
         }
         ChangeFacingDirection();
+        anim.SetFloat("Velocity", body.velocity.magnitude);
     }
 
     

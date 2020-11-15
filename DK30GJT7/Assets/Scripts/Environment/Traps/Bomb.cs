@@ -6,7 +6,7 @@ public class Bomb : MonoBehaviour
 {
     float explodeTime = 3f;
     float explodeRadius = 2f;
-    int damage = 3;
+    public int damage = 3;
 
     Animator anim;
     public bool disabled = false;

@@ -7,7 +7,8 @@ public class Dart : MonoBehaviour
     public int damage = 2;
     float speed = 4f;
 
-    float timer = 0.1f;
+    float timer = 0.15f;
+    public float rotation;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,5 +32,10 @@ public class Dart : MonoBehaviour
             timer -= Time.deltaTime;
         }
         transform.Translate(0, speed * Time.deltaTime, 0);
+
+        if(transform.rotation != Quaternion.Euler(0, 0, rotation))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, rotation);
+        }
     }
 }
