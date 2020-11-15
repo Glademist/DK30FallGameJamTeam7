@@ -88,7 +88,7 @@ public class Interaction : MonoBehaviour
                 heldObjectBody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 heldObject.GetComponent<CircleCollider2D>().enabled = true;
 
-                heldObject.transform.position = start + (target - start) / 5f;
+                heldObject.transform.position = start + (target - start) / 20f;
                 heldObjectBody.velocity = (target - start).normalized * 50f;
                 
                 //activate a thrown bomb
@@ -104,6 +104,7 @@ public class Interaction : MonoBehaviour
             }
         }
         // Send knight to mouse position
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             if (foodHeld)
@@ -124,8 +125,9 @@ public class Interaction : MonoBehaviour
                     knightController.AddKnightStimulus(null, goTo, "go_to_player_pointer");
                 }
             }
-        }
+        }*/
         // Call the knight to your position
+        /*
         if (Input.GetKeyDown("f"))
         {
             Debug.Log("Player calling Knight");
@@ -137,7 +139,7 @@ public class Interaction : MonoBehaviour
                 knightController.AddKnightStimulus(null, goTo, "go_to_player_call");
             }
         }
-
+        */
         if (Input.GetKeyDown("e"))
         {
             if(targetedObject != null)

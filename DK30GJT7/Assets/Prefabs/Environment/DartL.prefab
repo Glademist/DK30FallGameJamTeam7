@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 471914509068411400}
   - component: {fileID: 471914509068411403}
   m_Layer: 0
-  m_Name: DartRight
+  m_Name: DartL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+  rotation: 270
 --- !u!50 &471914509068411403
 Rigidbody2D:
   serializedVersion: 4

@@ -24,8 +24,9 @@ public class Chest : MonoBehaviour
         {
             open = true;
             anim.SetTrigger("Open");
+            FindObjectOfType<AudioManager>().Play("Chest_Open");
 
-            if(storedObject != null)
+            if (storedObject != null)
             {
                 Vector2 targetPos = (Vector2)transform.position + offset;
 
