@@ -12,6 +12,8 @@ public class NextLevel : MonoBehaviour
     public GameObject panel;
     public Animator anim;
 
+    public static bool win = false;
+
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -49,6 +51,7 @@ public class NextLevel : MonoBehaviour
 
             //disable player movement
             player.gameObject.GetComponent<Movement>().enabled = false;
+            win = true;
         }
     }
 }

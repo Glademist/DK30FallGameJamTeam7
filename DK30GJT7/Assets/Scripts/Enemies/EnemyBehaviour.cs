@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField]
-    float aggroRange = 20f, attackRange = 4f, moveSpeed = 1f;
+    float aggroRange = 5f, attackRange = 4f, moveSpeed = 1f;
     public GameObject currentTarget;
     public List<Collider2D> Collisions;
     Vector3 homePosition;
@@ -69,6 +69,7 @@ public class EnemyBehaviour : MonoBehaviour
             healthbar.ToggleVisible(false);
             rend.enabled = false;
         }
+        attackTime = attackSpeed;
 
         rightFacing = new Vector2(vfx.transform.localScale.x, vfx.transform.localScale.y);
         leftFacing = new Vector2(vfx.transform.localScale.x * -1, vfx.transform.localScale.y);
@@ -190,6 +191,7 @@ public class EnemyBehaviour : MonoBehaviour
             || Physics2D.Linecast((Vector2)transform.position, (Vector2)homePosition, walls))
         {
             currentState = State.Returning;
+            attackTime = attackSpeed;
         }
 
         else if (Vector2.Distance(currentTarget.transform.position, transform.position) < attackRange)  //if target in attack range start attacking
@@ -230,7 +232,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         anim.SetBool("Running", false);
         currentState = State.Attacking;
-        attackTime = attackSpeed;
         targetHealth = currentTarget.GetComponent<Health>();
     }
 

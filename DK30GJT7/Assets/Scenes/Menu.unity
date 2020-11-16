@@ -795,19 +795,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Squire_Move1
     clip: {fileID: 8300000, guid: 2427bcde162605a4188d27c5b07b9d18, type: 3}
-    volume: 0.05
+    volume: 0.04
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Squire_Move2
     clip: {fileID: 8300000, guid: 2105e08978af6f84995d4cf975fdd2be, type: 3}
-    volume: 0.05
+    volume: 0.04
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Squire_Move3
     clip: {fileID: 8300000, guid: 5968816cc76b1354d9305062d1897f5a, type: 3}
-    volume: 0.05
+    volume: 0.04
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -819,7 +819,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Crate_Smash
     clip: {fileID: 8300000, guid: 17169816bc348de4ea4527fe95dbcebb, type: 3}
-    volume: 0.15
+    volume: 0.12
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -891,43 +891,43 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Knight_Move1
     clip: {fileID: 8300000, guid: 2b7868bcbf93f68449e4a2e9497cea6a, type: 3}
-    volume: 0.05
+    volume: 0.04
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Knight_Move2
     clip: {fileID: 8300000, guid: c454463a17e0da64a9245596684a6e2a, type: 3}
-    volume: 0.05
+    volume: 0.04
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Knight_Move3
     clip: {fileID: 8300000, guid: dd65409d88a6db14b8631377f78d64f2, type: 3}
-    volume: 0.05
+    volume: 0.04
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Knight_Move4
     clip: {fileID: 8300000, guid: 886b7e753d0e02d429293e31c7ea6944, type: 3}
-    volume: 0.05
+    volume: 0.04
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Mimic_Move1
     clip: {fileID: 8300000, guid: 622985c8d88a49545a01217633686f2d, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Mimic_Move2
     clip: {fileID: 8300000, guid: eb57cec8039a86e408f6358456d321f8, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Mimic_Move3
     clip: {fileID: 8300000, guid: 57f1008f88b3d394e951e958c9d6abed, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -987,7 +987,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Chest_Open
     clip: {fileID: 8300000, guid: e73d25c361c32664a9b0fbeb637c61b9, type: 3}
-    volume: 0.2
+    volume: 0.15
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -1005,13 +1005,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Slime_Move1
     clip: {fileID: 8300000, guid: e5946aea2ef1165479c8caba79d5945e, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Slime_Move2
     clip: {fileID: 8300000, guid: 9fca85c55f872524a9f2a0760f35b23d, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}

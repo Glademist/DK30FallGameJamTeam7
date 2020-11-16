@@ -36,6 +36,11 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (NextLevel.win)
+        {
+            return;
+        }
+
         if (knightPresent)
         {
             if(knight == null)

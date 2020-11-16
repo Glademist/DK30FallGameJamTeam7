@@ -12,6 +12,8 @@ public class GoblinAttack : MonoBehaviour
 
     bool attacking = false;
 
+    int targets = 0;
+
     private void FixedUpdate()
     {
         if (attacking && thrownBomb == null)
@@ -21,14 +23,15 @@ public class GoblinAttack : MonoBehaviour
             Vector2 start = transform.position;
             Vector2 targetPos = target.transform.position;
             body.position = start + (targetPos - start) / 5f;
-            body.velocity = (targetPos - start) * 3f;
+            body.velocity = (targetPos - start) * 10f;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player")
+        if(collision.gameObject.name == "Player" || collision.gameObject.name == "Knight")
         {
+            targets++;
             attacking = true;
             target = collision.gameObject;
         }
@@ -36,9 +39,13 @@ public class GoblinAttack : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player" || collision.gameObject.name == "Knight")
         {
-            attacking = false;
+            targets--;
+            if(targets == 0)
+            {
+                attacking = false;
+            }
         }
     }
 }

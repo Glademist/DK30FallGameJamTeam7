@@ -12,7 +12,7 @@ public class GoblinKing : MonoBehaviour
     public GameObject knight;
     public GameObject goblin, fakeGold, foodCrate;
     float throwCooldown = 6f, currentCooldown = 10f;
-    float throwRange = 4f;
+    float throwRange = 2f, tempThrowRange = 2f;
 
     //create ladder when it dies
     public GameObject ladder;
@@ -46,6 +46,7 @@ public class GoblinKing : MonoBehaviour
         }
         if ((behaviour.IsSeeking() || behaviour.IsAttacking()) && currentCooldown <= 0)
         {
+            tempThrowRange = throwRange;
             ThrowObjects(3);
             currentCooldown = throwCooldown;
         }
@@ -54,19 +55,26 @@ public class GoblinKing : MonoBehaviour
     public void StartFight()
     {
         if (!fightStarted)
-        {   
+        {
             fightStarted = true;
             healthbar.SetActive(true);
             //behaviour.currentTarget = knight;
+            /*
             knight.transform.position = behaviour.currentTarget.transform.position;
             behaviour.currentTarget = knight;
-            knight.GetComponent<KnightDecisionTree>().CurrentInterest = GetComponent<Interest>();
+            KnightMove knightMove = knight.GetComponent<KnightMove>();
+            knightMove.currentRoom = knightMove.rooms[4];
+            knightMove.CheckDoors();
+            KnightDecisionTree knightAI = knight.GetComponent<KnightDecisionTree>();
+            //knightAI.Interests = null;
+            knightAI.KnownInterests = null;
+            knightAI.CurrentInterest = null;
+            //knightAI.UpdateRoomInterest();*/
         }
     }
 
     void ThrowObjects(int amount)
     {
-        Debug.Log("Throwing objects");
         for(int x = 0; x < amount; x++)
         {
             ThrowObject();
@@ -78,25 +86,28 @@ public class GoblinKing : MonoBehaviour
     {
         GameObject thrownObject = Instantiate(GetRandomObject(), new Vector3(0, 0, 0), Quaternion.identity);
         Rigidbody2D body = thrownObject.GetComponent<Rigidbody2D>();
-        Vector2 start = transform.position;
-        Vector2 target = transform.position + GetThrowPosition();
-        thrownObject.transform.position = (start + target) / 2f;
-        body.velocity = (target) * 4;
+        Vector2 target = GetThrowPosition();
+        //Debug.Log(offset);
+        thrownObject.transform.position = target;
+        //body.velocity = (target) * 4;
         thrownObject.AddComponent<AddToInterests>();
 
         Destroy(thrownObject, 20);
     }
 
-    Vector3 GetThrowPosition()
+    Vector2 GetThrowPosition()
     {
-        Vector2 target = new Vector3(Random.Range(-throwRange, throwRange), Random.Range(-throwRange, throwRange), 0);
+        Vector2 target = transform.position + (new Vector3(Random.Range(-tempThrowRange, tempThrowRange), Random.Range(-tempThrowRange, tempThrowRange)));
+        tempThrowRange -= 0.5f;
+        Debug.Log(target);
         RaycastHit2D[] hits = Physics2D.RaycastAll(target, -Vector2.up);
 
         foreach (RaycastHit2D hit in hits)
         {
             if (!hit.collider.isTrigger)
             {
-                target = new Vector3(0, 0, 0);
+                Debug.Log(hit.collider.name);
+                target = transform.position;
                 return target;
             }
         }
