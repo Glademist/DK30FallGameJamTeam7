@@ -104,7 +104,7 @@ public class Interaction : MonoBehaviour
             }
         }
         // Send knight to mouse position
-        /*
+        
         if (Input.GetMouseButtonDown(0))
         {
             if (foodHeld)
@@ -114,6 +114,7 @@ public class Interaction : MonoBehaviour
                 heldObject = null;
                 targetedObject = null;
             }
+            /*
             else
             {
                 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -124,8 +125,8 @@ public class Interaction : MonoBehaviour
                     KnightController knightController = GlobalReferences.Knight.GetComponent<KnightController>();
                     knightController.AddKnightStimulus(null, goTo, "go_to_player_pointer");
                 }
-            }
-        }*/
+            }*/
+        }
         // Call the knight to your position
         /*
         if (Input.GetKeyDown("f"))

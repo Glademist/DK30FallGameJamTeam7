@@ -3633,7 +3633,7 @@ PrefabInstance:
         type: 3}
       propertyPath: storedObject
       value: 
-      objectReference: {fileID: 438629500758398418, guid: 17ffd72a8d8e4ea40be42b47717af861,
+      objectReference: {fileID: 3390001550196539559, guid: 0a67bd95e5b578d47b72a50efb270b5c,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f9e04b2c7595a409897a48f1698489, type: 3}
@@ -4851,6 +4851,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door Vertical (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346761722600861389, guid: f2abd1e63de85304096fb1a560e15f6e,
+        type: 3}
+      propertyPath: locked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3346761722600861391, guid: f2abd1e63de85304096fb1a560e15f6e,
         type: 3}
